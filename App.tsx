@@ -36,7 +36,11 @@ const LoadingFallback = () => (
 
 const App: React.FC = () => {
   const [view, setView] = useState<'home' | 'summary'>('home');
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => {
+    // Check session storage immediately to prevent flash
+    const hasRun = sessionStorage.getItem('hasIntroRun');
+    return !hasRun;
+  });
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
