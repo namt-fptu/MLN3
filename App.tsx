@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import IntroSequence from './components/IntroSequence';
 import MusicPlayer from './components/MusicPlayer';
 import GuidingQuestion from './components/GuidingQuestion';
+import Sidebar from './components/Sidebar';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Activity, ArrowUp } from 'lucide-react';
@@ -107,56 +108,82 @@ const App: React.FC = () => {
         <main className="bg-black min-h-screen text-red-500 font-sans selection:bg-red-900 selection:text-white relative">
 
           {/* 1. MỞ ĐẦU: ĐẶT VẤN ĐỀ (Eager Loaded) */}
-          <Hero />
+          <section id="hero">
+            <Hero />
+          </section>
 
           <Suspense fallback={<LoadingFallback />}>
             {/* 2. NGUỒN GỐC: TẠI SAO CÓ LÝ LUẬN NÀY? */}
-            <GuidingQuestion index={1} question="Những tư tưởng này bắt nguồn từ đâu?" />
-            <ScientificOrigins />
+            <section id="origins">
+              <GuidingQuestion index={1} question="Những tư tưởng này bắt nguồn từ đâu?" />
+              <ScientificOrigins />
+            </section>
 
             {/* 3. CẤU TRÚC: XÃ HỘI VẬN HÀNH THẾ NÀO? */}
-            <GuidingQuestion index={2} question="Xã hội được cấu tạo bởi những yếu tố nào?" />
-            <ConceptDecoder />
+            <section id="concept">
+              <GuidingQuestion index={2} question="Xã hội được cấu tạo bởi những yếu tố nào?" />
+              <ConceptDecoder />
+            </section>
 
             {/* 3.1. HỆ THỐNG: MỐI QUAN HỆ BIỆN CHỨNG */}
-            <GuidingQuestion index={3} question="Các yếu tố này tác động lẫn nhau ra sao?" />
-            <ConceptDependencyMap />
+            <section id="system">
+              <GuidingQuestion index={3} question="Các yếu tố này tác động lẫn nhau ra sao?" />
+              <ConceptDependencyMap />
+            </section>
 
             {/* 4. ĐỘNG LỰC: CÁI GÌ ĐẨY XÃ HỘI ĐI LÊN? */}
-            <GuidingQuestion index={4} question="Đâu là động lực thúc đẩy sự thay đổi?" />
-            <ContradictionMeter />
+            <section id="contradiction">
+              <GuidingQuestion index={4} question="Đâu là động lực thúc đẩy sự thay đổi?" />
+              <ContradictionMeter />
+            </section>
 
             {/* 5. QUY LUẬT: SỰ THAY ĐỔI DIỄN RA RA SAO? */}
-            <GuidingQuestion index={5} question="Sự phát triển diễn ra theo con đường nào?" />
-            <DialecticalFlow />
+            <section id="dialectics">
+              <GuidingQuestion index={5} question="Sự phát triển diễn ra theo con đường nào?" />
+              <DialecticalFlow />
+            </section>
 
             {/* 6. LỊCH SỬ: CHỨNG MINH QUA THỜI GIAN */}
-            <GuidingQuestion index={6} question="Lịch sử nhân loại đã chứng minh điều đó chưa?" />
-            <Timeline />
+            <section id="timeline">
+              <GuidingQuestion index={6} question="Lịch sử nhân loại đã chứng minh điều đó chưa?" />
+              <Timeline />
+            </section>
 
             {/* 7. CƠ CHẾ: THỬ NGHIỆM */}
-            <GuidingQuestion index={7} question="Cơ chế vận hành cụ thể là gì?" />
-            <SocialSimulator />
+            <section id="simulator">
+              <GuidingQuestion index={7} question="Cơ chế vận hành cụ thể là gì?" />
+              <SocialSimulator />
+            </section>
 
             {/* 7.1. BÀI HỌC LỊCH SỬ: THÀNH CÔNG VÀ THẤT BẠI */}
-            <GuidingQuestion index={8} question="Tại sao có nơi sụp đổ, có nơi đổi mới thành công?" />
-            <AnalysisComparison />
+            <section id="analysis">
+              <GuidingQuestion index={8} question="Tại sao có nơi sụp đổ, có nơi đổi mới thành công?" />
+              <AnalysisComparison />
+            </section>
 
             {/* 8. HIỆN ĐẠI: CÒN ĐÚNG KHÔNG? */}
-            <GuidingQuestion index={9} question="Lý luận này có còn đúng trong kỷ nguyên số?" />
-            <TextRealityMapper />
+            <section id="modern">
+              <GuidingQuestion index={9} question="Lý luận này có còn đúng trong kỷ nguyên số?" />
+              <TextRealityMapper />
+            </section>
 
             {/* 9. PHÂN TÍCH SÂU: MÂU THUẪN MỚI */}
-            <GuidingQuestion index={10} question="Mâu thuẫn ngày nay nằm ở đâu?" />
-            <ContradictionAnalyzer />
+            <section id="analysis-deep">
+              <GuidingQuestion index={10} question="Mâu thuẫn ngày nay nằm ở đâu?" />
+              <ContradictionAnalyzer />
+            </section>
 
             {/* 10. GIẢI ẢO: HIỂU ĐÚNG */}
-            <GuidingQuestion index={11} question="Chúng ta có đang hiểu sai về nó?" />
-            <MythBreaker />
+            <section id="myths">
+              <GuidingQuestion index={11} question="Chúng ta có đang hiểu sai về nó?" />
+              <MythBreaker />
+            </section>
 
             {/* 11. KẾT: ĐÍCH ĐẾN */}
-            <GuidingQuestion index={12} question="Mục tiêu cuối cùng là gì?" />
-            <CollectiveFuture onNavigate={() => setView('summary')} />
+            <section id="future">
+              <GuidingQuestion index={12} question="Mục tiêu cuối cùng là gì?" />
+              <CollectiveFuture onNavigate={() => setView('summary')} />
+            </section>
           </Suspense>
 
           {/* Back To Top Button */}
@@ -178,6 +205,9 @@ const App: React.FC = () => {
 
       {/* Music Player */}
       <MusicPlayer autoPlayTrigger={!showIntro} />
+
+      {/* Sidebar Navigation */}
+      <Sidebar />
     </>
   );
 };
