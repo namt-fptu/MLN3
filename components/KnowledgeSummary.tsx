@@ -38,12 +38,12 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
   return (
     <div ref={containerRef} className="min-h-screen bg-black text-red-500 p-6 md:p-12 relative overflow-x-hidden">
       {/* Background Texture */}
-      <div className="fixed inset-0 pointer-events-none opacity-20" 
-        style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #500000 0%, transparent 70%)' }} 
+      <div className="fixed inset-0 pointer-events-none opacity-20"
+        style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #500000 0%, transparent 70%)' }}
       />
 
       {/* Navigation - Fixed Position */}
-      <button 
+      <button
         onClick={onBack}
         className="summary-header fixed top-6 left-6 md:top-8 md:left-8 z-50 flex items-center gap-2 px-6 py-3 bg-black/80 backdrop-blur-md border border-red-600 text-red-500 hover:bg-red-600 hover:text-black transition-all duration-300 uppercase tracking-widest text-sm group shadow-[0_0_20px_rgba(220,38,38,0.2)] rounded-sm"
       >
@@ -62,7 +62,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
         </header>
 
         <div className="space-y-24 mb-24">
-          
+
           {/* Section 1: German Philosophy */}
           <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
@@ -81,13 +81,18 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
               <ul className="space-y-6 text-red-100/80 leading-relaxed">
                 <li className="relative pl-6">
                   <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
-                  <strong className="text-red-400 block mb-1">Phép biện chứng của Hegel:</strong>
-                  Mác kế thừa "hạt nhân hợp lý" là tư tưởng về sự vận động và phát triển thông qua các mâu thuẫn. Mác loại bỏ "vỏ thần bí" (duy tâm) để xây dựng nên <em className="text-white">Phép biện chứng duy vật</em>.
+                  <strong className="text-red-400 block mb-1">Cải tạo Phép biện chứng (Hegel):</strong>
+                  Mác loại bỏ "vỏ thần bí" (duy tâm khách quan) của Hegel, giữ lại "hạt nhân hợp lý" (tư tưởng biện chứng) để xây dựng <strong>Phép biện chứng duy vật</strong>. Ông coi biện chứng là quy luật vận động của bản thân vật chất, chứ không phải của "Ý niệm tuyệt đối".
                 </li>
                 <li className="relative pl-6">
                   <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
-                  <strong className="text-red-400 block mb-1">Chủ nghĩa duy vật của Feuerbach:</strong>
-                  Mác kế thừa chủ nghĩa duy vật vô thần, nhưng khắc phục tính chất siêu hình và thụ động, từ đó xây dựng quan điểm duy vật triệt để về cả tự nhiên và xã hội.
+                  <strong className="text-red-400 block mb-1">Cải tạo Chủ nghĩa duy vật (Feuerbach):</strong>
+                  Khắc phục tính chất siêu hình và trực quan của Feuerbach. Mác xây dựng quan điểm duy vật triệt để: không chỉ giải thích thế giới (như các triết gia trước kia) mà vấn đề là <em>cải tạo thế giới</em> (Luận cương về Feuerbach).
+                </li>
+                <li className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
+                  <strong className="text-red-400 block mb-1">Sáng tạo CNDV Lịch sử:</strong>
+                  Phát hiện vĩ đại nhất: Quy luật về sự phù hợp giữa QHSX và LLSX; Giác ngộ về vai trò quyết định của Tồn tại xã hội đối với Ý thức xã hội.
                 </li>
               </ul>
             </div>
@@ -111,13 +116,18 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
               <ul className="space-y-6 text-red-100/80 leading-relaxed">
                 <li className="relative pl-6">
                   <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
-                  <strong className="text-red-400 block mb-1">Học thuyết giá trị lao động:</strong>
-                  Các nhà kinh tế cổ điển đã chứng minh lao động là nguồn gốc của giá trị. Tuy nhiên, họ chưa thấy được tính hai mặt của lao động sản xuất hàng hóa.
+                  <strong className="text-red-400 block mb-1">Học thuyết giá trị lao động (Smith & Ricardo):</strong>
+                  Kế thừa quan điểm: Lao động là thước đo giá trị hàng hóa. Tuy nhiên, Mác đã phát hiện ra <em className="text-white">Tính hai mặt của lao động sản xuất hàng hóa</em> (Lao động cụ thể & Lao động trừu tượng) - chìa khóa giải quyết các bế tắc mà Smith/Ricardo gặp phải.
                 </li>
                 <li className="relative pl-6">
                   <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
-                  <strong className="text-red-400 block mb-1">Học thuyết Giá trị thặng dư (Mác):</strong>
-                  Trên cơ sở kế thừa, Mác đã tìm ra quy luật kinh tế tuyệt đối của CNTB. Ông chỉ rõ: Tư bản không chỉ là tiền, mà là quan hệ xã hội. Sự bóc lột không phải do gian lận thương mại, mà nằm ngay trong quá trình sản xuất.
+                  <strong className="text-red-400 block mb-1">Học thuyết Giá trị thặng dư (M):</strong>
+                  "Hòn đá tảng" của học thuyết kinh tế Mác. Chứng minh: Lợi nhuận của nhà tư bản không sinh ra từ lưu thông, mà từ việc chiếm đoạt lao động không được trả công của công nhân. Vạch trần bản chất bóc lột tinh vi của CNTB.
+                </li>
+                <li className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
+                  <strong className="text-red-400 block mb-1">Quy luật kinh tế:</strong>
+                  Phân tích các quy luật: Giá trị, Cung - Cầu, Cạnh tranh, và Xu hướng tỷ suất lợi nhuận giảm xuống, dự báo sự diệt vong tất yếu của phương thức sản xuất TBCN.
                 </li>
               </ul>
             </div>
@@ -140,21 +150,32 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
               <h3 className="text-xl font-bold text-white mb-4 border-b border-red-800 pb-2">Giá trị & Hạn chế lịch sử</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                   <h4 className="text-red-500 font-bold uppercase text-xs tracking-widest mb-2">Giá trị lịch sử</h4>
-                   <p className="text-red-100/80 text-sm">
-                     Phê phán sâu sắc xã hội tư bản đầy bất công; dự báo thiên tài về xã hội tương lai (xóa bỏ sự đối lập giữa lao động trí óc và chân tay, giải phóng phụ nữ...).
-                   </p>
+                  <h4 className="text-red-500 font-bold uppercase text-xs tracking-widest mb-2">Giá trị lịch sử</h4>
+                  <p className="text-red-100/80 text-sm">
+                    Phê phán sâu sắc xã hội tư bản đầy bất công; dự báo thiên tài về xã hội tương lai (xóa bỏ sự đối lập giữa lao động trí óc và chân tay, giải phóng phụ nữ...).
+                  </p>
                 </div>
                 <div>
-                   <h4 className="text-red-500 font-bold uppercase text-xs tracking-widest mb-2">Hạn chế căn bản</h4>
-                   <p className="text-red-100/80 text-sm">
-                     Không phát hiện ra lực lượng xã hội tiên phong (Giai cấp công nhân); chủ trương con đường ôn hòa, thuyết phục thay vì đấu tranh cách mạng.
-                   </p>
+                  <h4 className="text-red-500 font-bold uppercase text-xs tracking-widest mb-2">Hạn chế căn bản</h4>
+                  <p className="text-red-100/80 text-sm">
+                    Không phát hiện ra lực lượng xã hội tiên phong (Giai cấp công nhân); chủ trương con đường ôn hòa, thuyết phục (kể cả thuyết phục giai cấp thống trị) thay vì đấu tranh cách mạng (Đường lối cải lương).
+                  </p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-red-900/30">
-                 <strong className="text-white block mb-1">Đóng góp của Mác - Ăngghen:</strong>
-                 Biến CNXH từ <em>Không tưởng</em> trở thành <em>Khoa học</em> bằng việc phát hiện ra Sứ mệnh lịch sử của giai cấp công nhân.
+              <div className="mt-6 space-y-4 border-t border-red-900/30 pt-4">
+                <div className="text-sm text-red-100/80">
+                  <strong className="text-red-400">Saint-Simon:</strong> Nhận ra lịch sử là quá trình quy luật; giai cấp là vấn đề kinh tế.
+                </div>
+                <div className="text-sm text-red-100/80">
+                  <strong className="text-red-400">Charles Fourier:</strong> Phê phán gay gắt sự "vô chính phủ" của công nghiệp; dự báo về quyền phụ nữ.
+                </div>
+                <div className="text-sm text-red-100/80">
+                  <strong className="text-red-400">Robert Owen:</strong> Thực nghiệm xã hội "công xưởng kiểu mẫu"; xóa bỏ tư hữu (dù còn hạn chế).
+                </div>
+                <div className="mt-6 pt-4 border-t border-red-900/30">
+                  <strong className="text-white block mb-1">Đóng góp của Mác - Ăngghen:</strong>
+                  Biến CNXH từ <em>Không tưởng</em> trở thành <em>Khoa học</em> bằng việc phát hiện ra Sứ mệnh lịch sử của giai cấp công nhân.
+                </div>
               </div>
             </div>
           </section>
@@ -163,17 +184,17 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
 
         {/* Philosopher Wiki Section */}
         <div className="summary-card mb-24">
-            <PhilosopherWiki />
+          <PhilosopherWiki />
         </div>
-        
+
         {/* NEW QUIZ SYSTEM INTEGRATION */}
         <div className="summary-card mt-24">
-            <QuizEngine />
+          <QuizEngine />
         </div>
 
         <div className="mt-24 text-center">
-            <BookOpen size={48} className="mx-auto text-red-600 mb-6 animate-pulse" />
-            <p className="text-red-400 italic">"Chủ nghĩa Mác không phải là một giáo điều, mà là kim chỉ nam cho hành động."</p>
+          <BookOpen size={48} className="mx-auto text-red-600 mb-6 animate-pulse" />
+          <p className="text-red-400 italic">"Chủ nghĩa Mác không phải là một giáo điều, mà là kim chỉ nam cho hành động."</p>
         </div>
       </div>
     </div>

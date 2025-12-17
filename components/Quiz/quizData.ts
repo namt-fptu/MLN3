@@ -30,10 +30,10 @@ export const quizCategories: Category[] = [
       {
         id: 103,
         type: 'trueFalse',
-        question: "Chủ nghĩa xã hội khoa học là một trong ba bộ phận cấu thành của Chủ nghĩa Mác - Lênin?",
+        question: "Chủ nghĩa Mác - Lênin là hệ thống lý luận đóng, tuyệt đích, không cần bổ sung phát triển?",
         options: ["Đúng", "Sai"],
-        correctAnswer: 0,
-        explanation: "Đúng. Ba bộ phận là: Triết học Mác - Lênin, Kinh tế chính trị Mác - Lênin, và CNXH Khoa học."
+        correctAnswer: 1,
+        explanation: "Sai. Đây là hệ thống lý luận mở, mang bản chất khoa học và cách mạng, cần không ngừng được bổ sung và phát triển dựa trên thực tiễn."
       },
       {
         id: 104,
@@ -59,7 +59,7 @@ export const quizCategories: Category[] = [
           "Là kết quả của tư duy trừu tượng"
         ],
         correctAnswer: 0,
-        explanation: "Thực tiễn là điểm xuất phát và là mục đích cuối cùng của nhận thức."
+        explanation: "Thực tiễn là điểm xuất phát và là mục đích cuối cùng của nhận thức. Ví dụ: Từ việc quan sát táo rơi (thực tiễn), Newton tìm ra định luật hấp dẫn (lý thuyết)."
       },
       {
         id: 106,
@@ -157,7 +157,7 @@ export const quizCategories: Category[] = [
           "Cơ sở hạ tầng - Kiến trúc thượng tầng"
         ],
         correctAnswer: 0,
-        explanation: "Sự tích lũy dần về lượng (gió) đến một độ nhất định sẽ dẫn đến sự thay đổi về chất (bão)."
+        explanation: "Sự tích lũy dần về lượng đến một độ nhất định sẽ dẫn đến sự thay đổi về chất. Ví dụ: Nước đun đến 100 độ C (lượng đổi) sẽ hóa hơi (chất đổi)."
       },
       {
         id: 205,
@@ -326,7 +326,7 @@ export const quizCategories: Category[] = [
           "Mâu thuẫn giữa sản xuất và tiêu dùng"
         ],
         correctAnswer: 0,
-        explanation: "Đây là mâu thuẫn gốc rễ dẫn đến các cuộc khủng hoảng kinh tế và đòi hỏi sự thay thế bằng CNXH."
+        explanation: "Mâu thuẫn giữa LLSX mang tính xã hội hóa cao (sản xuất tập trung) với QHSX dựa trên chế độ chiếm hữu tư nhân (lợi nhuận rơi vào túi số ít nhà tư bản)."
       },
       {
         id: 309,
@@ -475,6 +475,32 @@ export const quizCategories: Category[] = [
         ],
         correctAnswer: 0,
         explanation: "Tác phẩm này công bố sự ra đời của CNXH khoa học, trang bị vũ khí lý luận cho giai cấp công nhân."
+      },
+      {
+        id: 409,
+        type: 'multiple',
+        question: "Ba phát minh vĩ đại của khoa học tự nhiên thế kỷ XIX là tiền đề cho sự ra đời của Chủ nghĩa Mác?",
+        options: [
+          "Thuyết tế bào, Định luật bảo toàn & chuyển hóa năng lượng, Thuyết tiến hóa",
+          "Thuyết tương đối, Cơ học lượng tử, Di truyền học",
+          "Định luật vạn vật hấp dẫn, Máy hơi nước, Điện từ trường",
+          "Hình học phi Euclid, Bảng tuần hoàn hóa học, Vi sinh vật học"
+        ],
+        correctAnswer: 0,
+        explanation: "Những phát minh này đã chứng minh tính thống nhất vật chất của thế giới và sự phát triển biện chứng của tự nhiên."
+      },
+      {
+        id: 410,
+        type: 'multiple',
+        question: "Tiền đề chính trị - xã hội quan trọng nhất cho sự ra đời của Chủ nghĩa Mác là gì?",
+        options: [
+          "Sự lớn mạnh của giai cấp công nhân và phong trào công nhân",
+          "Sự thất bại của các cuộc cách mạng tư sản",
+          "Sự suy tàn của chế độ phong kiến",
+          "Sự ra đời của Đảng Cộng sản"
+        ],
+        correctAnswer: 0,
+        explanation: "Giai cấp công nhân đã trở thành một lực lượng chính trị độc lập, đòi hỏi phải có lý luận tiên phong dẫn đường."
       }
     ]
   },
