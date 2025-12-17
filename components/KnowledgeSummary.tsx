@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe } from 'lucide-react';
 import QuizEngine from './Quiz/QuizEngine';
 import PhilosopherWiki from './PhilosopherWiki';
+import Dictionary from './Dictionary';
 
 interface KnowledgeSummaryProps {
   onBack: () => void;
@@ -187,6 +188,11 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
           <PhilosopherWiki />
         </div>
 
+        {/* Dictionary Section */}
+        <div className="max-w-7xl mx-auto px-6 pb-20 animate-fadeIn stagger-3">
+          <Dictionary />
+        </div>
+
         {/* NEW QUIZ SYSTEM INTEGRATION */}
         <div className="summary-card mt-24">
           <QuizEngine />
@@ -196,6 +202,8 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
           <BookOpen size={48} className="mx-auto text-red-600 mb-6 animate-pulse" />
           <p className="text-red-400 italic">"Chủ nghĩa Mác không phải là một giáo điều, mà là kim chỉ nam cho hành động."</p>
         </div>
+
+
       </div>
     </div>
   );
