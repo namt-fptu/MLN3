@@ -97,88 +97,88 @@ const App: React.FC = () => {
     return <IntroSequence onComplete={handleIntroComplete} />;
   }
 
-  if (view === 'summary') {
-    return (
-      <Suspense fallback={<LoadingFallback />}>
-        <KnowledgeSummary onBack={() => setView('home')} />
-      </Suspense>
-    );
-  }
-
   return (
-    <main className="bg-black min-h-screen text-red-500 font-sans selection:bg-red-900 selection:text-white relative">
+    <>
+      {view === 'summary' ? (
+        <Suspense fallback={<LoadingFallback />}>
+          <KnowledgeSummary onBack={() => setView('home')} />
+        </Suspense>
+      ) : (
+        <main className="bg-black min-h-screen text-red-500 font-sans selection:bg-red-900 selection:text-white relative">
 
-      {/* 1. MỞ ĐẦU: ĐẶT VẤN ĐỀ (Eager Loaded) */}
-      <Hero />
+          {/* 1. MỞ ĐẦU: ĐẶT VẤN ĐỀ (Eager Loaded) */}
+          <Hero />
 
-      <Suspense fallback={<LoadingFallback />}>
-        {/* 2. NGUỒN GỐC: TẠI SAO CÓ LÝ LUẬN NÀY? */}
-        <GuidingQuestion index={1} question="Những tư tưởng này bắt nguồn từ đâu?" />
-        <ScientificOrigins />
+          <Suspense fallback={<LoadingFallback />}>
+            {/* 2. NGUỒN GỐC: TẠI SAO CÓ LÝ LUẬN NÀY? */}
+            <GuidingQuestion index={1} question="Những tư tưởng này bắt nguồn từ đâu?" />
+            <ScientificOrigins />
 
-        {/* 3. CẤU TRÚC: XÃ HỘI VẬN HÀNH THẾ NÀO? */}
-        <GuidingQuestion index={2} question="Xã hội được cấu tạo bởi những yếu tố nào?" />
-        <ConceptDecoder />
+            {/* 3. CẤU TRÚC: XÃ HỘI VẬN HÀNH THẾ NÀO? */}
+            <GuidingQuestion index={2} question="Xã hội được cấu tạo bởi những yếu tố nào?" />
+            <ConceptDecoder />
 
-        {/* 3.1. HỆ THỐNG: MỐI QUAN HỆ BIỆN CHỨNG */}
-        <GuidingQuestion index={3} question="Các yếu tố này tác động lẫn nhau ra sao?" />
-        <ConceptDependencyMap />
+            {/* 3.1. HỆ THỐNG: MỐI QUAN HỆ BIỆN CHỨNG */}
+            <GuidingQuestion index={3} question="Các yếu tố này tác động lẫn nhau ra sao?" />
+            <ConceptDependencyMap />
 
-        {/* 4. ĐỘNG LỰC: CÁI GÌ ĐẨY XÃ HỘI ĐI LÊN? */}
-        <GuidingQuestion index={4} question="Đâu là động lực thúc đẩy sự thay đổi?" />
-        <ContradictionMeter />
+            {/* 4. ĐỘNG LỰC: CÁI GÌ ĐẨY XÃ HỘI ĐI LÊN? */}
+            <GuidingQuestion index={4} question="Đâu là động lực thúc đẩy sự thay đổi?" />
+            <ContradictionMeter />
 
-        {/* 5. QUY LUẬT: SỰ THAY ĐỔI DIỄN RA RA SAO? */}
-        <GuidingQuestion index={5} question="Sự phát triển diễn ra theo con đường nào?" />
-        <DialecticalFlow />
+            {/* 5. QUY LUẬT: SỰ THAY ĐỔI DIỄN RA RA SAO? */}
+            <GuidingQuestion index={5} question="Sự phát triển diễn ra theo con đường nào?" />
+            <DialecticalFlow />
 
-        {/* 6. LỊCH SỬ: CHỨNG MINH QUA THỜI GIAN */}
-        <GuidingQuestion index={6} question="Lịch sử nhân loại đã chứng minh điều đó chưa?" />
-        <Timeline />
+            {/* 6. LỊCH SỬ: CHỨNG MINH QUA THỜI GIAN */}
+            <GuidingQuestion index={6} question="Lịch sử nhân loại đã chứng minh điều đó chưa?" />
+            <Timeline />
 
-        {/* 7. CƠ CHẾ: THỬ NGHIỆM */}
-        <GuidingQuestion index={7} question="Cơ chế vận hành cụ thể là gì?" />
-        <SocialSimulator />
+            {/* 7. CƠ CHẾ: THỬ NGHIỆM */}
+            <GuidingQuestion index={7} question="Cơ chế vận hành cụ thể là gì?" />
+            <SocialSimulator />
 
-        {/* 7.1. BÀI HỌC LỊCH SỬ: THÀNH CÔNG VÀ THẤT BẠI */}
-        <GuidingQuestion index={8} question="Tại sao có nơi sụp đổ, có nơi đổi mới thành công?" />
-        <AnalysisComparison />
+            {/* 7.1. BÀI HỌC LỊCH SỬ: THÀNH CÔNG VÀ THẤT BẠI */}
+            <GuidingQuestion index={8} question="Tại sao có nơi sụp đổ, có nơi đổi mới thành công?" />
+            <AnalysisComparison />
 
-        {/* 8. HIỆN ĐẠI: CÒN ĐÚNG KHÔNG? */}
-        <GuidingQuestion index={9} question="Lý luận này có còn đúng trong kỷ nguyên số?" />
-        <TextRealityMapper />
+            {/* 8. HIỆN ĐẠI: CÒN ĐÚNG KHÔNG? */}
+            <GuidingQuestion index={9} question="Lý luận này có còn đúng trong kỷ nguyên số?" />
+            <TextRealityMapper />
 
-        {/* 9. PHÂN TÍCH SÂU: MÂU THUẪN MỚI */}
-        <GuidingQuestion index={10} question="Mâu thuẫn ngày nay nằm ở đâu?" />
-        <ContradictionAnalyzer />
+            {/* 9. PHÂN TÍCH SÂU: MÂU THUẪN MỚI */}
+            <GuidingQuestion index={10} question="Mâu thuẫn ngày nay nằm ở đâu?" />
+            <ContradictionAnalyzer />
 
-        {/* 10. GIẢI ẢO: HIỂU ĐÚNG */}
-        <GuidingQuestion index={11} question="Chúng ta có đang hiểu sai về nó?" />
-        <MythBreaker />
+            {/* 10. GIẢI ẢO: HIỂU ĐÚNG */}
+            <GuidingQuestion index={11} question="Chúng ta có đang hiểu sai về nó?" />
+            <MythBreaker />
 
-        {/* 11. KẾT: ĐÍCH ĐẾN */}
-        <GuidingQuestion index={12} question="Mục tiêu cuối cùng là gì?" />
-        <CollectiveFuture onNavigate={() => setView('summary')} />
-      </Suspense>
+            {/* 11. KẾT: ĐÍCH ĐẾN */}
+            <GuidingQuestion index={12} question="Mục tiêu cuối cùng là gì?" />
+            <CollectiveFuture onNavigate={() => setView('summary')} />
+          </Suspense>
 
-      {/* Back To Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-[60] w-12 h-12 md:w-14 md:h-14 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)] border border-red-500 hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] group transition-all duration-500 ease-out ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}
-        aria-label="Back to top"
-      >
-        <ArrowUp className="text-white group-hover:text-red-600 transition-colors duration-300" size={24} />
-      </button>
+          {/* Back To Top Button */}
+          <button
+            onClick={scrollToTop}
+            className={`fixed bottom-8 right-8 z-[60] w-12 h-12 md:w-14 md:h-14 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)] border border-red-500 hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] group transition-all duration-500 ease-out ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}
+            aria-label="Back to top"
+          >
+            <ArrowUp className="text-white group-hover:text-red-600 transition-colors duration-300" size={24} />
+          </button>
+
+          {/* Floating Sticky Indicator */}
+          <div className="fixed bottom-24 right-4 md:right-10 z-50 text-right opacity-80 mix-blend-difference pointer-events-none hidden md:block">
+            <div className="text-xs text-red-500 uppercase tracking-widest mb-1">Trạng thái</div>
+            <div className="text-sm font-bold text-white animate-pulse">ĐANG VẬN ĐỘNG</div>
+          </div>
+        </main>
+      )}
 
       {/* Music Player */}
       <MusicPlayer autoPlayTrigger={!showIntro} />
-
-      {/* Floating Sticky Indicator */}
-      <div className="fixed bottom-24 right-4 md:right-10 z-50 text-right opacity-80 mix-blend-difference pointer-events-none hidden md:block">
-        <div className="text-xs text-red-500 uppercase tracking-widest mb-1">Trạng thái</div>
-        <div className="text-sm font-bold text-white animate-pulse">ĐANG VẬN ĐỘNG</div>
-      </div>
-    </main>
+    </>
   );
 };
 
