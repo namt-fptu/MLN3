@@ -225,7 +225,7 @@ const DialecticalFlow: React.FC = () => {
                     </p>
                     
                     {/* Navigation Buttons - Moved here */}
-                    <div className="flex justify-center gap-3 flex-wrap">
+                    <div className="flex justify-center gap-3 flex-wrap mb-8">
                         {stages.map((stage) => (
                             <button
                                 key={stage.id}
@@ -245,113 +245,6 @@ const DialecticalFlow: React.FC = () => {
                             </button>
                         ))}
                     </div>
-                </div>
-
-                {/* Main 3-Step Flow */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 mb-10 relative">
-
-                    {stages.map((stage, index) => (
-                        <div key={stage.id} className="relative">
-                            {/* Mobile Arrow */}
-                            {index < stages.length - 1 && (
-                                <div className="lg:hidden flex justify-center py-4">
-                                    <ArrowDown className="text-red-600 animate-bounce" size={24} />
-                                </div>
-                            )}
-                            
-                            <div 
-                                onClick={() => handleStageClick(stage.id)}
-                                className={`stage-card cursor-pointer transition-all duration-500 group ${
-                                    activeStage === stage.id 
-                                        ? 'scale-105 z-10' 
-                                        : 'hover:scale-102 opacity-70 hover:opacity-100'
-                                }`}
-                            >
-                                <div className={`
-                                    relative p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 overflow-hidden
-                                    ${activeStage === stage.id 
-                                        ? `${stage.borderColor} ${stage.bgColor} shadow-[0_0_40px_rgba(255,255,255,0.1)]` 
-                                        : 'border-red-900/30 bg-black/50 hover:border-red-700 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]'
-                                    }
-                                `}>
-                                    {/* Click Hint Overlay (for inactive cards) */}
-                                    {activeStage !== stage.id && (
-                                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl z-20">
-                                            <div className="bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg animate-pulse">
-                                                <span>👆</span> Click để xem
-                                            </div>
-                                        </div>
-                                    )}
-                                    {/* Step Number */}
-                                    <div className={`
-                                        absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center font-black text-lg transition-all
-                                        ${activeStage === stage.id 
-                                            ? `${stage.iconBg} text-white` 
-                                            : 'bg-red-950 text-red-600'
-                                        }
-                                    `}>
-                                        {stage.id}
-                                    </div>
-
-                                    {/* Icon */}
-                                    <div className={`
-                                        w-16 h-16 rounded-xl flex items-center justify-center mb-4 transition-all duration-300
-                                        ${activeStage === stage.id 
-                                            ? `${stage.iconBg} text-white shadow-lg` 
-                                            : 'bg-red-950/50 text-red-600'
-                                        }
-                                    `}>
-                                        {stage.icon}
-                                    </div>
-
-                                    {/* Title */}
-                                    <h3 className={`text-xl md:text-2xl font-black uppercase tracking-tight mb-1 transition-colors
-                                        ${activeStage === stage.id ? 'text-white' : 'text-red-600'}
-                                    `}>
-                                        {stage.title}
-                                    </h3>
-                                    <p className={`text-sm font-mono mb-4 ${stage.textColor}`}>
-                                        {stage.titleEn}
-                                    </p>
-
-                                    {/* Key Point Badge */}
-                                    <div className={`
-                                        inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4
-                                        ${activeStage === stage.id 
-                                            ? 'bg-white/20 text-white' 
-                                            : 'bg-red-950/50 text-red-500'
-                                        }
-                                    `}>
-                                        <Check size={12} />
-                                        {stage.keyPoint}
-                                    </div>
-
-                                    {/* Analogy */}
-                                    <div className={`
-                                        flex items-center gap-3 p-3 rounded-lg transition-colors
-                                        ${activeStage === stage.id ? 'bg-black/30' : 'bg-red-950/20'}
-                                    `}>
-                                        <div className={`shrink-0 ${stage.textColor}`}>
-                                            {stage.analogyIcon}
-                                        </div>
-                                        <p className="text-sm text-gray-300 italic">
-                                            {stage.analogy}
-                                        </p>
-                                    </div>
-
-                                    {/* Active Indicator */}
-                                    {activeStage === stage.id && (
-                                        <>
-                                            <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${stage.color}`}></div>
-                                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                                                ✓ Đang xem
-                                            </div>
-                                        </>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
                 </div>
 
                 {/* Detail Panel */}
