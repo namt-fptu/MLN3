@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe } from 'lucide-react';
+import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe, Calendar, AlertTriangle, Flag, Star, Milestone, Shield, Users, Target, Sparkles } from 'lucide-react';
 import QuizEngine from './Quiz/QuizEngine';
 import PhilosopherWiki from './PhilosopherWiki';
 import Dictionary from './Dictionary';
@@ -177,6 +177,255 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                   <strong className="text-white block mb-1">Đóng góp của Mác - Ăngghen:</strong>
                   Biến CNXH từ <em>Không tưởng</em> trở thành <em>Khoa học</em> bằng việc phát hiện ra Sứ mệnh lịch sử của giai cấp công nhân.
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 4: Historical Events */}
+          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-4 sticky top-32">
+              <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">04</div>
+              <div className="relative z-10 border-l-4 border-yellow-500 pl-6">
+                <div className="flex items-center gap-3 mb-2 text-yellow-400">
+                  <Calendar size={24} />
+                  <span className="text-sm font-bold uppercase tracking-widest">Lịch Sử</span>
+                </div>
+                <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Sự Kiện Quan Trọng</h2>
+                <div className="text-xs text-yellow-500 font-mono">Các mốc son của phong trào XHCN</div>
+              </div>
+            </div>
+            <div className="md:col-span-8 bg-yellow-950/10 border border-yellow-900/30 p-8 hover:border-yellow-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-6 border-b border-yellow-800 pb-2">Dòng thời gian lịch sử</h3>
+              <div className="space-y-6">
+                {/* Timeline Event */}
+                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
+                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-yellow-400 font-black text-lg">1848</span>
+                    <span className="text-white font-bold">Tuyên ngôn của Đảng Cộng sản</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Mác và Ăngghen công bố văn kiện lịch sử, đánh dấu sự ra đời của CNXH khoa học. Khẩu hiệu: "Vô sản toàn thế giới, liên hiệp lại!"</p>
+                </div>
+                
+                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
+                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-yellow-400 font-black text-lg">1871</span>
+                    <span className="text-white font-bold">Công xã Paris</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Nhà nước vô sản đầu tiên trong lịch sử (tồn tại 72 ngày). Bài học quý về đập tan bộ máy nhà nước tư sản và xây dựng chính quyền kiểu mới.</p>
+                </div>
+                
+                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
+                  <div className="absolute left-0 top-0 w-4 h-4 bg-red-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#ef4444]"></div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-red-400 font-black text-lg">1917</span>
+                    <span className="text-white font-bold">Cách mạng Tháng Mười Nga</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Lênin lãnh đạo giai cấp công nhân Nga giành chính quyền. Mở ra thời đại mới - thời đại quá độ từ CNTB lên CNXH trên phạm vi toàn thế giới.</p>
+                </div>
+                
+                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
+                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-yellow-400 font-black text-lg">1930</span>
+                    <span className="text-white font-bold">Đảng Cộng sản Việt Nam ra đời</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Nguyễn Ái Quốc sáng lập Đảng, mở ra bước ngoặt của cách mạng Việt Nam: kết hợp chủ nghĩa Mác-Lênin với phong trào công nhân và phong trào yêu nước.</p>
+                </div>
+                
+                <div className="relative pl-8 border-l-2 border-yellow-600/50">
+                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-yellow-400 font-black text-lg">1945</span>
+                    <span className="text-white font-bold">Cách mạng Tháng Tám</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Nhân dân Việt Nam dưới sự lãnh đạo của Đảng giành chính quyền, lập nên nước Việt Nam Dân chủ Cộng hòa - nhà nước công nông đầu tiên ở Đông Nam Á.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 5: Criticism of Wrong Views */}
+          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-4 sticky top-32">
+              <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">05</div>
+              <div className="relative z-10 border-l-4 border-orange-500 pl-6">
+                <div className="flex items-center gap-3 mb-2 text-orange-400">
+                  <Shield size={24} />
+                  <span className="text-sm font-bold uppercase tracking-widest">Phê Phán</span>
+                </div>
+                <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Quan Điểm Sai Trái</h2>
+                <div className="text-xs text-orange-500 font-mono">Bảo vệ nền tảng tư tưởng</div>
+              </div>
+            </div>
+            <div className="md:col-span-8 bg-orange-950/10 border border-orange-900/30 p-8 hover:border-orange-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-6 border-b border-orange-800 pb-2">Luận điểm phản bác</h3>
+              <div className="space-y-6">
+                
+                {/* Wrong View 1 */}
+                <div className="bg-black/40 rounded-lg p-5 border border-orange-900/30">
+                  <div className="flex items-start gap-3 mb-3">
+                    <AlertTriangle className="text-orange-500 shrink-0 mt-1" size={20} />
+                    <div>
+                      <h4 className="text-orange-400 font-bold mb-1">"Chủ nghĩa Mác đã lỗi thời"</h4>
+                      <p className="text-gray-500 text-xs italic">Quan điểm phủ nhận giá trị của CNMLN</p>
+                    </div>
+                  </div>
+                  <div className="pl-8">
+                    <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
+                    <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
+                      <li>Phương pháp luận biện chứng duy vật vẫn là công cụ nhận thức khoa học</li>
+                      <li>Các mâu thuẫn mà Mác phân tích (bất bình đẳng, khủng hoảng kinh tế...) vẫn tồn tại</li>
+                      <li>Học thuyết được bổ sung, phát triển (Lênin, Hồ Chí Minh) phù hợp thời đại mới</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Wrong View 2 */}
+                <div className="bg-black/40 rounded-lg p-5 border border-orange-900/30">
+                  <div className="flex items-start gap-3 mb-3">
+                    <AlertTriangle className="text-orange-500 shrink-0 mt-1" size={20} />
+                    <div>
+                      <h4 className="text-orange-400 font-bold mb-1">"CNXH sụp đổ ở Liên Xô chứng minh CNXH thất bại"</h4>
+                      <p className="text-gray-500 text-xs italic">Quan điểm phủ nhận con đường XHCN</p>
+                    </div>
+                  </div>
+                  <div className="pl-8">
+                    <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
+                    <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
+                      <li>Sụp đổ do sai lầm chủ quan (giáo điều, quan liêu), không phải bản chất CNXH</li>
+                      <li>Trung Quốc, Việt Nam, Cuba... vẫn kiên định và phát triển thành công</li>
+                      <li>Bài học: Đổi mới sáng tạo, tránh giáo điều và cải lương</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Wrong View 3 */}
+                <div className="bg-black/40 rounded-lg p-5 border border-orange-900/30">
+                  <div className="flex items-start gap-3 mb-3">
+                    <AlertTriangle className="text-orange-500 shrink-0 mt-1" size={20} />
+                    <div>
+                      <h4 className="text-orange-400 font-bold mb-1">"Đấu tranh giai cấp là kích động thù hận"</h4>
+                      <p className="text-gray-500 text-xs italic">Quan điểm xuyên tạc lý luận đấu tranh giai cấp</p>
+                    </div>
+                  </div>
+                  <div className="pl-8">
+                    <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
+                    <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
+                      <li>Đấu tranh giai cấp là quy luật khách quan của xã hội có giai cấp, không phải "kích động"</li>
+                      <li>Mục đích: xóa bỏ áp bức bóc lột, hướng tới xã hội không còn giai cấp</li>
+                      <li>Trong thời kỳ quá độ ở VN: đấu tranh chủ yếu thông qua phát triển kinh tế, hoàn thiện pháp luật</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Wrong View 4 */}
+                <div className="bg-black/40 rounded-lg p-5 border border-orange-900/30">
+                  <div className="flex items-start gap-3 mb-3">
+                    <AlertTriangle className="text-orange-500 shrink-0 mt-1" size={20} />
+                    <div>
+                      <h4 className="text-orange-400 font-bold mb-1">"Việt Nam nên đa nguyên đa đảng"</h4>
+                      <p className="text-gray-500 text-xs italic">Quan điểm đòi xóa bỏ vai trò lãnh đạo của Đảng</p>
+                    </div>
+                  </div>
+                  <div className="pl-8">
+                    <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
+                    <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
+                      <li>Sự lãnh đạo của Đảng là sự lựa chọn của lịch sử, được nhân dân tín nhiệm</li>
+                      <li>Đa đảng không đồng nghĩa với dân chủ (nhiều nước đa đảng vẫn độc tài)</li>
+                      <li>Dân chủ XHCN: "Dân biết, dân bàn, dân làm, dân kiểm tra, dân thụ hưởng"</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* Section 6: Vietnam's Path to Socialism */}
+          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-4 sticky top-32">
+              <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">06</div>
+              <div className="relative z-10 border-l-4 border-red-500 pl-6">
+                <div className="flex items-center gap-3 mb-2 text-red-400">
+                  <Flag size={24} />
+                  <span className="text-sm font-bold uppercase tracking-widest">Việt Nam</span>
+                </div>
+                <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Con Đường CNXH</h2>
+                <div className="text-xs text-red-500 font-mono">Đặc sắc Việt Nam trong thời đại mới</div>
+              </div>
+            </div>
+            <div className="md:col-span-8 bg-red-950/20 border border-red-700/50 p-8 hover:border-red-500 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-6 border-b border-red-600 pb-2 flex items-center gap-3">
+                <Star className="text-yellow-400" size={20} />
+                Mô hình CNXH Việt Nam
+              </h3>
+              
+              {/* Core Characteristics */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="bg-black/40 p-4 rounded-lg border border-red-900/30">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Target className="text-red-400" size={18} />
+                    <span className="text-white font-bold text-sm">Mục tiêu</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Dân giàu, nước mạnh, dân chủ, công bằng, văn minh</p>
+                </div>
+                <div className="bg-black/40 p-4 rounded-lg border border-red-900/30">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Users className="text-red-400" size={18} />
+                    <span className="text-white font-bold text-sm">Động lực</span>
+                  </div>
+                  <p className="text-red-100/70 text-sm">Đại đoàn kết toàn dân tộc, kết hợp sức mạnh dân tộc với sức mạnh thời đại</p>
+                </div>
+              </div>
+
+              {/* 8 Characteristics */}
+              <h4 className="text-red-400 font-bold uppercase text-xs tracking-widest mb-4">8 Đặc trưng của CNXH ở Việt Nam</h4>
+              <div className="space-y-3 mb-8">
+                {[
+                  "Dân giàu, nước mạnh, dân chủ, công bằng, văn minh",
+                  "Do nhân dân làm chủ",
+                  "Có nền kinh tế phát triển cao dựa trên LLSX hiện đại và QHSX tiến bộ phù hợp",
+                  "Có nền văn hóa tiên tiến, đậm đà bản sắc dân tộc",
+                  "Con người có cuộc sống ấm no, tự do, hạnh phúc, phát triển toàn diện",
+                  "Các dân tộc trong cộng đồng VN bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển",
+                  "Có Nhà nước pháp quyền XHCN của dân, do dân, vì dân do Đảng Cộng sản lãnh đạo",
+                  "Có quan hệ hữu nghị và hợp tác với các nước trên thế giới"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3 text-sm">
+                    <span className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs shrink-0">{idx + 1}</span>
+                    <span className="text-red-100/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Key Policies */}
+              <h4 className="text-red-400 font-bold uppercase text-xs tracking-widest mb-4">Đường lối Đổi mới (từ 1986)</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="text-center p-4 bg-gradient-to-b from-red-950/50 to-black/50 rounded-lg border border-red-900/30">
+                  <Milestone className="text-yellow-400 mx-auto mb-2" size={28} />
+                  <h5 className="text-white font-bold text-sm mb-1">Kinh tế thị trường</h5>
+                  <p className="text-red-100/60 text-xs">Định hướng XHCN, nhiều thành phần kinh tế</p>
+                </div>
+                <div className="text-center p-4 bg-gradient-to-b from-red-950/50 to-black/50 rounded-lg border border-red-900/30">
+                  <Globe className="text-yellow-400 mx-auto mb-2" size={28} />
+                  <h5 className="text-white font-bold text-sm mb-1">Hội nhập quốc tế</h5>
+                  <p className="text-red-100/60 text-xs">Đa phương hóa, đa dạng hóa quan hệ</p>
+                </div>
+                <div className="text-center p-4 bg-gradient-to-b from-red-950/50 to-black/50 rounded-lg border border-red-900/30">
+                  <Sparkles className="text-yellow-400 mx-auto mb-2" size={28} />
+                  <h5 className="text-white font-bold text-sm mb-1">Xây dựng Đảng</h5>
+                  <p className="text-red-100/60 text-xs">Trong sạch, vững mạnh, chống tham nhũng</p>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <div className="mt-6 p-5 bg-gradient-to-r from-yellow-950/30 to-red-950/30 rounded-lg border border-yellow-700/30">
+                <p className="text-yellow-200 italic text-center">
+                  "Đi lên chủ nghĩa xã hội là khát vọng của nhân dân ta, là sự lựa chọn đúng đắn của Đảng Cộng sản Việt Nam và Chủ tịch Hồ Chí Minh, phù hợp với xu thế phát triển của lịch sử."
+                </p>
+                <p className="text-yellow-500 text-xs text-center mt-2 font-mono">— Văn kiện Đại hội XIII</p>
               </div>
             </div>
           </section>

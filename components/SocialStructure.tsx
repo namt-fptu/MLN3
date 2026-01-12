@@ -222,12 +222,6 @@ const SocialStructure: React.FC = () => {
               <span>Mối Quan Hệ</span>
             </button>
           </div>
-          <p className="text-gray-500 text-xs mt-3">
-            {activeTab === 'concepts' 
-              ? '📖 Đang xem: Định nghĩa từng khái niệm' 
-              : '🔗 Đang xem: Bản đồ mối quan hệ giữa các tầng'
-            }
-          </p>
         </div>
 
         {/* Tab Content */}
