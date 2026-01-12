@@ -10,8 +10,7 @@ import { Activity, ArrowUp } from 'lucide-react';
 
 // Lazy load heavy components
 const ScientificOrigins = lazy(() => import('./components/ScientificOrigins'));
-const ConceptDecoder = lazy(() => import('./components/ConceptDecoder'));
-const ConceptDependencyMap = lazy(() => import('./components/ConceptDependencyMap'));
+const SocialStructure = lazy(() => import('./components/SocialStructure'));
 const ContradictionMeter = lazy(() => import('./components/ContradictionMeter'));
 const DialecticalFlow = lazy(() => import('./components/DialecticalFlow'));
 const Timeline = lazy(() => import('./components/Timeline'));
@@ -120,68 +119,62 @@ const App: React.FC = () => {
             </section>
 
             {/* 3. CẤU TRÚC: XÃ HỘI VẬN HÀNH THẾ NÀO? */}
-            <section id="concept">
-              <GuidingQuestion index={2} question="Xã hội được cấu tạo bởi những yếu tố nào?" />
-              <ConceptDecoder />
-            </section>
-
-            {/* 3.1. HỆ THỐNG: MỐI QUAN HỆ BIỆN CHỨNG */}
-            <section id="system">
-              <GuidingQuestion index={3} question="Các yếu tố này tác động lẫn nhau ra sao?" />
-              <ConceptDependencyMap />
+            <section id="structure">
+              <GuidingQuestion index={2} question="Xã hội được cấu tạo và vận hành ra sao?" />
+              <SocialStructure />
             </section>
 
             {/* 4. ĐỘNG LỰC: CÁI GÌ ĐẨY XÃ HỘI ĐI LÊN? */}
             <section id="contradiction">
-              <GuidingQuestion index={4} question="Đâu là động lực thúc đẩy sự thay đổi?" />
+              <GuidingQuestion index={3} question="Đâu là động lực thúc đẩy sự thay đổi?" />
               <ContradictionMeter />
             </section>
 
             {/* 5. QUY LUẬT: SỰ THAY ĐỔI DIỄN RA RA SAO? */}
             <section id="dialectics">
-              <GuidingQuestion index={5} question="Sự phát triển diễn ra theo con đường nào?" />
+              <GuidingQuestion index={4} question="Sự phát triển diễn ra theo con đường nào?" />
               <DialecticalFlow />
             </section>
 
             {/* 6. LỊCH SỬ: CHỨNG MINH QUA THỜI GIAN */}
             <section id="timeline">
-              <GuidingQuestion index={6} question="Lịch sử nhân loại đã chứng minh điều đó chưa?" />
+              <GuidingQuestion index={5} question="Lịch sử nhân loại đã chứng minh điều đó chưa?" />
               <Timeline />
             </section>
 
             {/* 7. CƠ CHẾ: THỬ NGHIỆM */}
             <section id="simulator">
-              <GuidingQuestion index={7} question="Cơ chế vận hành cụ thể là gì?" />
+              <GuidingQuestion index={6} question="Cơ chế vận hành cụ thể là gì?" />
               <SocialSimulator />
             </section>
 
             {/* 7.1. BÀI HỌC LỊCH SỬ: THÀNH CÔNG VÀ THẤT BẠI */}
             <section id="analysis">
-              <GuidingQuestion index={8} question="Tại sao có nơi sụp đổ, có nơi đổi mới thành công?" />
+              <GuidingQuestion index={7} question="Tại sao có nơi sụp đổ, có nơi đổi mới thành công?" />
               <AnalysisComparison />
             </section>
 
             {/* 8. HIỆN ĐẠI: CÒN ĐÚNG KHÔNG? */}
             <section id="modern">
-              <GuidingQuestion index={9} question="Lý luận này có còn đúng trong kỷ nguyên số?" />
+              <GuidingQuestion index={8} question="Lý luận này có còn đúng trong kỷ nguyên số?" />
               <TextRealityMapper />
             </section>
 
             {/* 9. PHÂN TÍCH SÂU: MÂU THUẪN MỚI */}
             <section id="analysis-deep">
-              <GuidingQuestion index={10} question="Mâu thuẫn ngày nay nằm ở đâu?" />
+              <GuidingQuestion index={9} question="Mâu thuẫn ngày nay nằm ở đâu?" />
               <ContradictionAnalyzer />
             </section>
 
             {/* 10. GIẢI ẢO: HIỂU ĐÚNG */}
             <section id="myths">
-              <GuidingQuestion index={11} question="Chúng ta có đang hiểu sai về nó?" />
+              <GuidingQuestion index={10} question="Chúng ta có đang hiểu sai về nó?" />
               <MythBreaker />
             </section>
 
             {/* 11. KẾT: ĐÍCH ĐẾN */}
             <section id="future">
-              <GuidingQuestion index={12} question="Mục tiêu cuối cùng là gì?" />
+              <GuidingQuestion index={11} question="Mục tiêu cuối cùng là gì?" />
               <CollectiveFuture onNavigate={() => setView('summary')} />
             </section>
           </Suspense>

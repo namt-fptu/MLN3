@@ -24,8 +24,7 @@ interface SidebarItem {
 const items: SidebarItem[] = [
     { id: 'hero', label: 'Mở Đầu', icon: <BookOpen size={18} /> },
     { id: 'origins', label: 'Nguồn Gốc', icon: <Share2 size={18} /> },
-    { id: 'concept', label: 'Cấu Trúc', icon: <Zap size={18} /> },
-    { id: 'system', label: 'Hệ Thống', icon: <GitMerge size={18} /> },
+    { id: 'structure', label: 'Cấu Trúc XH', icon: <GitMerge size={18} /> },
     { id: 'contradiction', label: 'Động Lực', icon: <Scale size={18} /> },
     { id: 'dialectics', label: 'Quy Luật', icon: <Activity size={18} /> },
     { id: 'timeline', label: 'Lịch Sử', icon: <History size={18} /> },
