@@ -338,116 +338,214 @@ const SocialStructure: React.FC = () => {
               <br/>(Click vào từng tầng để xem cơ chế tác động)
             </p>
 
-            <div className="relative flex flex-col gap-6 py-6">
-              {/* The Central Nervous System Line */}
-              <div className="central-line absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500/0 via-red-600 to-red-500/0 -translate-x-1/2 z-0 hidden md:block shadow-[0_0_15px_#f00]"></div>
-
-              {nodes.map((node) => {
-                const isActive = activeNode === node.id;
-                const isBase = node.id === 'llsx';
+            {/* ===== PYRAMID CHART ===== */}
+            <div className="relative max-w-4xl mx-auto">
+              
+              {/* Pyramid Container */}
+              <div className="relative flex flex-col items-center gap-0">
                 
-                return (
-                  <div 
-                    key={node.id}
-                    role="button"
-                    tabIndex={0}
-                    aria-expanded={isActive}
-                    onClick={() => handleNodeToggle(node.id)}
-                    onKeyDown={(e) => handleKeyDown(e, node.id, 'node')}
-                    className={`map-card relative z-10 transition-all duration-500 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 rounded-xl ${isActive ? 'scale-105' : 'hover:scale-[1.02]'}`}
-                  >
-                    {/* The Card */}
-                    <div className={`
-                      flex flex-col md:flex-row items-center gap-6 p-6 md:p-8 rounded-xl border-l-4 backdrop-blur-md transition-colors duration-300
-                      ${isActive 
-                        ? 'bg-red-950/40 border-l-red-500 border-y border-r border-white/10 shadow-[0_0_40px_rgba(220,38,38,0.2)]' 
-                        : 'bg-black/80 border-l-red-900 border-y border-r border-red-900/30 hover:bg-red-900/10'
-                      }
-                    `}>
-                      {/* Icon Column */}
-                      <div className="relative shrink-0">
-                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-lg flex items-center justify-center border transition-all duration-300
-                          ${isActive ? 'bg-red-600 border-white text-white shadow-lg' : 'bg-black border-red-800 text-red-600'}
-                        `}>
-                          {node.icon}
-                        </div>
-                        {isBase && !isActive && (
-                          <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
-                        )}
-                      </div>
+                {/* Animated Connection Lines - Left Side */}
+                <div className="absolute left-[10%] md:left-[15%] top-0 bottom-0 w-px hidden md:block">
+                  <div className="h-full w-full bg-gradient-to-b from-transparent via-red-600/50 to-red-600 relative">
+                    {/* Animated particles going up */}
+                    <div className="absolute w-2 h-2 bg-red-500 rounded-full shadow-[0_0_10px_#ff0000] animate-[floatUp_3s_ease-in-out_infinite]" style={{left: '-3px'}}></div>
+                    <div className="absolute w-2 h-2 bg-red-500 rounded-full shadow-[0_0_10px_#ff0000] animate-[floatUp_3s_ease-in-out_infinite_1s]" style={{left: '-3px'}}></div>
+                  </div>
+                  <div className="absolute -left-16 top-1/2 -translate-y-1/2 text-red-500 text-[10px] font-mono uppercase tracking-widest rotate-[-90deg] whitespace-nowrap hidden lg:block">
+                    <ArrowUp size={12} className="inline mr-1" />
+                    Quyết định
+                  </div>
+                </div>
 
-                      {/* Info Column */}
-                      <div className="flex-1 text-center md:text-left w-full">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                          <h4 className={`text-xl md:text-3xl font-black uppercase tracking-tight transition-colors ${isActive ? 'text-white' : 'text-red-700 group-hover:text-red-500'}`}>
-                            {node.title}
-                          </h4>
-                          <span className="text-[10px] font-mono text-red-500/50 uppercase tracking-widest">{node.sub}</span>
-                        </div>
-                        
-                        <p className={`text-sm md:text-base font-medium mb-2 ${isActive ? 'text-red-200' : 'text-gray-500'}`}>
-                          {node.short}
-                        </p>
+                {/* Animated Connection Lines - Right Side */}
+                <div className="absolute right-[10%] md:right-[15%] top-0 bottom-0 w-px hidden md:block">
+                  <div className="h-full w-full bg-gradient-to-t from-transparent via-yellow-600/50 to-yellow-600 relative">
+                    {/* Animated particles going down */}
+                    <div className="absolute w-2 h-2 bg-yellow-500 rounded-full shadow-[0_0_10px_#eab308] animate-[floatDown_3s_ease-in-out_infinite]" style={{left: '-3px'}}></div>
+                    <div className="absolute w-2 h-2 bg-yellow-500 rounded-full shadow-[0_0_10px_#eab308] animate-[floatDown_3s_ease-in-out_infinite_1.5s]" style={{left: '-3px'}}></div>
+                  </div>
+                  <div className="absolute -right-20 top-1/2 -translate-y-1/2 text-yellow-500 text-[10px] font-mono uppercase tracking-widest rotate-90 whitespace-nowrap hidden lg:block">
+                    <ArrowDown size={12} className="inline mr-1" />
+                    Tác động trở lại
+                  </div>
+                </div>
 
-                        {/* Detailed Expansion */}
-                        <div className={`overflow-hidden transition-all duration-500 ease-in-out will-change-transform ${isActive ? 'max-h-60 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-                          <div className="bg-black/50 p-4 rounded border border-red-900/30 text-left grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                              <div className="text-red-500 text-[10px] font-bold uppercase mb-1 flex items-center gap-1">
-                                <ArrowUp size={12} /> Quyết định (Chiều xuôi)
-                              </div>
-                              <p className="text-white text-sm">{node.interaction.active}</p>
+                {nodes.map((node, index) => {
+                  const isActive = activeNode === node.id;
+                  const isBase = node.id === 'llsx';
+                  // Pyramid width calculation - wider at bottom
+                  const widthPercent = 40 + (4 - node.level) * 15; // 40%, 55%, 70%, 85%
+                  
+                  return (
+                    <div 
+                      key={node.id}
+                      className="relative w-full flex justify-center"
+                      style={{ zIndex: 10 - index }}
+                    >
+                      {/* Connecting Arrow Between Layers */}
+                      {index > 0 && (
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 flex gap-4">
+                          <div className="flex flex-col items-center">
+                            <ArrowUp size={16} className="text-red-500 animate-bounce" />
+                          </div>
+                          <div className="flex flex-col items-center">
+                            <ArrowDown size={16} className="text-yellow-500 animate-pulse" />
+                          </div>
+                        </div>
+                      )}
+                      
+                      <div 
+                        role="button"
+                        tabIndex={0}
+                        aria-expanded={isActive}
+                        onClick={() => handleNodeToggle(node.id)}
+                        onKeyDown={(e) => handleKeyDown(e, node.id, 'node')}
+                        className={`map-card relative transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 group
+                          ${isActive ? 'z-30' : 'hover:z-20'}
+                        `}
+                        style={{ width: `${widthPercent}%`, minWidth: '280px' }}
+                      >
+                        {/* Pyramid Block */}
+                        <div 
+                          className={`
+                            relative p-4 md:p-6 transition-all duration-500 overflow-hidden
+                            ${isActive 
+                              ? 'bg-gradient-to-r from-red-950 via-red-900/80 to-red-950 shadow-[0_0_60px_rgba(220,38,38,0.4)] scale-105' 
+                              : 'bg-gradient-to-r from-black via-red-950/30 to-black hover:from-red-950/50 hover:via-red-900/40 hover:to-red-950/50'
+                            }
+                            ${index === 0 ? 'rounded-t-2xl' : ''}
+                            ${index === nodes.length - 1 ? 'rounded-b-2xl' : ''}
+                            border-x-2 border-t-2 ${index === nodes.length - 1 ? 'border-b-2' : ''}
+                            ${isActive ? 'border-red-500' : 'border-red-900/50 group-hover:border-red-700'}
+                          `}
+                          style={{
+                            clipPath: index === 0 
+                              ? 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)' 
+                              : index === nodes.length - 1 
+                                ? 'polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)'
+                                : 'polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)'
+                          }}
+                        >
+                          {/* Glow Effect */}
+                          {isActive && (
+                            <div className="absolute inset-0 bg-red-600/10 animate-pulse pointer-events-none"></div>
+                          )}
+                          
+                          {/* Base indicator */}
+                          {isBase && !isActive && (
+                            <div className="absolute bottom-2 right-4">
+                              <div className="w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
+                              <div className="absolute inset-0 w-3 h-3 bg-red-600 rounded-full"></div>
                             </div>
-                            <div>
-                              <div className="text-yellow-600 text-[10px] font-bold uppercase mb-1 flex items-center gap-1">
-                                <ArrowDown size={12} /> Tác động (Chiều ngược)
-                              </div>
-                              <p className="text-gray-300 text-sm">{node.interaction.passive}</p>
+                          )}
+
+                          {/* Content Row */}
+                          <div className="flex items-center gap-4 relative z-10">
+                            {/* Icon */}
+                            <div className={`shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center border-2 transition-all duration-300
+                              ${isActive 
+                                ? 'bg-red-600 border-white text-white shadow-[0_0_20px_rgba(255,255,255,0.3)]' 
+                                : 'bg-black/50 border-red-800 text-red-500 group-hover:border-red-600 group-hover:text-red-400'
+                              }
+                            `}>
+                              {node.icon}
                             </div>
-                            <div className="md:col-span-2 text-xs text-red-400 italic pt-2 border-t border-white/10">
-                              "{node.desc}"
+                            
+                            {/* Text */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded border
+                                  ${isActive ? 'bg-white/10 border-white/30 text-white' : 'bg-red-950/50 border-red-900/50 text-red-600'}
+                                `}>
+                                  Tầng {5 - node.level}
+                                </span>
+                              </div>
+                              <h4 className={`text-lg md:text-2xl font-black uppercase tracking-tight transition-colors truncate
+                                ${isActive ? 'text-white' : 'text-red-600 group-hover:text-red-400'}
+                              `}>
+                                {node.title}
+                              </h4>
+                              <p className={`text-xs md:text-sm font-medium truncate
+                                ${isActive ? 'text-red-200' : 'text-gray-500'}
+                              `}>
+                                {node.short}
+                              </p>
+                            </div>
+
+                            {/* Level Indicator */}
+                            <div className={`hidden md:flex flex-col items-center gap-1 shrink-0
+                              ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}
+                            `}>
+                              {[...Array(4)].map((_, i) => (
+                                <div 
+                                  key={i} 
+                                  className={`w-2 h-2 rounded-full transition-colors ${
+                                    i < node.level 
+                                      ? isActive ? 'bg-white shadow-[0_0_5px_#fff]' : 'bg-red-600' 
+                                      : 'bg-red-950'
+                                  }`}
+                                ></div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Expanded Details */}
+                          <div className={`overflow-hidden transition-all duration-500 ease-out ${isActive ? 'max-h-[300px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-red-500/30">
+                              {/* Quyết định */}
+                              <div className="bg-black/40 rounded-lg p-4 border border-red-900/30">
+                                <div className="flex items-center gap-2 text-red-500 text-xs font-bold uppercase mb-2">
+                                  <div className="w-6 h-6 rounded-full bg-red-600/20 flex items-center justify-center">
+                                    <ArrowUp size={14} />
+                                  </div>
+                                  Quyết định
+                                </div>
+                                <p className="text-white text-sm leading-relaxed">{node.interaction.active}</p>
+                              </div>
+                              
+                              {/* Tác động trở lại */}
+                              <div className="bg-black/40 rounded-lg p-4 border border-yellow-900/30">
+                                <div className="flex items-center gap-2 text-yellow-500 text-xs font-bold uppercase mb-2">
+                                  <div className="w-6 h-6 rounded-full bg-yellow-600/20 flex items-center justify-center">
+                                    <ArrowDown size={14} />
+                                  </div>
+                                  Tác động trở lại
+                                </div>
+                                <p className="text-gray-300 text-sm leading-relaxed">{node.interaction.passive}</p>
+                              </div>
+                              
+                              {/* Description */}
+                              <div className="md:col-span-2 bg-red-950/20 rounded-lg p-3 border-l-2 border-red-500">
+                                <p className="text-red-300 text-sm italic">"{node.desc}"</p>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                      {/* Status Indicator */}
-                      <div className="hidden md:flex flex-col items-end justify-center gap-1 opacity-50">
-                        <GitCommit size={14} className={isActive ? 'text-red-500' : 'text-red-900'} />
-                        <div className={`w-1 h-8 rounded-full ${isActive ? 'bg-red-500 animate-pulse' : 'bg-red-950'}`}></div>
                       </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    {/* Connection Arrows Visualization (Only when Active) */}
-                    {isActive && (
-                      <>
-                        {node.level < 4 && (
-                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-red-500 animate-bounce hidden md:block">
-                            <ArrowUp size={24} />
-                          </div>
-                        )}
-                        {node.level > 1 && (
-                          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-yellow-600 animate-pulse hidden md:block z-20">
-                            <ArrowDown size={24} />
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                );
-              })}
+              {/* Foundation Glow */}
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[90%] h-32 bg-red-600/30 blur-[80px] pointer-events-none rounded-full"></div>
               
-              {/* Base Foundation Glow */}
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-red-600/20 blur-[100px] pointer-events-none rounded-full"></div>
+              {/* Decorative Elements */}
+              <div className="absolute top-10 left-0 w-20 h-20 bg-red-600/10 blur-[50px] rounded-full pointer-events-none"></div>
+              <div className="absolute top-1/2 right-0 w-32 h-32 bg-red-600/10 blur-[60px] rounded-full pointer-events-none"></div>
             </div>
 
             {/* Legend */}
-            <div className="flex justify-center gap-8 mt-4 text-[10px] md:text-xs font-mono uppercase tracking-widest text-red-500/60">
-              <div className="flex items-center gap-2">
-                <ArrowUp size={12} className="text-red-500" /> Quyết định
+            <div className="flex flex-wrap justify-center gap-6 md:gap-10 mt-12 text-xs md:text-sm font-mono uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-red-500">
+                <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_#ef4444] animate-pulse"></div>
+                <ArrowUp size={14} />
+                <span>Chiều quyết định</span>
               </div>
-              <div className="flex items-center gap-2">
-                <ArrowDown size={12} className="text-yellow-600" /> Tác động trở lại
+              <div className="flex items-center gap-2 text-yellow-500">
+                <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_#eab308] animate-pulse"></div>
+                <ArrowDown size={14} />
+                <span>Chiều tác động ngược</span>
               </div>
             </div>
 
@@ -467,6 +565,18 @@ const SocialStructure: React.FC = () => {
       
       <style>{`
         @keyframes scanLine {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        @keyframes floatUp {
+            0% { top: 100%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 0%; opacity: 0; }
+        }
+        @keyframes floatDown {
             0% { top: 0%; opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
