@@ -204,7 +204,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                     <span className="text-yellow-400 font-black text-lg">1848</span>
                     <span className="text-white font-bold">Tuyên ngôn của Đảng Cộng sản</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Mác và Ăngghen công bố văn kiện lịch sử, đánh dấu sự ra đời của CNXH khoa học. Khẩu hiệu: "Vô sản toàn thế giới, liên hiệp lại!"</p>
+                  <p className="text-red-100/70 text-sm">Mác và Ăngghen công bố văn kiện lịch sử, <strong className="text-white">đánh dấu sự ra đời của CNXH khoa học</strong>. Khẩu hiệu: <strong className="text-yellow-300">"Vô sản toàn thế giới, liên hiệp lại!"</strong></p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
@@ -213,7 +213,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                     <span className="text-yellow-400 font-black text-lg">1871</span>
                     <span className="text-white font-bold">Công xã Paris</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Nhà nước vô sản đầu tiên trong lịch sử (tồn tại 72 ngày). Bài học quý về đập tan bộ máy nhà nước tư sản và xây dựng chính quyền kiểu mới.</p>
+                  <p className="text-red-100/70 text-sm"><strong className="text-white">Nhà nước vô sản đầu tiên trong lịch sử</strong> (tồn tại 72 ngày). Bài học quý: <strong className="text-yellow-300">đập tan bộ máy nhà nước tư sản</strong> và xây dựng chính quyền kiểu mới.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
@@ -222,7 +222,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                     <span className="text-red-400 font-black text-lg">1917</span>
                     <span className="text-white font-bold">Cách mạng Tháng Mười Nga</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Lênin lãnh đạo giai cấp công nhân Nga giành chính quyền. Mở ra thời đại mới - thời đại quá độ từ CNTB lên CNXH trên phạm vi toàn thế giới.</p>
+                  <p className="text-red-100/70 text-sm">Lênin lãnh đạo giai cấp công nhân Nga giành chính quyền. <strong className="text-white">Mở ra thời đại mới</strong> - <strong className="text-red-300">thời đại quá độ từ CNTB lên CNXH trên phạm vi toàn thế giới</strong>.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
@@ -231,7 +231,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                     <span className="text-yellow-400 font-black text-lg">1930</span>
                     <span className="text-white font-bold">Đảng Cộng sản Việt Nam ra đời</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Nguyễn Ái Quốc sáng lập Đảng, mở ra bước ngoặt của cách mạng Việt Nam: kết hợp chủ nghĩa Mác-Lênin với phong trào công nhân và phong trào yêu nước.</p>
+                  <p className="text-red-100/70 text-sm"><strong className="text-white">Nguyễn Ái Quốc</strong> sáng lập Đảng, mở ra bước ngoặt của cách mạng Việt Nam: <strong className="text-yellow-300">kết hợp chủ nghĩa Mác-Lênin với phong trào công nhân và phong trào yêu nước</strong>.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-yellow-600/50">
@@ -240,7 +240,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                     <span className="text-yellow-400 font-black text-lg">1945</span>
                     <span className="text-white font-bold">Cách mạng Tháng Tám</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Nhân dân Việt Nam dưới sự lãnh đạo của Đảng giành chính quyền, lập nên nước Việt Nam Dân chủ Cộng hòa - nhà nước công nông đầu tiên ở Đông Nam Á.</p>
+                  <p className="text-red-100/70 text-sm">Nhân dân Việt Nam dưới sự lãnh đạo của Đảng giành chính quyền, lập nên <strong className="text-white">nước Việt Nam Dân chủ Cộng hòa</strong> - <strong className="text-yellow-300">nhà nước công nông đầu tiên ở Đông Nam Á</strong>.</p>
                 </div>
               </div>
             </div>
@@ -275,9 +275,9 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                   <div className="pl-8">
                     <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
                     <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
-                      <li>Phương pháp luận biện chứng duy vật vẫn là công cụ nhận thức khoa học</li>
-                      <li>Các mâu thuẫn mà Mác phân tích (bất bình đẳng, khủng hoảng kinh tế...) vẫn tồn tại</li>
-                      <li>Học thuyết được bổ sung, phát triển (Lênin, Hồ Chí Minh) phù hợp thời đại mới</li>
+                      <li><strong className="text-white">Phương pháp luận biện chứng duy vật</strong> vẫn là công cụ nhận thức khoa học</li>
+                      <li>Các mâu thuẫn mà Mác phân tích (<strong className="text-white">bất bình đẳng, khủng hoảng kinh tế</strong>...) vẫn tồn tại</li>
+                      <li>Học thuyết được <strong className="text-white">bổ sung, phát triển</strong> (Lênin, Hồ Chí Minh) phù hợp thời đại mới</li>
                     </ul>
                   </div>
                 </div>
@@ -294,9 +294,9 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                   <div className="pl-8">
                     <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
                     <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
-                      <li>Sụp đổ do sai lầm chủ quan (giáo điều, quan liêu), không phải bản chất CNXH</li>
-                      <li>Trung Quốc, Việt Nam, Cuba... vẫn kiên định và phát triển thành công</li>
-                      <li>Bài học: Đổi mới sáng tạo, tránh giáo điều và cải lương</li>
+                      <li>Sụp đổ do <strong className="text-white">sai lầm chủ quan</strong> (giáo điều, quan liêu), <strong className="text-orange-300">không phải bản chất CNXH</strong></li>
+                      <li><strong className="text-white">Trung Quốc, Việt Nam, Cuba</strong>... vẫn kiên định và phát triển thành công</li>
+                      <li>Bài học: <strong className="text-white">Đổi mới sáng tạo</strong>, tránh giáo điều và cải lương</li>
                     </ul>
                   </div>
                 </div>
@@ -313,9 +313,9 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                   <div className="pl-8">
                     <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
                     <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
-                      <li>Đấu tranh giai cấp là quy luật khách quan của xã hội có giai cấp, không phải "kích động"</li>
-                      <li>Mục đích: xóa bỏ áp bức bóc lột, hướng tới xã hội không còn giai cấp</li>
-                      <li>Trong thời kỳ quá độ ở VN: đấu tranh chủ yếu thông qua phát triển kinh tế, hoàn thiện pháp luật</li>
+                      <li>Đấu tranh giai cấp là <strong className="text-white">quy luật khách quan</strong> của xã hội có giai cấp, không phải "kích động"</li>
+                      <li>Mục đích: <strong className="text-white">xóa bỏ áp bức bóc lột</strong>, hướng tới xã hội không còn giai cấp</li>
+                      <li>Trong thời kỳ quá độ ở VN: đấu tranh chủ yếu thông qua <strong className="text-white">phát triển kinh tế, hoàn thiện pháp luật</strong></li>
                     </ul>
                   </div>
                 </div>
@@ -332,9 +332,9 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                   <div className="pl-8">
                     <p className="text-red-100/80 text-sm mb-2"><strong className="text-green-400">Phản bác:</strong></p>
                     <ul className="text-red-100/70 text-sm space-y-1 list-disc list-inside">
-                      <li>Sự lãnh đạo của Đảng là sự lựa chọn của lịch sử, được nhân dân tín nhiệm</li>
-                      <li>Đa đảng không đồng nghĩa với dân chủ (nhiều nước đa đảng vẫn độc tài)</li>
-                      <li>Dân chủ XHCN: "Dân biết, dân bàn, dân làm, dân kiểm tra, dân thụ hưởng"</li>
+                      <li>Sự lãnh đạo của Đảng là <strong className="text-white">sự lựa chọn của lịch sử</strong>, được nhân dân tín nhiệm</li>
+                      <li><strong className="text-orange-300">Đa đảng không đồng nghĩa với dân chủ</strong> (nhiều nước đa đảng vẫn độc tài)</li>
+                      <li>Dân chủ XHCN: <strong className="text-white">"Dân biết, dân bàn, dân làm, dân kiểm tra, dân thụ hưởng"</strong></li>
                     </ul>
                   </div>
                 </div>
@@ -369,14 +369,14 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                     <Target className="text-red-400" size={18} />
                     <span className="text-white font-bold text-sm">Mục tiêu</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Dân giàu, nước mạnh, dân chủ, công bằng, văn minh</p>
+                  <p className="text-red-100/70 text-sm"><strong className="text-yellow-300">Dân giàu, nước mạnh, dân chủ, công bằng, văn minh</strong></p>
                 </div>
                 <div className="bg-black/40 p-4 rounded-lg border border-red-900/30">
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="text-red-400" size={18} />
                     <span className="text-white font-bold text-sm">Động lực</span>
                   </div>
-                  <p className="text-red-100/70 text-sm">Đại đoàn kết toàn dân tộc, kết hợp sức mạnh dân tộc với sức mạnh thời đại</p>
+                  <p className="text-red-100/70 text-sm"><strong className="text-white">Đại đoàn kết toàn dân tộc</strong>, kết hợp sức mạnh dân tộc với sức mạnh thời đại</p>
                 </div>
               </div>
 

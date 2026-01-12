@@ -85,17 +85,42 @@ const realLifeExamples = [
     {
         category: "Tự nhiên",
         icon: <Wheat className="w-5 h-5" />,
-        steps: ["Hạt giống", "Cây con", "Cây ra quả (hạt mới)"]
+        steps: ["Hạt giống", "Cây con", "Cây ra quả (hạt mới)"],
+        explanations: [
+            "Hạt giống chứa đựng tiềm năng của cây, là điểm khởi đầu (Khẳng định)",
+            "Cây con phủ định hạt giống - hạt tan rã để cây vươn lên, nhưng giữ lại thông tin di truyền (Phủ định)",
+            "Cây ra quả tạo hạt mới - trở về dạng ban đầu nhưng hoàn thiện hơn, số lượng nhiều hơn (Phủ định của phủ định)"
+        ]
     },
     {
         category: "Sinh học", 
         icon: <Bird className="w-5 h-5" />,
-        steps: ["Trứng", "Con non", "Con trưởng thành (đẻ trứng mới)"]
+        steps: ["Trứng", "Con non", "Con trưởng thành (đẻ trứng mới)"],
+        explanations: [
+            "Trứng là dạng tồn tại ban đầu, chứa mầm sống (Khẳng định)",
+            "Con non phá vỡ vỏ trứng để sinh ra - phủ định trứng nhưng kế thừa gen (Phủ định)",
+            "Con trưởng thành đẻ trứng mới - chu kỳ lặp lại ở trình độ cao hơn (Phủ định của phủ định)"
+        ]
     },
     {
         category: "Tri thức",
         icon: <Zap className="w-5 h-5" />,
-        steps: ["Giả thuyết cũ", "Phản bác", "Lý thuyết mới hoàn thiện hơn"]
+        steps: ["Giả thuyết cũ", "Phản bác", "Lý thuyết mới hoàn thiện hơn"],
+        explanations: [
+            "Giả thuyết ban đầu được coi là đúng trong điều kiện nhất định (Khẳng định)",
+            "Phản bác/thí nghiệm mới chỉ ra hạn chế của giả thuyết cũ (Phủ định)",
+            "Lý thuyết mới kế thừa phần đúng của cũ + khắc phục hạn chế = hoàn thiện hơn (Phủ định của phủ định)"
+        ]
+    },
+    {
+        category: "Xã hội",
+        icon: <TrendingUp className="w-5 h-5" />,
+        steps: ["Công xã nguyên thủy", "Xã hội có giai cấp", "CNXH/CNCS"],
+        explanations: [
+            "Xã hội không có tư hữu, bình đẳng nhưng lạc hậu (Khẳng định)",
+            "Tư hữu xuất hiện, tạo động lực phát triển nhưng sinh ra bóc lột (Phủ định)",
+            "Xóa bỏ tư hữu trên nền tảng LLSX hiện đại - bình đẳng + phát triển (Phủ định của phủ định)"
+        ]
     }
 ];
 
@@ -185,40 +210,45 @@ const DialecticalFlow: React.FC = () => {
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-2 px-4 py-2 border border-red-600/50 rounded-full bg-red-950/30 mb-4">
                         <RefreshCw size={14} className="text-red-500 animate-spin" style={{ animationDuration: '3s' }} />
                         <span className="text-xs text-red-400 font-mono uppercase tracking-widest">Dialectical Development</span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+                    <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-3">
                         <span className="text-red-600">Quy Luật</span>{" "}
                         <span className="text-white">Phủ Định</span>
                     </h2>
-                    <p className="text-red-400/80 max-w-2xl mx-auto text-lg">
+                    <p className="text-red-400/80 max-w-2xl mx-auto text-lg mb-6">
                         Sự phát triển không phải là đường thẳng, mà là <span className="text-white font-bold">đường xoắn ốc đi lên</span> - 
                         lặp lại những đặc tính cũ nhưng ở trình độ cao hơn.
                     </p>
                     
-                    {/* Interaction Hint */}
-                    <div className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-red-950/50 border border-red-500/30 rounded-lg animate-pulse">
-                        <span className="text-yellow-400">👆</span>
-                        <span className="text-red-300 text-sm font-medium">Click vào từng giai đoạn bên dưới để xem chi tiết</span>
-                        <ArrowDown size={16} className="text-red-400 animate-bounce" />
+                    {/* Navigation Buttons - Moved here */}
+                    <div className="flex justify-center gap-3 flex-wrap">
+                        {stages.map((stage) => (
+                            <button
+                                key={stage.id}
+                                onClick={() => handleStageClick(stage.id)}
+                                className={`px-4 py-2.5 rounded-full font-bold uppercase text-sm tracking-wide transition-all duration-300 flex items-center gap-2 ${
+                                    activeStage === stage.id
+                                        ? `bg-gradient-to-r ${stage.color} text-white shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105`
+                                        : 'bg-red-950/50 text-red-400 border border-red-800 hover:bg-red-900/50 hover:text-white'
+                                }`}
+                            >
+                                <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
+                                    activeStage === stage.id ? 'bg-white/20' : 'bg-red-900'
+                                }`}>
+                                    {stage.id}
+                                </span>
+                                {stage.title}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
                 {/* Main 3-Step Flow */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 mb-16 relative">
-                    
-                    {/* Connecting Lines (Desktop) */}
-                    <div className="hidden lg:block absolute top-1/2 left-[33%] right-[33%] h-1 bg-gradient-to-r from-green-600 via-red-600 to-yellow-500 -translate-y-1/2 z-0">
-                        <div className="absolute left-1/4 top-1/2 -translate-y-1/2 flow-arrow">
-                            <ArrowRight className="text-white" size={20} />
-                        </div>
-                        <div className="absolute right-1/4 top-1/2 -translate-y-1/2 flow-arrow">
-                            <ArrowRight className="text-white" size={20} />
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 mb-10 relative">
 
                     {stages.map((stage, index) => (
                         <div key={stage.id} className="relative">
@@ -324,28 +354,6 @@ const DialecticalFlow: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Navigation Buttons */}
-                <div className="flex justify-center gap-4 mb-10">
-                    {stages.map((stage) => (
-                        <button
-                            key={stage.id}
-                            onClick={() => handleStageClick(stage.id)}
-                            className={`px-5 py-3 rounded-xl font-bold uppercase text-sm tracking-wide transition-all duration-300 flex items-center gap-2 ${
-                                activeStage === stage.id
-                                    ? `bg-gradient-to-r ${stage.color} text-white shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105`
-                                    : 'bg-red-950/50 text-red-400 border border-red-800 hover:bg-red-900/50 hover:text-white'
-                            }`}
-                        >
-                            <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
-                                activeStage === stage.id ? 'bg-white/20' : 'bg-red-900'
-                            }`}>
-                                {stage.id}
-                            </span>
-                            {stage.title}
-                        </button>
-                    ))}
-                </div>
-
                 {/* Detail Panel */}
                 <div className="detail-content max-w-4xl mx-auto">
                     <div className={`
@@ -386,18 +394,18 @@ const DialecticalFlow: React.FC = () => {
                                 </h4>
                                 <div className="space-y-4">
                                     {realLifeExamples.map((example, idx) => (
-                                        <div key={idx} className="bg-black/30 rounded-lg p-4 border border-white/5">
+                                        <div key={idx} className="bg-black/30 rounded-lg p-4 border border-white/5 hover:border-white/20 transition-colors">
                                             <div className="flex items-center gap-2 mb-3">
                                                 <span className={currentStage.textColor}>{example.icon}</span>
                                                 <span className="text-white font-bold text-sm">{example.category}</span>
                                             </div>
-                                            <div className="flex items-center gap-2 text-sm flex-wrap">
+                                            <div className="flex items-center gap-2 text-sm flex-wrap mb-3">
                                                 {example.steps.map((step, stepIdx) => (
                                                     <React.Fragment key={stepIdx}>
                                                         <span className={`
                                                             px-2 py-1 rounded text-xs font-medium
                                                             ${stepIdx === activeStage - 1 
-                                                                ? `${currentStage.iconBg} text-white` 
+                                                                ? `${currentStage.iconBg} text-white shadow-lg` 
                                                                 : 'bg-red-950/50 text-gray-400'
                                                             }
                                                         `}>
@@ -408,6 +416,11 @@ const DialecticalFlow: React.FC = () => {
                                                         )}
                                                     </React.Fragment>
                                                 ))}
+                                            </div>
+                                            {/* Explanation for current stage */}
+                                            <div className={`text-xs p-2 rounded border-l-2 ${currentStage.borderColor} bg-black/40`}>
+                                                <span className={`${currentStage.textColor} font-semibold`}>→ </span>
+                                                <span className="text-gray-300 italic">{example.explanations[activeStage - 1]}</span>
                                             </div>
                                         </div>
                                     ))}
