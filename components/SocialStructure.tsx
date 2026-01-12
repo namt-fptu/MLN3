@@ -194,31 +194,40 @@ const SocialStructure: React.FC = () => {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-black border border-red-900/50 rounded-lg p-1 gap-1">
+        <div className="flex flex-col items-center mb-12">
+          <p className="text-red-500/70 text-xs font-mono uppercase tracking-widest mb-4 animate-pulse">
+            ▼ Chọn chế độ xem ▼
+          </p>
+          <div className="inline-flex bg-red-950/50 border-2 border-red-600/50 rounded-xl p-1.5 gap-2 shadow-[0_0_30px_rgba(220,38,38,0.2)]">
             <button
               onClick={() => setActiveTab('concepts')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-md font-bold uppercase text-xs tracking-widest transition-all duration-300 ${
+              className={`flex items-center gap-2 px-6 py-4 rounded-lg font-bold uppercase text-sm tracking-widest transition-all duration-300 ${
                 activeTab === 'concepts' 
-                  ? 'bg-red-600 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)]' 
-                  : 'text-red-600 hover:bg-red-900/20'
+                  ? 'bg-red-600 text-white shadow-[0_0_25px_rgba(220,38,38,0.6)] scale-105' 
+                  : 'text-red-400 hover:bg-red-900/40 hover:text-white'
               }`}
             >
-              <BookOpen size={16} />
-              <span className="hidden sm:inline">Khái Niệm</span>
+              <BookOpen size={20} />
+              <span>Khái Niệm</span>
             </button>
             <button
               onClick={() => setActiveTab('system')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-md font-bold uppercase text-xs tracking-widest transition-all duration-300 ${
+              className={`flex items-center gap-2 px-6 py-4 rounded-lg font-bold uppercase text-sm tracking-widest transition-all duration-300 ${
                 activeTab === 'system' 
-                  ? 'bg-red-600 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)]' 
-                  : 'text-red-600 hover:bg-red-900/20'
+                  ? 'bg-red-600 text-white shadow-[0_0_25px_rgba(220,38,38,0.6)] scale-105' 
+                  : 'text-red-400 hover:bg-red-900/40 hover:text-white'
               }`}
             >
-              <Network size={16} />
-              <span className="hidden sm:inline">Mối Quan Hệ</span>
+              <Network size={20} />
+              <span>Mối Quan Hệ</span>
             </button>
           </div>
+          <p className="text-gray-500 text-xs mt-3">
+            {activeTab === 'concepts' 
+              ? '📖 Đang xem: Định nghĩa từng khái niệm' 
+              : '🔗 Đang xem: Bản đồ mối quan hệ giữa các tầng'
+            }
+          </p>
         </div>
 
         {/* Tab Content */}
@@ -318,12 +327,15 @@ const SocialStructure: React.FC = () => {
             </div>
 
             {/* Hint to switch tab */}
-            <div className="text-center mt-8">
+            <div className="text-center mt-10 pt-8 border-t border-red-900/30">
+              <p className="text-gray-500 text-xs mb-3">Đã hiểu các khái niệm? Hãy xem cách chúng tương tác:</p>
               <button 
                 onClick={() => setActiveTab('system')}
-                className="text-red-600 text-xs font-mono uppercase tracking-widest border border-red-900/50 px-4 py-2 rounded hover:bg-red-900/20 transition-colors"
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-red-900/50 to-red-800/50 hover:from-red-600 hover:to-red-700 text-white font-bold uppercase text-sm tracking-widest px-8 py-4 rounded-xl border border-red-500/50 hover:border-red-400 transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.2)] hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:scale-105"
               >
-                → Xem mối quan hệ giữa các khái niệm
+                <Network size={20} />
+                Xem Bản Đồ Mối Quan Hệ
+                <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform" />
               </button>
             </div>
           </div>
@@ -550,12 +562,15 @@ const SocialStructure: React.FC = () => {
             </div>
 
             {/* Hint to switch tab */}
-            <div className="text-center mt-8">
+            <div className="text-center mt-10 pt-8 border-t border-red-900/30">
+              <p className="text-gray-500 text-xs mb-3">Muốn ôn lại định nghĩa?</p>
               <button 
                 onClick={() => setActiveTab('concepts')}
-                className="text-red-600 text-xs font-mono uppercase tracking-widest border border-red-900/50 px-4 py-2 rounded hover:bg-red-900/20 transition-colors"
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-red-900/50 to-red-800/50 hover:from-red-600 hover:to-red-700 text-white font-bold uppercase text-sm tracking-widest px-8 py-4 rounded-xl border border-red-500/50 hover:border-red-400 transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.2)] hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:scale-105"
               >
-                ← Xem định nghĩa từng khái niệm
+                <ArrowUp size={16} className="group-hover:-translate-y-1 transition-transform" />
+                Xem Định Nghĩa Khái Niệm
+                <BookOpen size={20} />
               </button>
             </div>
           </div>

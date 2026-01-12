@@ -1,7 +1,23 @@
 import React, { useRef, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, RotateCw, GitMerge, RefreshCw } from 'lucide-react';
+import { 
+    Sprout, 
+    Flame, 
+    Sparkles, 
+    ArrowRight, 
+    ArrowDown,
+    ChevronRight,
+    Wheat,
+    Zap,
+    RefreshCw,
+    TrendingUp,
+    Check,
+    Egg,
+    Bird,
+    Leaf,
+    TreeDeciduous
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,242 +25,416 @@ const stages = [
     {
         id: 1,
         title: "Khẳng Định",
-        sub: "(The Thesis)",
-        icon: <ArrowUpRight className="w-6 h-6" />,
-        desc: "Giai đoạn xuất phát của sự phát triển. Sự vật đang tồn tại nhưng chứa đựng những mâu thuẫn nội tại chưa bộc lộ gay gắt.",
-        nature: "Cái cũ",
-        example: "Xã hội Cộng sản nguyên thủy (Chưa có tư hữu, chưa có giai cấp)."
+        titleEn: "Thesis",
+        color: "from-green-600 to-green-800",
+        borderColor: "border-green-500",
+        bgColor: "bg-green-950/30",
+        textColor: "text-green-400",
+        iconBg: "bg-green-600",
+        icon: <Sprout className="w-8 h-8" />,
+        desc: "Điểm xuất phát của mọi sự phát triển. Sự vật tồn tại với những đặc tính ban đầu, nhưng đã chứa đựng mầm mống của sự thay đổi.",
+        keyPoint: "Cái ban đầu",
+        analogyIcon: <Egg className="w-6 h-6" />,
+        analogy: "Như hạt giống chứa đựng tiềm năng của cây",
+        societyExample: {
+            title: "Cộng sản nguyên thủy",
+            desc: "Xã hội bình đẳng, công hữu về tư liệu sản xuất, chưa có giai cấp"
+        }
     },
     {
         id: 2,
         title: "Phủ Định",
-        sub: "(The Antithesis)",
-        icon: <RotateCw className="w-6 h-6" />,
-        desc: "Sự xóa bỏ cái cũ. Mâu thuẫn bùng nổ, cái mới ra đời thay thế cái cũ nhưng kế thừa hạt nhân hợp lý của cái cũ.",
-        nature: "Cái đối lập",
-        example: "Xã hội có giai cấp (Chiếm hữu nô lệ, Phong kiến, TBCN) - Tư hữu xuất hiện, phủ định CS nguyên thủy."
+        titleEn: "Antithesis",
+        color: "from-red-600 to-red-800",
+        borderColor: "border-red-500",
+        bgColor: "bg-red-950/30",
+        textColor: "text-red-400",
+        iconBg: "bg-red-600",
+        icon: <Flame className="w-8 h-8" />,
+        desc: "Xóa bỏ cái cũ để cái mới ra đời. Không phải phủ định sạch trơn mà là phủ định biện chứng - giữ lại những yếu tố tích cực.",
+        keyPoint: "Cái đối lập",
+        analogyIcon: <Leaf className="w-6 h-6" />,
+        analogy: "Như cây con phủ định hạt giống để vươn lên",
+        societyExample: {
+            title: "Xã hội có giai cấp",
+            desc: "Tư hữu xuất hiện, phân chia giai cấp (Nô lệ → Phong kiến → Tư bản)"
+        }
     },
     {
         id: 3,
         title: "Phủ Định của Phủ Định",
-        sub: "(The Synthesis)",
-        icon: <GitMerge className="w-6 h-6" />,
-        desc: "Sự trở lại cái ban đầu nhưng ở trình độ cao hơn. Kết thúc một chu kỳ và mở ra một chu kỳ mới.",
-        nature: "Cái mới hoàn toàn",
-        example: "Xã hội Cộng sản chủ nghĩa (Xóa bỏ tư hữu, trở lại công hữu nhưng trên nền tảng công nghiệp hiện đại)."
+        titleEn: "Synthesis",
+        color: "from-yellow-500 to-amber-600",
+        borderColor: "border-yellow-500",
+        bgColor: "bg-yellow-950/30",
+        textColor: "text-yellow-400",
+        iconBg: "bg-gradient-to-br from-yellow-500 to-amber-600",
+        icon: <Sparkles className="w-8 h-8" />,
+        desc: "Trở về đặc tính ban đầu nhưng ở trình độ cao hơn. Tổng hợp những yếu tố tích cực của cả quá trình, mở ra chu kỳ phát triển mới.",
+        keyPoint: "Cái mới cao hơn",
+        analogyIcon: <TreeDeciduous className="w-6 h-6" />,
+        analogy: "Như cây ra hoa, kết quả - trở lại thành hạt nhưng hoàn thiện hơn",
+        societyExample: {
+            title: "Cộng sản chủ nghĩa",
+            desc: "Trở lại công hữu nhưng trên nền tảng công nghiệp hiện đại, năng suất cao"
+        }
+    }
+];
+
+const realLifeExamples = [
+    {
+        category: "Tự nhiên",
+        icon: <Wheat className="w-5 h-5" />,
+        steps: ["Hạt giống", "Cây con", "Cây ra quả (hạt mới)"]
+    },
+    {
+        category: "Sinh học", 
+        icon: <Bird className="w-5 h-5" />,
+        steps: ["Trứng", "Con non", "Con trưởng thành (đẻ trứng mới)"]
+    },
+    {
+        category: "Tri thức",
+        icon: <Zap className="w-5 h-5" />,
+        steps: ["Giả thuyết cũ", "Phản bác", "Lý thuyết mới hoàn thiện hơn"]
     }
 ];
 
 const DialecticalFlow: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeStage, setActiveStage] = useState(1);
-    const spiralRef = useRef<SVGSVGElement>(null);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Intro animation
-            gsap.from(".spiral-path", {
-                drawSVG: 0,
-                duration: 2,
-                ease: "power2.inOut",
+            // Stagger entrance for stage cards
+            gsap.from(".stage-card", {
+                y: 100,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top 70%"
                 }
             });
 
-            gsap.from(".flow-node", {
-                scale: 0,
-                opacity: 0,
-                stagger: 0.3,
-                duration: 0.8,
-                ease: "elastic.out(1, 0.5)",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 60%"
-                }
-            });
-            
-            // Continuous rotation of the background structure
-            gsap.to(".spiral-bg", {
+            // Animate the spiral
+            gsap.to(".spiral-rotate", {
                 rotation: 360,
                 transformOrigin: "50% 50%",
-                duration: 60,
+                duration: 20,
                 repeat: -1,
                 ease: "linear"
+            });
+
+            // Animate arrows
+            gsap.to(".flow-arrow", {
+                x: 10,
+                duration: 0.8,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
             });
         }, containerRef);
         return () => ctx.revert();
     }, []);
 
     const handleStageClick = (id: number) => {
-        setActiveStage(id);
-        // Glitch effect on change
-        gsap.fromTo(".detail-panel", 
-            { opacity: 0, x: 20, skewX: 20 }, 
-            { opacity: 1, x: 0, skewX: 0, duration: 0.4, ease: "power2.out" }
-        );
+        if (isAnimating || id === activeStage) return;
+        setIsAnimating(true);
+        
+        gsap.to(".detail-content", {
+            opacity: 0,
+            y: -20,
+            duration: 0.2,
+            onComplete: () => {
+                setActiveStage(id);
+                gsap.to(".detail-content", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.4,
+                    ease: "power2.out",
+                    onComplete: () => setIsAnimating(false)
+                });
+            }
+        });
     };
 
+    const currentStage = stages[activeStage - 1];
+
     return (
-        <section ref={containerRef} className="py-24 bg-black relative overflow-hidden min-h-[90vh] flex flex-col items-center">
-            {/* Background Texture */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none" 
-                 style={{ 
-                     backgroundImage: 'radial-gradient(circle at center, #330000 0%, transparent 70%)' 
-                 }} 
-            />
+        <section ref={containerRef} className="py-24 bg-black relative overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-[150px]"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-yellow-900/20 rounded-full blur-[100px]"></div>
+            </div>
 
-            <div className="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
-                
-                {/* LEFT: The Spiral Visualization */}
-                <div className="lg:col-span-7 relative h-[500px] md:h-[600px] flex items-center justify-center">
-                    <div className="relative w-full h-full max-w-[600px] max-h-[600px]">
-                        {/* Background Rings */}
-                        <div className="absolute inset-0 spiral-bg opacity-30">
-                            <svg viewBox="0 0 500 500" className="w-full h-full">
-                                <circle cx="250" cy="250" r="150" stroke="#500000" strokeWidth="1" fill="none" strokeDasharray="5,5" />
-                                <circle cx="250" cy="250" r="230" stroke="#500000" strokeWidth="1" fill="none" strokeDasharray="10,10" />
-                            </svg>
-                        </div>
+            {/* Animated Spiral Background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10 pointer-events-none spiral-rotate">
+                <svg viewBox="0 0 400 400" className="w-full h-full">
+                    <path 
+                        d="M200,200 m-150,0 a150,150 0 1,1 300,0 a150,150 0 1,1 -300,0 M200,200 m-100,0 a100,100 0 1,0 200,0 a100,100 0 1,0 -200,0 M200,200 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"
+                        fill="none"
+                        stroke="#ff0000"
+                        strokeWidth="1"
+                    />
+                </svg>
+            </div>
 
-                        {/* Main Spiral Path - Stylized S-curve/Spiral representation */}
-                        <svg ref={spiralRef} viewBox="0 0 500 500" className="absolute inset-0 w-full h-full overflow-visible drop-shadow-[0_0_10px_rgba(255,0,0,0.5)]">
-                            <defs>
-                                <linearGradient id="spiralGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#500000" />
-                                    <stop offset="50%" stopColor="#ff0000" />
-                                    <stop offset="100%" stopColor="#ffaaaa" />
-                                </linearGradient>
-                            </defs>
-                            {/* Conceptual Spiral Path */}
-                            <path 
-                                d="M 100 400 C 150 400, 200 350, 250 250 S 350 100, 450 50" 
-                                fill="none" 
-                                stroke="url(#spiralGrad)" 
-                                strokeWidth="6"
-                                className="spiral-path"
-                                strokeLinecap="round"
-                            />
-                            {/* Connector Arrows */}
-                            <path d="M 180 340 L 190 330" stroke="#ff0000" strokeWidth="2" />
-                            <path d="M 320 170 L 330 160" stroke="#ff0000" strokeWidth="2" />
-                        </svg>
-
-                        {/* Interactive Nodes */}
-                        {/* Node 1: Khẳng định */}
-                        <button 
-                            onClick={() => handleStageClick(1)}
-                            className={`flow-node absolute left-[15%] bottom-[15%] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group
-                                ${activeStage === 1 ? 'scale-110 z-20' : 'scale-100 opacity-70 hover:opacity-100 hover:scale-105'}`}
-                        >
-                            <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 backdrop-blur-md transition-colors
-                                ${activeStage === 1 ? 'bg-red-600 border-white shadow-[0_0_30px_#ff0000]' : 'bg-black border-red-800'}`}>
-                                <ArrowUpRight className={`w-8 h-8 ${activeStage === 1 ? 'text-white' : 'text-red-600'}`} />
-                            </div>
-                            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 font-bold uppercase tracking-wider whitespace-nowrap transition-colors ${activeStage === 1 ? 'text-white text-glow' : 'text-red-900'}`}>
-                                1. Khẳng Định
-                            </span>
-                        </button>
-
-                        {/* Node 2: Phủ định */}
-                        <button 
-                            onClick={() => handleStageClick(2)}
-                            className={`flow-node absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group
-                                ${activeStage === 2 ? 'scale-110 z-20' : 'scale-100 opacity-70 hover:opacity-100 hover:scale-105'}`}
-                        >
-                            <div className={`w-20 h-20 rounded-full flex items-center justify-center border-2 backdrop-blur-md transition-colors
-                                ${activeStage === 2 ? 'bg-red-600 border-white shadow-[0_0_30px_#ff0000]' : 'bg-black border-red-800'}`}>
-                                <RotateCw className={`w-10 h-10 ${activeStage === 2 ? 'text-white animate-spin-slow' : 'text-red-600'}`} />
-                            </div>
-                            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 font-bold uppercase tracking-wider whitespace-nowrap transition-colors ${activeStage === 2 ? 'text-white text-glow' : 'text-red-900'}`}>
-                                2. Phủ Định
-                            </span>
-                        </button>
-
-                        {/* Node 3: Phủ định của phủ định */}
-                        <button 
-                            onClick={() => handleStageClick(3)}
-                            className={`flow-node absolute right-[10%] top-[10%] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group
-                                ${activeStage === 3 ? 'scale-110 z-20' : 'scale-100 opacity-70 hover:opacity-100 hover:scale-105'}`}
-                        >
-                            <div className={`w-24 h-24 rounded-full flex items-center justify-center border-2 backdrop-blur-md transition-colors
-                                ${activeStage === 3 ? 'bg-gradient-to-br from-red-500 to-white border-white shadow-[0_0_40px_#ff0000]' : 'bg-black border-red-800'}`}>
-                                <GitMerge className={`w-12 h-12 ${activeStage === 3 ? 'text-black' : 'text-red-600'}`} />
-                            </div>
-                            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 font-bold uppercase tracking-wider whitespace-nowrap transition-colors ${activeStage === 3 ? 'text-white text-glow' : 'text-red-900'}`}>
-                                3. Phủ Định Của Phủ Định
-                            </span>
-                        </button>
+            <div className="container mx-auto px-4 relative z-10">
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 border border-red-600/50 rounded-full bg-red-950/30 mb-4">
+                        <RefreshCw size={14} className="text-red-500 animate-spin" style={{ animationDuration: '3s' }} />
+                        <span className="text-xs text-red-400 font-mono uppercase tracking-widest">Dialectical Development</span>
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+                        <span className="text-red-600">Quy Luật</span>{" "}
+                        <span className="text-white">Phủ Định</span>
+                    </h2>
+                    <p className="text-red-400/80 max-w-2xl mx-auto text-lg">
+                        Sự phát triển không phải là đường thẳng, mà là <span className="text-white font-bold">đường xoắn ốc đi lên</span> - 
+                        lặp lại những đặc tính cũ nhưng ở trình độ cao hơn.
+                    </p>
+                    
+                    {/* Interaction Hint */}
+                    <div className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-red-950/50 border border-red-500/30 rounded-lg animate-pulse">
+                        <span className="text-yellow-400">👆</span>
+                        <span className="text-red-300 text-sm font-medium">Click vào từng giai đoạn bên dưới để xem chi tiết</span>
+                        <ArrowDown size={16} className="text-red-400 animate-bounce" />
                     </div>
                 </div>
 
-                {/* RIGHT: Detail Panel */}
-                <div className="lg:col-span-5 detail-panel">
-                    <div className="mb-6">
-                        <h2 className="text-4xl md:text-5xl font-black text-red-600 uppercase tracking-tighter mb-2">
-                            Quy Luật <br/> <span className="text-white">Phủ Định</span>
-                        </h2>
-                        <p className="text-red-400 font-mono text-sm tracking-widest border-l-2 border-red-600 pl-3">
-                            // KHUYNH HƯỚNG CỦA SỰ PHÁT TRIỂN
-                        </p>
+                {/* Main 3-Step Flow */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 mb-16 relative">
+                    
+                    {/* Connecting Lines (Desktop) */}
+                    <div className="hidden lg:block absolute top-1/2 left-[33%] right-[33%] h-1 bg-gradient-to-r from-green-600 via-red-600 to-yellow-500 -translate-y-1/2 z-0">
+                        <div className="absolute left-1/4 top-1/2 -translate-y-1/2 flow-arrow">
+                            <ArrowRight className="text-white" size={20} />
+                        </div>
+                        <div className="absolute right-1/4 top-1/2 -translate-y-1/2 flow-arrow">
+                            <ArrowRight className="text-white" size={20} />
+                        </div>
                     </div>
 
-                    <div className="bg-red-950/20 border border-red-900/50 p-8 backdrop-blur-sm relative overflow-hidden group">
-                        {/* Decorative Corner */}
-                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500"></div>
-                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-red-500"></div>
-
-                        {/* Content */}
-                        <div className="flex items-center gap-4 mb-6">
-                            <span className="text-4xl font-black text-red-500/20 absolute -top-2 right-4 select-none">
-                                0{activeStage}
-                            </span>
-                            <div className="p-3 bg-red-600 text-black rounded font-bold">
-                                {stages[activeStage-1].icon}
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold text-white uppercase">{stages[activeStage-1].title}</h3>
-                                <p className="text-red-500 text-sm font-mono">{stages[activeStage-1].sub}</p>
-                            </div>
-                        </div>
-
-                        <div className="space-y-6">
-                            <div>
-                                <h4 className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2">Bản chất</h4>
-                                <p className="text-red-100 leading-relaxed text-lg border-l-4 border-red-600 pl-4">
-                                    {stages[activeStage-1].desc}
-                                </p>
-                            </div>
+                    {stages.map((stage, index) => (
+                        <div key={stage.id} className="relative">
+                            {/* Mobile Arrow */}
+                            {index < stages.length - 1 && (
+                                <div className="lg:hidden flex justify-center py-4">
+                                    <ArrowDown className="text-red-600 animate-bounce" size={24} />
+                                </div>
+                            )}
                             
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-black/50 p-3 rounded border border-red-900/30">
-                                    <span className="text-red-600 text-[10px] uppercase font-bold block mb-1">Đặc tính</span>
-                                    <span className="text-white font-bold">{stages[activeStage-1].nature}</span>
+                            <div 
+                                onClick={() => handleStageClick(stage.id)}
+                                className={`stage-card cursor-pointer transition-all duration-500 group ${
+                                    activeStage === stage.id 
+                                        ? 'scale-105 z-10' 
+                                        : 'hover:scale-102 opacity-70 hover:opacity-100'
+                                }`}
+                            >
+                                <div className={`
+                                    relative p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 overflow-hidden
+                                    ${activeStage === stage.id 
+                                        ? `${stage.borderColor} ${stage.bgColor} shadow-[0_0_40px_rgba(255,255,255,0.1)]` 
+                                        : 'border-red-900/30 bg-black/50 hover:border-red-700 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]'
+                                    }
+                                `}>
+                                    {/* Click Hint Overlay (for inactive cards) */}
+                                    {activeStage !== stage.id && (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl z-20">
+                                            <div className="bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg animate-pulse">
+                                                <span>👆</span> Click để xem
+                                            </div>
+                                        </div>
+                                    )}
+                                    {/* Step Number */}
+                                    <div className={`
+                                        absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center font-black text-lg transition-all
+                                        ${activeStage === stage.id 
+                                            ? `${stage.iconBg} text-white` 
+                                            : 'bg-red-950 text-red-600'
+                                        }
+                                    `}>
+                                        {stage.id}
+                                    </div>
+
+                                    {/* Icon */}
+                                    <div className={`
+                                        w-16 h-16 rounded-xl flex items-center justify-center mb-4 transition-all duration-300
+                                        ${activeStage === stage.id 
+                                            ? `${stage.iconBg} text-white shadow-lg` 
+                                            : 'bg-red-950/50 text-red-600'
+                                        }
+                                    `}>
+                                        {stage.icon}
+                                    </div>
+
+                                    {/* Title */}
+                                    <h3 className={`text-xl md:text-2xl font-black uppercase tracking-tight mb-1 transition-colors
+                                        ${activeStage === stage.id ? 'text-white' : 'text-red-600'}
+                                    `}>
+                                        {stage.title}
+                                    </h3>
+                                    <p className={`text-sm font-mono mb-4 ${stage.textColor}`}>
+                                        {stage.titleEn}
+                                    </p>
+
+                                    {/* Key Point Badge */}
+                                    <div className={`
+                                        inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4
+                                        ${activeStage === stage.id 
+                                            ? 'bg-white/20 text-white' 
+                                            : 'bg-red-950/50 text-red-500'
+                                        }
+                                    `}>
+                                        <Check size={12} />
+                                        {stage.keyPoint}
+                                    </div>
+
+                                    {/* Analogy */}
+                                    <div className={`
+                                        flex items-center gap-3 p-3 rounded-lg transition-colors
+                                        ${activeStage === stage.id ? 'bg-black/30' : 'bg-red-950/20'}
+                                    `}>
+                                        <div className={`shrink-0 ${stage.textColor}`}>
+                                            {stage.analogyIcon}
+                                        </div>
+                                        <p className="text-sm text-gray-300 italic">
+                                            {stage.analogy}
+                                        </p>
+                                    </div>
+
+                                    {/* Active Indicator */}
+                                    {activeStage === stage.id && (
+                                        <>
+                                            <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${stage.color}`}></div>
+                                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                                ✓ Đang xem
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
-                                <div className="bg-black/50 p-3 rounded border border-red-900/30">
-                                    <span className="text-red-600 text-[10px] uppercase font-bold block mb-1">Cơ chế</span>
-                                    <span className="text-white font-bold flex items-center gap-2">
-                                        <RefreshCw size={12} /> Kế thừa & Lọc bỏ
-                                    </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-center gap-4 mb-10">
+                    {stages.map((stage) => (
+                        <button
+                            key={stage.id}
+                            onClick={() => handleStageClick(stage.id)}
+                            className={`px-5 py-3 rounded-xl font-bold uppercase text-sm tracking-wide transition-all duration-300 flex items-center gap-2 ${
+                                activeStage === stage.id
+                                    ? `bg-gradient-to-r ${stage.color} text-white shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105`
+                                    : 'bg-red-950/50 text-red-400 border border-red-800 hover:bg-red-900/50 hover:text-white'
+                            }`}
+                        >
+                            <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
+                                activeStage === stage.id ? 'bg-white/20' : 'bg-red-900'
+                            }`}>
+                                {stage.id}
+                            </span>
+                            {stage.title}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Detail Panel */}
+                <div className="detail-content max-w-4xl mx-auto">
+                    <div className={`
+                        rounded-2xl border-2 p-8 md:p-10 transition-all duration-500
+                        ${currentStage.borderColor} ${currentStage.bgColor}
+                    `}>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {/* Left: Description */}
+                            <div>
+                                <h4 className={`text-sm font-bold uppercase tracking-widest mb-3 ${currentStage.textColor}`}>
+                                    Bản chất của giai đoạn
+                                </h4>
+                                <p className="text-lg text-white leading-relaxed mb-6">
+                                    {currentStage.desc}
+                                </p>
+                                
+                                {/* Society Example */}
+                                <div className="bg-black/40 rounded-xl p-5 border border-white/10">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <TrendingUp className={currentStage.textColor} size={18} />
+                                        <span className={`text-xs font-bold uppercase tracking-widest ${currentStage.textColor}`}>
+                                            Ví dụ trong lịch sử xã hội
+                                        </span>
+                                    </div>
+                                    <h5 className="text-white font-bold text-lg mb-1">
+                                        {currentStage.societyExample.title}
+                                    </h5>
+                                    <p className="text-gray-400 text-sm">
+                                        {currentStage.societyExample.desc}
+                                    </p>
                                 </div>
                             </div>
 
-                            <div className="bg-red-900/20 p-4 rounded border border-red-500/20">
-                                <h4 className="text-red-400 text-xs font-bold uppercase tracking-widest mb-2">Ví dụ thực tiễn</h4>
-                                <p className="text-sm text-gray-300 italic">
-                                    "{stages[activeStage-1].example}"
-                                </p>
+                            {/* Right: Real Life Examples */}
+                            <div>
+                                <h4 className={`text-sm font-bold uppercase tracking-widest mb-3 ${currentStage.textColor}`}>
+                                    Minh họa trong đời sống
+                                </h4>
+                                <div className="space-y-4">
+                                    {realLifeExamples.map((example, idx) => (
+                                        <div key={idx} className="bg-black/30 rounded-lg p-4 border border-white/5">
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <span className={currentStage.textColor}>{example.icon}</span>
+                                                <span className="text-white font-bold text-sm">{example.category}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 text-sm flex-wrap">
+                                                {example.steps.map((step, stepIdx) => (
+                                                    <React.Fragment key={stepIdx}>
+                                                        <span className={`
+                                                            px-2 py-1 rounded text-xs font-medium
+                                                            ${stepIdx === activeStage - 1 
+                                                                ? `${currentStage.iconBg} text-white` 
+                                                                : 'bg-red-950/50 text-gray-400'
+                                                            }
+                                                        `}>
+                                                            {step}
+                                                        </span>
+                                                        {stepIdx < example.steps.length - 1 && (
+                                                            <ChevronRight className="text-red-700 shrink-0" size={14} />
+                                                        )}
+                                                    </React.Fragment>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div className="mt-6 flex items-center gap-2 text-xs text-red-800 font-mono">
-                        <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-                        Đường xoắn ốc: Phát triển không phải là vòng tròn khép kín, mà lặp lại ở trình độ cao hơn.
+                {/* Bottom Insight */}
+                <div className="mt-12 text-center">
+                    <div className="inline-flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-red-950/50 via-red-900/30 to-red-950/50 rounded-full border border-red-800/50 flex-wrap justify-center">
+                        <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_#ef4444]"></div>
+                        <p className="text-red-300 text-sm md:text-base font-medium text-center">
+                            <span className="text-white font-bold">Quy luật phổ quát:</span>{" "}
+                            Phát triển = Khẳng định → Phủ định → Phủ định của Phủ định → <span className="text-yellow-400">Chu kỳ mới ở trình độ cao hơn</span>
+                        </p>
+                        <RefreshCw className="text-red-500 animate-spin" size={18} style={{ animationDuration: '4s' }} />
                     </div>
                 </div>
             </div>
+
+            <style>{`
+                .scale-102 {
+                    transform: scale(1.02);
+                }
+            `}</style>
         </section>
     );
 };
