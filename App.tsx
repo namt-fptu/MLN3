@@ -4,6 +4,7 @@ import IntroSequence from './components/IntroSequence';
 import MusicPlayer from './components/MusicPlayer';
 import GuidingQuestion from './components/GuidingQuestion';
 import Sidebar from './components/Sidebar';
+import AIChatbot from './components/AIChatbot';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Activity, ArrowUp } from 'lucide-react';
@@ -201,6 +202,9 @@ const App: React.FC = () => {
 
       {/* Sidebar Navigation */}
       <Sidebar />
+
+      {/* AI Chatbot */}
+      <AIChatbot />
     </>
   );
 };
