@@ -12,6 +12,7 @@ const cases = [
     color: "text-green-500",
     border: "border-green-500",
     bg: "bg-green-950/20",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600",
     analysis: {
       llsx: "Smartphone, Thuật toán định vị, Xe cá nhân của tài xế. Tính chất xã hội hóa rất cao (kết nối hàng triệu người).",
       qhsx: "Tư bản sở hữu thuật toán & dữ liệu. Tài xế là 'đối tác' nhưng không có quyền định giá, chịu rủi ro về phương tiện.",
@@ -28,6 +29,7 @@ const cases = [
     color: "text-blue-500",
     border: "border-blue-500",
     bg: "bg-blue-950/20",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
     analysis: {
       llsx: "Trí tuệ nhân tạo, Big Data, Robot tự hành. Năng suất lao động tăng đột biến, tiệm cận vô hạn.",
       qhsx: "Tập đoàn Big Tech độc quyền Model & Hạ tầng tính toán. Người lao động bị tách khỏi tư liệu sản xuất trí tuệ.",
@@ -44,6 +46,7 @@ const cases = [
     color: "text-yellow-500",
     border: "border-yellow-500",
     bg: "bg-yellow-950/20",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
     analysis: {
       llsx: "Kỹ thuật xây dựng hiện đại, Quy hoạch đô thị, Hạ tầng giao thông công cộng.",
       qhsx: "Sở hữu tư nhân về đất đai và nhà ở đầu cơ. Giá nhà được quyết định bởi dòng vốn đầu cơ thay vì giá trị thực.",
@@ -116,20 +119,33 @@ const ContradictionAnalyzer: React.FC = () => {
                 <div 
                     key={item.id}
                     onClick={() => handleOpen(item.id)}
-                    className={`group cursor-pointer border border-red-900/30 p-6 md:p-8 hover:bg-red-900/10 transition-all duration-300 relative overflow-hidden ${activeCase === item.id ? 'opacity-0' : 'opacity-100'}`}
+                    className={`group cursor-pointer border border-red-900/30 hover:bg-red-900/10 transition-all duration-300 relative overflow-hidden ${activeCase === item.id ? 'opacity-0' : 'opacity-100'}`}
                 >
-                    <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                        <div className={`${item.color}`}>{item.icon}</div>
-                    </div>
+                    {/* Ảnh minh họa case study */}
+                    {item.image && (
+                      <div className="w-full h-40 overflow-hidden">
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                        />
+                      </div>
+                    )}
                     
-                    <div className="mt-8">
-                        <span className={`text-xs font-bold uppercase tracking-widest border border-red-900/50 px-2 py-1 rounded ${item.color}`}>Case File 0{cases.indexOf(item) + 1}</span>
-                        <h4 className="text-2xl font-black text-white uppercase mt-4 mb-1 group-hover:text-red-500 transition-colors">{item.title}</h4>
-                        <p className="text-red-400 font-mono text-xs">{item.subtitle}</p>
-                    </div>
+                    <div className="p-6 md:p-8">
+                      <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                          <div className={`${item.color}`}>{item.icon}</div>
+                      </div>
+                      
+                      <div>
+                          <span className={`text-xs font-bold uppercase tracking-widest border border-red-900/50 px-2 py-1 rounded ${item.color}`}>Case File 0{cases.indexOf(item) + 1}</span>
+                          <h4 className="text-2xl font-black text-white uppercase mt-4 mb-1 group-hover:text-red-500 transition-colors">{item.title}</h4>
+                          <p className="text-red-400 font-mono text-xs">{item.subtitle}</p>
+                      </div>
 
-                    <div className="mt-8 flex items-center text-red-600 text-xs font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">
-                        Phân tích <ChevronRight size={14} />
+                      <div className="mt-6 flex items-center text-red-600 text-xs font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+                          Phân tích <ChevronRight size={14} />
+                      </div>
                     </div>
                     
                     {/* Hover Glow */}
@@ -155,6 +171,14 @@ const ContradictionAnalyzer: React.FC = () => {
 
                     {/* Left: Header Card */}
                     <div className={`md:w-1/3 p-8 md:p-12 flex flex-col justify-between relative overflow-hidden ${activeData.bg}`}>
+                        {/* Background Image */}
+                        {activeData.image && (
+                          <div className="absolute inset-0">
+                            <img src={activeData.image} alt="" className="w-full h-full object-cover opacity-30" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                          </div>
+                        )}
+                        
                         <div className="relative z-10">
                             <div className={`${activeData.color} mb-6`}>{activeData.icon}</div>
                             <h2 className="text-4xl md:text-5xl font-black text-white uppercase leading-none mb-4">{activeData.title}</h2>

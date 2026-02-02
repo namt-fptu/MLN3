@@ -6,19 +6,22 @@ const myths = [
     id: 1,
     myth: "CNXH là 'cào bằng', ai cũng hưởng như nhau?",
     fact: "SAI. Nguyên tắc là 'Làm theo năng lực, hưởng theo lao động'.",
-    detail: "Người làm nhiều, đóng góp nhiều sẽ hưởng nhiều hơn. Cào bằng triệt tiêu động lực, còn CNXH khuyến khích sáng tạo."
+    detail: "Người làm nhiều, đóng góp nhiều sẽ hưởng nhiều hơn. Cào bằng triệt tiêu động lực, còn CNXH khuyến khích sáng tạo.",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600"
   },
   {
     id: 2,
     myth: "Bỏ qua chế độ Tư bản là bỏ qua tất cả?",
     fact: "KHÔNG. 'Bỏ qua' là bỏ qua quan hệ bóc lột thống trị.",
-    detail: "Ta vẫn KẾ THỪA thành tựu khoa học, công nghệ và lực lượng sản xuất tiên tiến của nhân loại."
+    detail: "Ta vẫn KẾ THỪA thành tựu khoa học, công nghệ và lực lượng sản xuất tiên tiến của nhân loại.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600"
   },
   {
     id: 3,
     myth: "Đấu tranh giai cấp đồng nghĩa với bạo lực?",
     fact: "KHÔNG CHỈ VẬY. Đấu tranh diễn ra trên các mặt trận: Kinh tế, Chính trị, Tư tưởng.",
-    detail: "Bạo lực cách mạng chỉ là phương tiện bắt buộc cuối cùng khi giai cấp thống trị dùng bạo lực đàn áp."
+    detail: "Bạo lực cách mạng chỉ là phương tiện bắt buộc cuối cùng khi giai cấp thống trị dùng bạo lực đàn áp.",
+    image: "https://images.unsplash.com/photo-1591901206069-ed60c4429a2e?w=600"
   }
 ];
 
@@ -71,6 +74,14 @@ const MythBreaker: React.FC = () => {
                   className="absolute inset-0 bg-black border border-red-800 p-8 flex flex-col items-center justify-center text-center overflow-hidden"
                   style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                 >
+                  {/* Background Image */}
+                  {item.image && (
+                    <div className="absolute inset-0">
+                      <img src={item.image} alt="" className="w-full h-full object-cover opacity-20" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+                    </div>
+                  )}
+                  
                   <div className="absolute top-0 right-0 p-4 opacity-50">
                       <ShieldAlert size={48} className="text-red-600" />
                   </div>

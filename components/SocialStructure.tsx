@@ -31,6 +31,7 @@ const concepts = [
     definition: "Yếu tố động nhất, cách mạng nhất. Là sự kết hợp giữa người lao động (kỹ năng, trí tuệ) và tư liệu sản xuất (công cụ, máy móc).",
     highlight: "Quyết định năng suất lao động xã hội.",
     example: "Ví dụ: Sự chuyển dịch từ lao động thủ công sang tự động hóa, AI và kinh tế số.",
+    image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600",
   },
   {
     id: 'qhsx',
@@ -40,6 +41,7 @@ const concepts = [
     definition: "Quan hệ giữa người với người trong quá trình sản xuất. Bao gồm: Quan hệ sở hữu, Quan hệ tổ chức quản lý, và Quan hệ phân phối.",
     highlight: "Phải phù hợp với trình độ phát triển của Lực lượng sản xuất.",
     example: "Ví dụ: Chế độ công hữu về tư liệu sản xuất chủ yếu; Phân phối theo lao động.",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600",
   },
   {
     id: 'csht',
@@ -49,6 +51,7 @@ const concepts = [
     definition: "Toàn bộ những Quan hệ sản xuất hợp thành cơ cấu kinh tế của một hình thái xã hội nhất định.",
     highlight: "Quyết định tính chất của Kiến trúc thượng tầng.",
     example: "Ví dụ: Cơ cấu kinh tế nhiều thành phần định hướng XHCN (Kinh tế nhà nước giữ vai trò chủ đạo).",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600",
   },
   {
     id: 'ktt',
@@ -58,6 +61,7 @@ const concepts = [
     definition: "Hệ thống quan điểm (chính trị, pháp quyền, triết học...) và các thiết chế tương ứng (Nhà nước, Đảng, Giáo hội...).",
     highlight: "Tác động trở lại mạnh mẽ đối với Cơ sở hạ tầng.",
     example: "Ví dụ: Nhà nước pháp quyền XHCN Việt Nam; Hệ tư tưởng Mác - Lênin.",
+    image: "https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600",
   }
 ];
 
@@ -248,6 +252,12 @@ const SocialStructure: React.FC = () => {
                     className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-red-500 relative z-20 bg-gradient-to-r from-black via-black to-transparent"
                   >
                     <div className="flex items-center space-x-4 md:space-x-6">
+                      {/* Ảnh minh họa khái niệm */}
+                      {concept.image && (
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded overflow-hidden border border-red-900/30 flex-shrink-0">
+                          <img src={concept.image} alt={concept.term} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                      )}
                       <div className={`text-3xl font-condensed font-bold opacity-30 transition-colors duration-300 ${activeConceptId === concept.id ? 'text-red-500 opacity-100' : 'text-red-900'}`}>
                         {concept.number}
                       </div>
@@ -292,8 +302,19 @@ const SocialStructure: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Right: Example */}
+                        {/* Right: Example with Image */}
                         <div className="md:col-span-4 bg-red-900/10 p-4 border border-red-900/30 flex flex-col justify-center relative overflow-hidden">
+                          {/* Ảnh minh họa */}
+                          {concept.image && (
+                            <div className="mb-3 -mx-4 -mt-4">
+                              <img 
+                                src={concept.image} 
+                                alt={concept.term}
+                                className="w-full h-24 object-cover opacity-60"
+                              />
+                              <div className="absolute top-0 right-0 left-0 h-24 bg-gradient-to-b from-transparent to-red-900/30"></div>
+                            </div>
+                          )}
                           <div className="absolute top-0 right-0 p-1">
                             <div className="flex space-x-1">
                               <div className="w-1 h-1 bg-red-500 rounded-full"></div>

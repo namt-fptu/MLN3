@@ -76,6 +76,15 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                 <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Cổ Điển Đức</h2>
                 <div className="text-xs text-red-500 font-mono">Đại biểu: Hegel & Feuerbach</div>
               </div>
+              {/* Ảnh các triết gia */}
+              <div className="mt-6 flex gap-3">
+                <div className="w-20 h-24 overflow-hidden rounded border border-red-900/30">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Hegel_portrait_by_Schlesinger_1831.jpg" alt="Hegel" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" />
+                </div>
+                <div className="w-20 h-24 overflow-hidden rounded border border-red-900/30">
+                  <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=200" alt="Triết học" className="w-full h-full object-cover opacity-70" />
+                </div>
+              </div>
             </div>
             <div className="md:col-span-8 bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
               <h3 className="text-xl font-bold text-white mb-4 border-b border-red-800 pb-2">Nội dung kế thừa & cải tạo</h3>
@@ -110,6 +119,10 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                 </div>
                 <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Chính Trị Anh</h2>
                 <div className="text-xs text-red-500 font-mono">Đại biểu: Adam Smith & David Ricardo</div>
+              </div>
+              {/* Ảnh kinh tế */}
+              <div className="mt-6 overflow-hidden rounded border border-red-900/30">
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400" alt="Kinh tế" className="w-full h-28 object-cover opacity-70 hover:opacity-100 transition-opacity" />
               </div>
             </div>
             <div className="md:col-span-8 bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
@@ -192,6 +205,15 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                 </div>
                 <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Sự Kiện Quan Trọng</h2>
                 <div className="text-xs text-yellow-500 font-mono">Các mốc son của phong trào XHCN</div>
+              </div>
+              {/* Ảnh minh họa lịch sử */}
+              <div className="relative mt-6 overflow-hidden rounded-lg border border-yellow-900/30">
+                <img 
+                  src="https://images.unsplash.com/photo-1461360370896-922624d12a74?w=600"
+                  alt="Lịch sử cách mạng"
+                  className="w-full h-32 object-cover opacity-70 hover:opacity-100 transition-opacity"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               </div>
             </div>
             <div className="md:col-span-8 bg-yellow-950/10 border border-yellow-900/30 p-8 hover:border-yellow-600 transition-colors duration-300">

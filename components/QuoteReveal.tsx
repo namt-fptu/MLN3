@@ -33,8 +33,18 @@ const QuoteReveal: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="min-h-[50vh] bg-black flex items-center justify-center py-20 px-4 md:px-20">
-      <h2 className="text-3xl md:text-5xl font-bold leading-tight text-center max-w-5xl">
+    <section ref={containerRef} className="min-h-[50vh] bg-black flex items-center justify-center py-20 px-4 md:px-20 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200" 
+          alt=""
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black"></div>
+      </div>
+      
+      <h2 className="text-3xl md:text-5xl font-bold leading-tight text-center max-w-5xl relative z-10">
         {words.map((word, i) => (
           <span
             key={i}

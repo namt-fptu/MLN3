@@ -11,6 +11,7 @@ interface CaseStudy {
     period: string;
     status: CaseStatus;
     icon: React.ReactNode;
+    image?: string;
     desc: string;
     metrics: { label: string; value: number; color: string }[];
     matrix: {
@@ -27,6 +28,7 @@ const cases: CaseStudy[] = [
         period: "1986 - Nay",
         status: "success",
         icon: <TrendingUp size={24} />,
+        image: "https://images.unsplash.com/photo-1555921015-5579d4546c32?w=600",
         desc: "Kinh tế thị trường định hướng XHCN. Mục tiêu: 'Dân giàu, nước mạnh, dân chủ, công bằng, văn minh'.",
         metrics: [
             { label: "Vai trò Nhà nước", value: 85, color: "bg-red-600" },
@@ -45,6 +47,7 @@ const cases: CaseStudy[] = [
         period: "1922 - 1991",
         status: "failure",
         icon: <History size={24} />,
+        image: "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=600",
         desc: "Mô hình đầu tiên, đạt thành tựu vĩ đại nhưng sụp đổ do chủ quan duy ý chí, cơ chế tập trung quan liêu bao cấp kéo dài.",
         metrics: [
             { label: "Vai trò Nhà nước", value: 100, color: "bg-red-600" },
@@ -63,6 +66,7 @@ const cases: CaseStudy[] = [
         period: "1978 - Nay",
         status: "success",
         icon: <Globe2 size={24} />,
+        image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600",
         desc: "Kỳ tích kinh tế nhờ kết hợp Kinh tế thị trường với sự lãnh đạo tuyệt đối của Đảng (CNXH đặc sắc Trung Quốc).",
         metrics: [
             { label: "Vai trò Nhà nước", value: 90, color: "bg-red-600" },
@@ -81,6 +85,7 @@ const cases: CaseStudy[] = [
         period: "1959 - Nay",
         status: "developing",
         icon: <Shield size={24} />,
+        image: "https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=600",
         desc: "Biểu tượng của sự kiên định. Giữ vững ngọn cờ đầu của CNXH ở Tây bán cầu bất chấp cấm vận bao vây.",
         metrics: [
             { label: "Vai trò Nhà nước", value: 95, color: "bg-red-600" },
@@ -99,6 +104,7 @@ const cases: CaseStudy[] = [
         period: "Hiện đại",
         status: "reference",
         icon: <HeartHandshake size={24} />,
+        image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=600",
         desc: "Mô hình Bắc Âu (Social Democracy): Kinh tế tư bản nhưng phân phối theo định hướng phúc lợi xã hội cao.",
         metrics: [
             { label: "Vai trò Nhà nước", value: 40, color: "bg-blue-600" },
@@ -203,13 +209,19 @@ const AnalysisComparison: React.FC = () => {
                             <div
                                 key={c.id}
                                 onClick={() => handleCaseChange(c.id)}
-                                className={`case-item p-4 border rounded-lg cursor-pointer transition-all duration-300 relative overflow-hidden group
+                                className={`case-item border rounded-lg cursor-pointer transition-all duration-300 relative overflow-hidden group
                             ${activeCaseId === c.id
                                         ? 'bg-red-900/20 border-red-500 shadow-[0_0_15px_rgba(220,38,38,0.2)]'
                                         : 'bg-black border-red-900/30 hover:bg-red-900/10 hover:border-red-700'}
                         `}
                             >
-                                <div className="flex items-center justify-between relative z-10">
+                                {/* Ảnh quốc gia */}
+                                {c.image && (
+                                  <div className="w-full h-24 overflow-hidden">
+                                    <img src={c.image} alt={c.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
+                                  </div>
+                                )}
+                                <div className="p-4 flex items-center justify-between relative z-10">
                                     <div className="flex items-center gap-3">
                                         <div className={`p-2 rounded ${activeCaseId === c.id ? 'bg-red-600 text-black' : 'bg-red-950 text-red-500'}`}>
                                             {c.icon}
@@ -245,9 +257,16 @@ const AnalysisComparison: React.FC = () => {
                                 </div>
                                 <h2 className="text-4xl font-black text-white uppercase">{activeData.name}</h2>
                             </div>
-                            <div className="hidden md:block opacity-20 transform scale-150 text-red-600">
-                                {activeData.icon}
-                            </div>
+                            {/* Ảnh minh họa quốc gia */}
+                            {activeData.image && (
+                              <div className="mt-4 md:mt-0 w-full md:w-32 h-20 md:h-24 overflow-hidden rounded-lg border border-red-900/30">
+                                <img 
+                                  src={activeData.image} 
+                                  alt={activeData.name}
+                                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                                />
+                              </div>
+                            )}
                         </div>
 
                         {/* Description */}

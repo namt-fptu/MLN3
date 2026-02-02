@@ -34,9 +34,27 @@ const SocialSimulator: React.FC = () => {
             <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">
                 Mô Phỏng <span className="text-red-600">Quy Luật</span>
             </h3>
-            <p className="text-red-400 font-mono text-sm max-w-2xl mx-auto">
+            <p className="text-red-400 font-mono text-sm max-w-2xl mx-auto mb-6">
                 Điều chỉnh các biến số để thấy sự vận động của lịch sử. Quy luật: "Quan hệ sản xuất phải phù hợp với trình độ phát triển của Lực lượng sản xuất".
             </p>
+            {/* Illustration images */}
+            <div className="flex justify-center gap-4 flex-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300" 
+                alt="Công nghiệp" 
+                className="w-32 h-24 object-cover rounded-lg border border-red-900/50"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=300" 
+                alt="Hội nghị" 
+                className="w-32 h-24 object-cover rounded-lg border border-red-900/50"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300" 
+                alt="Làm việc nhóm" 
+                className="w-32 h-24 object-cover rounded-lg border border-red-900/50"
+              />
+            </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-black border border-red-800 p-8 shadow-[0_0_50px_rgba(220,38,38,0.1)]">

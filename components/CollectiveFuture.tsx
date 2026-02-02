@@ -100,6 +100,16 @@ const CollectiveFuture: React.FC<CollectiveFutureProps> = ({ onNavigate }) => {
       <canvas ref={canvasRef} className="absolute inset-0" />
       
       <div ref={textRef} className="relative z-10 max-w-4xl text-center px-6">
+        {/* Hero Image */}
+        <div className="relative mb-8 mx-auto w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-red-600/50 shadow-[0_0_50px_rgba(220,38,38,0.3)]">
+          <img 
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600"
+            alt="Tương lai tập thể"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        </div>
+        
         <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter text-glow">
             Tương Lai <span className="text-red-600">Tập Thể</span>
         </h2>

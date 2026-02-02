@@ -13,6 +13,7 @@ interface StageData {
   struggle: string;
   color: string;
   glow: string;
+  image?: string; // Ảnh minh họa cho giai đoạn
   details: {
     quote: string;
     characteristics: string[];
@@ -31,6 +32,7 @@ const stages: StageData[] = [
     struggle: "Con người vs Thiên nhiên",
     color: "from-red-900/40 to-black",
     glow: "shadow-red-900/30",
+    image: "https://images.unsplash.com/photo-1569235186275-626cb53b83ce?w=600",
     details: {
       quote: "Trong thời kỳ này, không có 'của tôi' và 'của anh', chỉ có 'của chúng ta'.",
       characteristics: [
@@ -56,6 +58,7 @@ const stages: StageData[] = [
     struggle: "Chủ nô vs Nô lệ",
     color: "from-yellow-900/40 to-black",
     glow: "shadow-yellow-700/30",
+    image: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=600",
     details: {
       quote: "Nô lệ là những công cụ biết nói.",
       characteristics: [
@@ -80,6 +83,7 @@ const stages: StageData[] = [
     struggle: "Địa chủ vs Nông dân",
     color: "from-red-950/60 to-black",
     glow: "shadow-red-800/30",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600",
     details: {
       quote: "Không có mảnh đất nào không có chúa đất.",
       characteristics: [
@@ -104,6 +108,7 @@ const stages: StageData[] = [
     struggle: "Tư sản vs Vô sản",
     color: "from-blue-900/40 to-black",
     glow: "shadow-blue-900/30",
+    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600",
     details: {
       quote: "Tư bản đến thế gian, từ đầu đến chân, mọi lỗ chân lông đều rỉ máu và bùn nhơ.",
       characteristics: [
@@ -129,6 +134,7 @@ const stages: StageData[] = [
     struggle: "Vương quốc Tự do",
     color: "from-red-600/40 to-black",
     glow: "shadow-red-500/50",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600",
     details: {
       quote: "Sự phát triển tự do của mỗi người là điều kiện cho sự phát triển tự do của tất cả mọi người.",
       characteristics: [
@@ -238,6 +244,17 @@ const Timeline: React.FC = () => {
                       onClick={() => setSelectedStage(stage)}
                       className={`relative p-6 md:p-8 border border-red-900/30 bg-black/60 backdrop-blur-sm cursor-pointer transition-all duration-300 group-hover:border-red-500 group-hover:bg-red-950/10 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] rounded-sm overflow-hidden`}
                     >
+                      {/* Ảnh minh họa giai đoạn */}
+                      {stage.image && (
+                        <div className="mb-4 overflow-hidden rounded border border-red-900/30">
+                          <img 
+                            src={stage.image} 
+                            alt={stage.title}
+                            className="w-full h-32 md:h-40 object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                          />
+                        </div>
+                      )}
+                      
                       {/* Decorative Corners */}
                       <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-red-600 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                       <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-red-600 opacity-50 group-hover:opacity-100 transition-opacity"></div>
@@ -323,6 +340,21 @@ const Timeline: React.FC = () => {
 
               {/* Left Column: Core Info */}
               <div className="lg:col-span-5 space-y-8">
+                {/* Ảnh minh họa giai đoạn */}
+                {selectedStage.image && (
+                  <div className="relative overflow-hidden rounded-sm border border-red-900/50 group">
+                    <img 
+                      src={selectedStage.image} 
+                      alt={selectedStage.title}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-3 left-3 text-xs font-mono text-red-400 uppercase tracking-widest">
+                      Hình ảnh minh họa
+                    </div>
+                  </div>
+                )}
+
                 <div className="relative">
                   <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-red-600 to-transparent"></div>
                   <h4 className="text-red-500 font-bold uppercase text-xs tracking-widest mb-2 flex items-center gap-2">

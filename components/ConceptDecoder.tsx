@@ -7,6 +7,7 @@ const concepts = [
     number: '01',
     term: "Lực Lượng Sản Xuất",
     icon: <Zap className="w-6 h-6 md:w-8 md:h-8" />,
+    image: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400",
     definition: "Yếu tố động nhất, cách mạng nhất. Là sự kết hợp giữa người lao động (kỹ năng, trí tuệ) và tư liệu sản xuất (công cụ, máy móc).",
     highlight: "Quyết định năng suất lao động xã hội.",
     example: "Ví dụ: Sự chuyển dịch từ lao động thủ công sang tự động hóa, AI và kinh tế số.",
@@ -16,6 +17,7 @@ const concepts = [
     number: '02',
     term: "Quan Hệ Sản Xuất",
     icon: <Users className="w-6 h-6 md:w-8 md:h-8" />,
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400",
     definition: "Quan hệ giữa người với người trong quá trình sản xuất. Bao gồm: Quan hệ sở hữu, Quan hệ tổ chức quản lý, và Quan hệ phân phối.",
     highlight: "Phải phù hợp với trình độ phát triển của Lực lượng sản xuất.",
     example: "Ví dụ: Chế độ công hữu về tư liệu sản xuất chủ yếu; Phân phối theo lao động.",
@@ -25,6 +27,7 @@ const concepts = [
     number: '03',
     term: "Cơ Sở Hạ Tầng",
     icon: <Building className="w-6 h-6 md:w-8 md:h-8" />,
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400",
     definition: "Toàn bộ những Quan hệ sản xuất hợp thành cơ cấu kinh tế của một hình thái xã hội nhất định.",
     highlight: "Quyết định tính chất của Kiến trúc thượng tầng.",
     example: "Ví dụ: Cơ cấu kinh tế nhiều thành phần định hướng XHCN (Kinh tế nhà nước giữ vai trò chủ đạo).",
@@ -34,6 +37,7 @@ const concepts = [
     number: '04',
     term: "Kiến Trúc Thượng Tầng",
     icon: <Scale className="w-6 h-6 md:w-8 md:h-8" />,
+    image: "https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=400",
     definition: "Hệ thống quan điểm (chính trị, pháp quyền, triết học...) và các thiết chế tương ứng (Nhà nước, Đảng, Giáo hội...).",
     highlight: "Tác động trở lại mạnh mẽ đối với Cơ sở hạ tầng.",
     example: "Ví dụ: Nhà nước pháp quyền XHCN Việt Nam; Hệ tư tưởng Mác - Lênin.",
@@ -128,6 +132,16 @@ const ConceptDecoder: React.FC = () => {
 
                       {/* Right: Example */}
                       <div className="md:col-span-4 bg-red-900/10 p-4 border border-red-900/30 flex flex-col justify-center relative overflow-hidden">
+                          {/* Image */}
+                          {concept.image && (
+                            <div className="mb-4 rounded overflow-hidden">
+                              <img 
+                                src={concept.image} 
+                                alt={concept.term}
+                                className="w-full h-24 object-cover border border-red-900/30"
+                              />
+                            </div>
+                          )}
                           <div className="absolute top-0 right-0 p-1">
                               <div className="flex space-x-1">
                                   <div className="w-1 h-1 bg-red-500 rounded-full"></div>

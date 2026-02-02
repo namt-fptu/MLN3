@@ -136,6 +136,25 @@ const ContradictionMeter: React.FC = () => {
 
         {/* Right: Analysis Panel */}
         <div ref={meterRef} className={`border-l-4 ${phase.borderColor} pl-8 py-4 transition-all duration-500`}>
+          {/* Illustration Images */}
+          <div className="flex gap-3 mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1569389397653-c04fe624e663?w=200" 
+              alt="Biểu tình" 
+              className="w-20 h-16 object-cover rounded border border-red-900/50"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=200" 
+              alt="Đình công" 
+              className="w-20 h-16 object-cover rounded border border-red-900/50"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=200" 
+              alt="Hội nghị" 
+              className="w-20 h-16 object-cover rounded border border-red-900/50"
+            />
+          </div>
+          
           <div className="flex items-center space-x-4 mb-6">
             <div className={`p-3 rounded-full bg-black border ${phase.borderColor} ${phase.shake ? 'animate-bounce' : ''}`}>
                 {phase.icon}

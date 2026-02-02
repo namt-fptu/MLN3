@@ -6,6 +6,7 @@ const mappings = [
   {
     id: 1,
     category: "Sự Tha Hóa",
+    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=600",
     theory: {
       text: "Trong lao động, người công nhân không khẳng định mà phủ định mình... Lao động là bên ngoài, là sự ép buộc.",
       source: "C.Mác - Bản thảo KT-TH 1844"
@@ -24,6 +25,7 @@ const mappings = [
   {
     id: 2,
     category: "Tích Tụ Tư Bản",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600",
     theory: {
       text: "Cạnh tranh dẫn đến sự tập trung tư bản... Các nhà tư bản lớn nuốt chửng các nhà tư bản nhỏ.",
       source: "C.Mác - Tư Bản luận",
@@ -42,6 +44,7 @@ const mappings = [
   {
     id: 3,
     category: "Máy Móc & Việc Làm",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
     theory: {
       text: "Phương tiện lao động, khi mang hình thái máy móc, trở thành đối thủ cạnh tranh của chính người công nhân.",
       source: "C.Mác - Tư Bản luận",
@@ -133,6 +136,16 @@ const TextRealityMapper: React.FC = () => {
                     {/* LEFT: THEORY (Constant) */}
                     <div className="lg:col-span-5 relative">
                          <div className="h-full bg-red-950/10 border-l-4 border-red-900 p-6 transition-colors group-hover:border-red-500 group-hover:bg-red-950/20">
+                            {/* Image */}
+                            {item.image && (
+                                <div className="mb-4 rounded overflow-hidden">
+                                    <img 
+                                        src={item.image} 
+                                        alt={item.category}
+                                        className="w-full h-32 object-cover border border-red-900/30"
+                                    />
+                                </div>
+                            )}
                             <span className="text-red-500 font-mono text-xs uppercase mb-2 block tracking-widest">
                                 Lý thuyết: {item.category}
                             </span>

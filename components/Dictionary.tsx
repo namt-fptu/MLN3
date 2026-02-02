@@ -2,16 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, Hash, Terminal, Cpu, Database } from 'lucide-react';
 
 const terms = [
-    { id: 1, term: "Vật chất", def: "Thực tại khách quan, tồn tại độc lập với ý thức, được ý thức phản ánh.", type: "core" },
-    { id: 2, term: "Ý thức", def: "Hình ảnh chủ quan của thế giới khách quan. Là sự phản ánh tích cực, sáng tạo.", type: "core" },
-    { id: 3, term: "Biện chứng", def: "Nghệ thuật tranh luận. Xem xét sự vật trong trạng thái vận động và liên hệ lẫn nhau.", type: "method" },
-    { id: 4, term: "Thực tiễn", def: "Hoạt động vật chất có mục đích, mang tính lịch sử - xã hội của con người.", type: "core" },
-    { id: 5, term: "Giai cấp", def: "Tập đoàn người to lớn, khác nhau về địa vị trong hệ thống sản xuất xã hội.", type: "social" },
-    { id: 6, term: "Giá trị thặng dư", def: "Phần giá trị dôi ra ngoài giá trị sức lao động, bị nhà tư bản chiếm đoạt.", type: "economy" },
-    { id: 7, term: "Tha hóa", def: "Quá trình sản phẩm của con người trở thành lực lượng xa lạ, thống trị lại con người.", type: "social" },
-    { id: 8, term: "Phủ định của phủ định", def: "Sự phát triển dường như quay lại điểm xuất phát nhưng ở trình độ cao hơn.", type: "law" },
-    { id: 9, term: "Lượng - Chất", def: "Tích lũy về lượng đến điểm nút sẽ dẫn đến sự thay đổi về chất (Bước nhảy).", type: "law" },
-    { id: 10, term: "Tồn tại xã hội", def: "Phương diện sinh hoạt vật chất và các điều kiện sinh hoạt vật chất của xã hội.", type: "social" },
+    { id: 1, term: "Vật chất", def: "Thực tại khách quan, tồn tại độc lập với ý thức, được ý thức phản ánh.", type: "core", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300" },
+    { id: 2, term: "Ý thức", def: "Hình ảnh chủ quan của thế giới khách quan. Là sự phản ánh tích cực, sáng tạo.", type: "core", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" },
+    { id: 3, term: "Biện chứng", def: "Nghệ thuật tranh luận. Xem xét sự vật trong trạng thái vận động và liên hệ lẫn nhau.", type: "method", image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=300" },
+    { id: 4, term: "Thực tiễn", def: "Hoạt động vật chất có mục đích, mang tính lịch sử - xã hội của con người.", type: "core", image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300" },
+    { id: 5, term: "Giai cấp", def: "Tập đoàn người to lớn, khác nhau về địa vị trong hệ thống sản xuất xã hội.", type: "social", image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=300" },
+    { id: 6, term: "Giá trị thặng dư", def: "Phần giá trị dôi ra ngoài giá trị sức lao động, bị nhà tư bản chiếm đoạt.", type: "economy", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=300" },
+    { id: 7, term: "Tha hóa", def: "Quá trình sản phẩm của con người trở thành lực lượng xa lạ, thống trị lại con người.", type: "social", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300" },
+    { id: 8, term: "Phủ định của phủ định", def: "Sự phát triển dường như quay lại điểm xuất phát nhưng ở trình độ cao hơn.", type: "law", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300" },
+    { id: 9, term: "Lượng - Chất", def: "Tích lũy về lượng đến điểm nút sẽ dẫn đến sự thay đổi về chất (Bước nhảy).", type: "law", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300" },
+    { id: 10, term: "Tồn tại xã hội", def: "Phương diện sinh hoạt vật chất và các điều kiện sinh hoạt vật chất của xã hội.", type: "social", image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=300" },
 ];
 
 const GlitchText: React.FC<{ text: string, active: boolean }> = ({ text, active }) => {
@@ -107,10 +107,18 @@ const Dictionary: React.FC = () => {
                             key={item.id}
                             onMouseEnter={() => handleMouseEnter(item.id)}
                             onMouseLeave={() => setHoveredId(null)}
-                            className={`group relative bg-black/50 border p-6 h-60 hover:border-red-500 transition-all duration-300 flex flex-col justify-between overflow-hidden
+                            className={`group relative bg-black/50 border p-6 h-72 hover:border-red-500 transition-all duration-300 flex flex-col justify-between overflow-hidden
                                 ${revealedIds.has(item.id) ? 'border-red-900/60' : 'border-red-900/30'}
                             `}
                         >
+                            {/* Ảnh minh họa */}
+                            {item.image && (
+                              <div className="absolute inset-0 z-0">
+                                <img src={item.image} alt={item.term} className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+                              </div>
+                            )}
+                            
                             {/* Scanline Overlay */}
                             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 pointer-events-none bg-[length:100%_2px,3px_100%] opacity-0 group-hover:opacity-100 transition-opacity"></div>
 

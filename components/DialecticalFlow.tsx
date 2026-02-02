@@ -32,6 +32,7 @@ const stages = [
         textColor: "text-green-400",
         iconBg: "bg-green-600",
         icon: <Sprout className="w-8 h-8" />,
+        image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400",
         desc: "Điểm xuất phát của mọi sự phát triển. Sự vật tồn tại với những đặc tính ban đầu, nhưng đã chứa đựng mầm mống của sự thay đổi.",
         keyPoint: "Cái ban đầu",
         analogyIcon: <Egg className="w-6 h-6" />,
@@ -51,6 +52,7 @@ const stages = [
         textColor: "text-red-400",
         iconBg: "bg-red-600",
         icon: <Flame className="w-8 h-8" />,
+        image: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=400",
         desc: "Xóa bỏ cái cũ để cái mới ra đời. Không phải phủ định sạch trơn mà là phủ định biện chứng - giữ lại những yếu tố tích cực.",
         keyPoint: "Cái đối lập",
         analogyIcon: <Leaf className="w-6 h-6" />,
@@ -70,6 +72,7 @@ const stages = [
         textColor: "text-yellow-400",
         iconBg: "bg-gradient-to-br from-yellow-500 to-amber-600",
         icon: <Sparkles className="w-8 h-8" />,
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400",
         desc: "Trở về đặc tính ban đầu nhưng ở trình độ cao hơn. Tổng hợp những yếu tố tích cực của cả quá trình, mở ra chu kỳ phát triển mới.",
         keyPoint: "Cái mới cao hơn",
         analogyIcon: <TreeDeciduous className="w-6 h-6" />,
@@ -253,6 +256,17 @@ const DialecticalFlow: React.FC = () => {
                         rounded-2xl border-2 p-8 md:p-10 transition-all duration-500
                         ${currentStage.borderColor} ${currentStage.bgColor}
                     `}>
+                        {/* Stage Image */}
+                        {currentStage.image && (
+                            <div className="mb-6 rounded-xl overflow-hidden">
+                                <img 
+                                    src={currentStage.image} 
+                                    alt={currentStage.title}
+                                    className="w-full h-48 md:h-56 object-cover"
+                                />
+                            </div>
+                        )}
+                        
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {/* Left: Description */}
                             <div>

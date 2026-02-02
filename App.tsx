@@ -36,13 +36,22 @@ const LoadingFallback = () => (
 );
 
 const App: React.FC = () => {
-  const [view, setView] = useState<'home' | 'summary'>('home');
+  const [view, setView] = useState<'home' | 'summary'>(() => {
+    // Khôi phục view từ sessionStorage
+    const savedView = sessionStorage.getItem('currentView');
+    return (savedView === 'summary' ? 'summary' : 'home');
+  });
   const [showIntro, setShowIntro] = useState(() => {
     // Check session storage immediately to prevent flash
     const hasRun = sessionStorage.getItem('hasIntroRun');
     return !hasRun;
   });
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Lưu view hiện tại khi thay đổi
+  useEffect(() => {
+    sessionStorage.setItem('currentView', view);
+  }, [view]);
 
   useEffect(() => {
     // Global cursor effect for "Society in Motion" feel
@@ -73,17 +82,63 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 500);
+      // Lưu vị trí cuộn trang vào sessionStorage theo từng view
+      const scrollKey = view === 'summary' ? 'scrollProgressSummary' : 'scrollProgressHome';
+      sessionStorage.setItem(scrollKey, String(window.scrollY));
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [view]);
 
-  // Ensure scroll is reset when view changes
+  // Khôi phục vị trí cuộn trang khi tải lại
   useEffect(() => {
     if (!showIntro) {
-      window.scrollTo(0, 0);
+      const scrollKey = view === 'summary' ? 'scrollProgressSummary' : 'scrollProgressHome';
+      const savedScrollPosition = sessionStorage.getItem(scrollKey);
+      
+      if (savedScrollPosition && parseInt(savedScrollPosition, 10) > 0) {
+        const targetPosition = parseInt(savedScrollPosition, 10);
+        
+        // Đợi cho đến khi tất cả content load xong
+        const scrollToTarget = () => {
+          window.scrollTo({ top: targetPosition, behavior: 'instant' });
+        };
+        
+        // Thử scroll ngay lập tức
+        scrollToTarget();
+        
+        // Sau đó tiếp tục thử khi có thay đổi DOM (lazy components load)
+        const observer = new MutationObserver(() => {
+          scrollToTarget();
+        });
+        
+        observer.observe(document.body, { 
+          childList: true, 
+          subtree: true 
+        });
+        
+        // Thử scroll thêm một vài lần với delay
+        const delays = [100, 300, 500, 800, 1200, 2000, 3000];
+        const timeouts = delays.map(delay => 
+          setTimeout(scrollToTarget, delay)
+        );
+        
+        // Cleanup sau 4 giây
+        const cleanupTimeout = setTimeout(() => {
+          observer.disconnect();
+        }, 4000);
+        
+        return () => {
+          observer.disconnect();
+          timeouts.forEach(t => clearTimeout(t));
+          clearTimeout(cleanupTimeout);
+        };
+      } else {
+        // Nếu không có vị trí đã lưu, scroll về đầu trang
+        window.scrollTo(0, 0);
+      }
     }
-  }, [view, showIntro]);
+  }, [showIntro, view]);
 
   const handleIntroComplete = () => {
     setShowIntro(false);

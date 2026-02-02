@@ -10,6 +10,7 @@ const origins = [
     reps: "Hegel & Feuerbach",
     icon: <Brain className="w-8 h-8 md:w-12 md:h-12" />,
     shortDesc: "Thế giới quan",
+    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600",
     inheritance: {
       label: "Hạt nhân hợp lý",
       items: ["Phép biện chứng (Sự vận động)", "Chủ nghĩa duy vật (Thế giới là vật chất)"]
@@ -25,6 +26,7 @@ const origins = [
     reps: "Smith & Ricardo",
     icon: <TrendingUp className="w-8 h-8 md:w-12 md:h-12" />,
     shortDesc: "Cấu trúc kinh tế",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600",
     inheritance: {
       label: "Thành tựu kế thừa",
       items: ["Lao động là nguồn gốc giá trị", "Các quy luật kinh tế thị trường"]
@@ -40,6 +42,7 @@ const origins = [
     reps: "Saint-Simon, Fourier, Owen",
     icon: <Globe className="w-8 h-8 md:w-12 md:h-12" />,
     shortDesc: "Lý luận xã hội",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600",
     inheritance: {
       label: "Tinh thần nhân văn",
       items: ["Phê phán sâu sắc TBCN", "Dự báo về xã hội tương lai"]
@@ -150,6 +153,18 @@ const ScientificOrigins: React.FC = () => {
                     {/* Comparison Grid */}
                     <div className="flex-1 p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 overflow-y-auto custom-scrollbar">
                         
+                        {/* Ảnh minh họa */}
+                        {item.image && (
+                          <div className="md:col-span-2 relative overflow-hidden rounded-lg border border-red-900/30 mb-4">
+                            <img 
+                              src={item.image} 
+                              alt={item.title}
+                              className="w-full h-40 object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+                          </div>
+                        )}
+
                         {/* Left: Inheritance */}
                         <div className="space-y-4">
                             <div className="flex items-center gap-2 text-red-500 mb-2">
