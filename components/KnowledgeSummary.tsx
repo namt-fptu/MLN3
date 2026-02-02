@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe, Calendar, AlertTriangle, Flag, Star, Milestone, Shield, Users, Target, Sparkles } from 'lucide-react';
+import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe, Calendar, AlertTriangle, Flag, Star, Milestone, Shield, Users, Target, Sparkles, Bot, Github, Mail, UserCircle, Cpu, Code, PenTool, FileText, CheckCircle2 } from 'lucide-react';
 import QuizEngine from './Quiz/QuizEngine';
 import PhilosopherWiki from './PhilosopherWiki';
 import Dictionary from './Dictionary';
@@ -446,6 +446,216 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
         <div className="summary-card mt-24">
           <QuizEngine />
         </div>
+
+        {/* AI USAGE DECLARATION SECTION */}
+        <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start mt-24">
+          <div className="md:col-span-4 sticky top-32">
+            <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">AI</div>
+            <div className="relative z-10 border-l-4 border-red-600 pl-6">
+              <div className="flex items-center gap-3 mb-2 text-red-400">
+                <Bot size={24} />
+                <span className="text-sm font-bold uppercase tracking-widest">Minh Bạch</span>
+              </div>
+              <h2 className="text-3xl font-bold text-white uppercase leading-none mb-4">Sử Dụng AI</h2>
+              <div className="text-xs text-red-500 font-mono">Cam kết có trách nhiệm</div>
+            </div>
+          </div>
+          
+          <div className="md:col-span-8 space-y-6">
+            {/* Introduction */}
+            <div className="bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-red-800 pb-2">Công cụ AI đã sử dụng</h3>
+              <p className="text-red-100/80 leading-relaxed mb-6">
+                Dự án này có sử dụng các công cụ AI hỗ trợ trong quá trình phát triển. Dưới đây là minh chứng chi tiết về việc sử dụng AI một cách có trách nhiệm và minh bạch.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* AI Tool 1 */}
+                <div className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
+                  <strong className="text-red-400 block mb-2">GitHub Copilot & Claude AI</strong>
+                  <p className="text-red-100/70 text-sm mb-2">Hỗ trợ lập trình</p>
+                  <ul className="text-sm text-stone-400 space-y-1">
+                    <li>• Viết code React/TypeScript cho UI</li>
+                    <li>• Debug và tối ưu hiệu suất</li>
+                    <li>• Tích hợp animations GSAP</li>
+                    <li>• Xây dựng chatbot với Groq API</li>
+                  </ul>
+                </div>
+                
+                {/* AI Tool 2 */}
+                <div className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span>
+                  <strong className="text-red-400 block mb-2">ChatGPT & Gemini</strong>
+                  <p className="text-red-100/70 text-sm mb-2">Hỗ trợ nội dung</p>
+                  <ul className="text-sm text-stone-400 space-y-1">
+                    <li>• Tổng hợp nội dung học thuật</li>
+                    <li>• Tạo câu hỏi trắc nghiệm</li>
+                    <li>• Giải thích khái niệm triết học</li>
+                    <li>• Hiệu đính văn phong</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Example Prompts */}
+            <div className="bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-red-800 pb-2">Ví dụ Prompt đã sử dụng</h3>
+              
+              <div className="space-y-4">
+                <div className="bg-black/40 border border-red-900/20 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Code className="w-4 h-4 text-red-500" />
+                    <span className="text-red-400 text-xs font-bold uppercase">Prompt lập trình</span>
+                  </div>
+                  <p className="text-stone-300 text-sm font-mono bg-red-950/30 p-3 rounded border-l-2 border-red-600">
+                    "Tạo component React Timeline hiển thị 5 hình thái kinh tế-xã hội với animation scroll, sử dụng GSAP và Tailwind CSS, phong cách dark theme đỏ-đen"
+                  </p>
+                </div>
+                
+                <div className="bg-black/40 border border-red-900/20 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <FileText className="w-4 h-4 text-red-500" />
+                    <span className="text-red-400 text-xs font-bold uppercase">Prompt nội dung</span>
+                  </div>
+                  <p className="text-stone-300 text-sm font-mono bg-red-950/30 p-3 rounded border-l-2 border-red-600">
+                    "Giải thích ngắn gọn học thuyết giá trị thặng dư của Marx, bao gồm: định nghĩa, công thức, ý nghĩa lịch sử. Dùng ngôn ngữ dễ hiểu cho sinh viên đại học"
+                  </p>
+                </div>
+                
+                <div className="bg-black/40 border border-red-900/20 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Brain className="w-4 h-4 text-red-500" />
+                    <span className="text-red-400 text-xs font-bold uppercase">Prompt quiz</span>
+                  </div>
+                  <p className="text-stone-300 text-sm font-mono bg-red-950/30 p-3 rounded border-l-2 border-red-600">
+                    "Tạo 10 câu hỏi trắc nghiệm về chủ nghĩa duy vật biện chứng, mỗi câu 4 đáp án, có giải thích đáp án đúng. Độ khó: trung bình đến khó"
+                  </p>
+                </div>
+                
+                <div className="bg-black/40 border border-red-900/20 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Cpu className="w-4 h-4 text-red-500" />
+                    <span className="text-red-400 text-xs font-bold uppercase">Prompt chatbot</span>
+                  </div>
+                  <p className="text-stone-300 text-sm font-mono bg-red-950/30 p-3 rounded border-l-2 border-red-600">
+                    "Thêm chức năng chatbot AI, xuất hiện ở góc màn hình, trả lời chuyên sâu về chủ đề Mác-Lênin, call Groq API, đảm bảo UI/UX phù hợp với website"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Commitment Statement */}
+            <div className="bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-4 border-b border-red-800 pb-2">Cam kết của nhóm</h3>
+              <ul className="space-y-4 text-red-100/80 leading-relaxed">
+                <li className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-green-500 rounded-full"></span>
+                  AI được sử dụng như <strong className="text-red-400">công cụ hỗ trợ</strong>, không thay thế tư duy sáng tạo và hiểu biết của nhóm
+                </li>
+                <li className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-green-500 rounded-full"></span>
+                  Tất cả nội dung đều được <strong className="text-red-400">kiểm tra, xác minh</strong> với tài liệu chính thống trước khi sử dụng
+                </li>
+                <li className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-green-500 rounded-full"></span>
+                  Nhóm <strong className="text-red-400">hiểu rõ code và nội dung</strong> được tạo ra, có khả năng giải thích và chỉnh sửa
+                </li>
+                <li className="relative pl-6">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-green-500 rounded-full"></span>
+                  <strong className="text-red-400">Minh bạch công khai</strong> việc sử dụng AI theo đúng quy định học thuật
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* TEAM INFORMATION SECTION */}
+        <section className="summary-card mt-24">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-600/20 to-orange-600/20 rounded-2xl mb-6 border border-red-500/30">
+              <Users className="w-10 h-10 text-red-400" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mb-4">
+              Thành Viên <span className="text-red-500">Nhóm 4</span>
+            </h2>
+            <p className="text-stone-400 max-w-2xl mx-auto">
+              Những người đã cùng nhau xây dựng dự án học tập tương tác này
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Member 1 - Leader */}
+            <div className="group relative bg-gradient-to-b from-red-950/40 to-black border border-red-900/50 rounded-2xl p-6 text-center hover:border-red-500/70 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] transition-all duration-300">
+              <div className="absolute top-3 right-3">
+                <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-[10px] font-bold uppercase rounded-full border border-yellow-500/30">
+                  Nhóm trưởng
+                </span>
+              </div>
+              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-900/50">
+                <UserCircle className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-1">Võ Thành Phát</h3>
+              <p className="text-red-400 text-sm mb-3">MSSV: SE181767</p>
+              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
+                <Code className="w-3 h-3" />
+                <span>Frontend Developer</span>
+              </div>
+            </div>
+
+            {/* Member 2 */}
+            <div className="group relative bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 rounded-2xl p-6 text-center hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] transition-all duration-300">
+              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-stone-600 to-stone-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <UserCircle className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-1">Vy Anh</h3>
+              <p className="text-red-400 text-sm mb-3">MSSV: SE181832</p>
+              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
+                <FileText className="w-3 h-3" />
+                <span>Content Writer</span>
+              </div>
+            </div>
+
+            {/* Member 3 */}
+            <div className="group relative bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 rounded-2xl p-6 text-center hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] transition-all duration-300">
+              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-stone-600 to-stone-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <UserCircle className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-1">Nguyễn Thái Nam</h3>
+              <p className="text-red-400 text-sm mb-3">MSSV: SE181772</p>
+              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
+                <PenTool className="w-3 h-3" />
+                <span>UI/UX Designer</span>
+              </div>
+            </div>
+
+            {/* Member 4 */}
+            <div className="group relative bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 rounded-2xl p-6 text-center hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] transition-all duration-300">
+              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-stone-600 to-stone-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <UserCircle className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-white font-bold text-lg mb-1">Lương Công Khoa</h3>
+              <p className="text-red-400 text-sm mb-3">MSSV: SE181689</p>
+              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
+                <Brain className="w-3 h-3" />
+                <span>Research & QA</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Project Info */}
+          <div className="mt-10 text-center p-6 bg-stone-950/50 rounded-xl border border-stone-800">
+            <p className="text-stone-400 text-sm mb-2">
+              <span className="text-white font-semibold">Môn học:</span> Chủ nghĩa xã hội khoa học
+            </p>
+            <p className="text-stone-400 text-sm mb-2">
+              <span className="text-white font-semibold">Giảng viên hướng dẫn:</span> ThS. Nguyễn Văn X
+            </p>
+            <p className="text-stone-400 text-sm">
+              <span className="text-white font-semibold">Năm học:</span> 2025 - 2026
+            </p>
+          </div>
+        </section>
 
         <div className="mt-24 text-center">
           <BookOpen size={48} className="mx-auto text-red-600 mb-6 animate-pulse" />
