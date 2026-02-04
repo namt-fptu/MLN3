@@ -12,7 +12,7 @@ const cases = [
     color: "text-green-500",
     border: "border-green-500",
     bg: "bg-green-950/20",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600",
+    image: "https://cdn.brvn.vn/editor/2021/08/A33_319478_uber_grab_1628247053.jpeg",
     analysis: {
       llsx: "Smartphone, Thuật toán định vị, Xe cá nhân của tài xế. Tính chất xã hội hóa rất cao (kết nối hàng triệu người).",
       qhsx: "Tư bản sở hữu thuật toán & dữ liệu. Tài xế là 'đối tác' nhưng không có quyền định giá, chịu rủi ro về phương tiện.",
@@ -29,7 +29,7 @@ const cases = [
     color: "text-blue-500",
     border: "border-blue-500",
     bg: "bg-blue-950/20",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sRWr5b0RaZnA-m29X76lakADORMMlUpggQ&s",
     analysis: {
       llsx: "Trí tuệ nhân tạo, Big Data, Robot tự hành. Năng suất lao động tăng đột biến, tiệm cận vô hạn.",
       qhsx: "Tập đoàn Big Tech độc quyền Model & Hạ tầng tính toán. Người lao động bị tách khỏi tư liệu sản xuất trí tuệ.",

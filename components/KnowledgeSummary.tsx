@@ -282,7 +282,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
               {/* Ảnh minh họa lịch sử */}
               <div className="relative mt-6 overflow-hidden rounded-lg border border-yellow-900/30">
                 <img 
-                  src="https://images.unsplash.com/photo-1461360370896-922624d12a74?w=600"
+                  src="https://file3.qdnd.vn/data/images/0/2024/08/18/upload_2049/cach-mang.jpg?dpi=150&quality=100&w=870"
                   alt="Lịch sử cách mạng"
                   className="w-full h-32 object-cover opacity-70 hover:opacity-100 transition-opacity"
                 />
