@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 import AIChatbot from './components/AIChatbot';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Activity, ArrowUp } from 'lucide-react';
+import { Activity, ArrowUp, Bot } from 'lucide-react';
 
 // Lazy load heavy components
 const ScientificOrigins = lazy(() => import('./components/ScientificOrigins'));
@@ -22,6 +22,7 @@ const CollectiveFuture = lazy(() => import('./components/CollectiveFuture'));
 const KnowledgeSummary = lazy(() => import('./components/KnowledgeSummary'));
 const TextRealityMapper = lazy(() => import('./components/TextRealityMapper'));
 const ContradictionAnalyzer = lazy(() => import('./components/ContradictionAnalyzer'));
+const TransparencyPage = lazy(() => import('./components/TransparencyPage'));
 
 // Register plugins globally
 gsap.registerPlugin(ScrollTrigger);
@@ -36,10 +37,12 @@ const LoadingFallback = () => (
 );
 
 const App: React.FC = () => {
-  const [view, setView] = useState<'home' | 'summary'>(() => {
+  const [view, setView] = useState<'home' | 'summary' | 'transparency'>(() => {
     // Khôi phục view từ sessionStorage
     const savedView = sessionStorage.getItem('currentView');
-    return (savedView === 'summary' ? 'summary' : 'home');
+    if (savedView === 'summary') return 'summary';
+    if (savedView === 'transparency') return 'transparency';
+    return 'home';
   });
   const [showIntro, setShowIntro] = useState(() => {
     // Check session storage immediately to prevent flash
@@ -72,7 +75,7 @@ const App: React.FC = () => {
 
       window.addEventListener('mousemove', moveCursor);
 
-      return () => {
+                 return () => {
         window.removeEventListener('mousemove', moveCursor);
         if (document.body.contains(cursor)) document.body.removeChild(cursor);
       };
@@ -83,7 +86,7 @@ const App: React.FC = () => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 500);
       // Lưu vị trí cuộn trang vào sessionStorage theo từng view
-      const scrollKey = view === 'summary' ? 'scrollProgressSummary' : 'scrollProgressHome';
+      const scrollKey = view === 'summary' ? 'scrollProgressSummary' : view === 'transparency' ? 'scrollProgressTransparency' : 'scrollProgressHome';
       sessionStorage.setItem(scrollKey, String(window.scrollY));
     };
     window.addEventListener('scroll', handleScroll);
@@ -93,7 +96,7 @@ const App: React.FC = () => {
   // Khôi phục vị trí cuộn trang khi tải lại
   useEffect(() => {
     if (!showIntro) {
-      const scrollKey = view === 'summary' ? 'scrollProgressSummary' : 'scrollProgressHome';
+      const scrollKey = view === 'summary' ? 'scrollProgressSummary' : view === 'transparency' ? 'scrollProgressTransparency' : 'scrollProgressHome';
       const savedScrollPosition = sessionStorage.getItem(scrollKey);
       
       if (savedScrollPosition && parseInt(savedScrollPosition, 10) > 0) {
@@ -157,7 +160,11 @@ const App: React.FC = () => {
     <>
       {view === 'summary' ? (
         <Suspense fallback={<LoadingFallback />}>
-          <KnowledgeSummary onBack={() => setView('home')} />
+          <KnowledgeSummary onBack={() => setView('home')} onTransparency={() => setView('transparency')} />
+        </Suspense>
+      ) : view === 'transparency' ? (
+        <Suspense fallback={<LoadingFallback />}>
+          <TransparencyPage onBack={() => setView('home')} />
         </Suspense>
       ) : (
         <main className="bg-black min-h-screen text-red-500 font-sans selection:bg-red-900 selection:text-white relative">
@@ -234,6 +241,20 @@ const App: React.FC = () => {
               <CollectiveFuture onNavigate={() => setView('summary')} />
             </section>
           </Suspense>
+
+          {/* Footer Button - Minh Bạch AI */}
+          <footer className="bg-black border-t border-red-900/30 py-8">
+            <div className="max-w-6xl mx-auto px-4 flex flex-col items-center gap-4">
+              <button
+                onClick={() => setView('transparency')}
+                className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-950/50 to-red-900/30 border border-red-900/50 rounded-full hover:border-red-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.3)] transition-all duration-300 group"
+              >
+                <Bot className="w-5 h-5 text-red-500 group-hover:text-red-400" />
+                <span className="text-white font-bold uppercase text-sm tracking-wider">Minh Bạch AI & Tác Giả</span>
+              </button>
+              <p className="text-stone-500 text-xs">© 2025-2026 Nhóm 4 - Chủ nghĩa xã hội khoa học</p>
+            </div>
+          </footer>
 
           {/* Back To Top Button */}
           <button
