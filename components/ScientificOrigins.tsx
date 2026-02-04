@@ -10,7 +10,7 @@ const origins = [
     reps: "Hegel & Feuerbach",
     icon: <Brain className="w-8 h-8 md:w-12 md:h-12" />,
     shortDesc: "Thế giới quan",
-    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600",
+    image: "https://iecs.vn/wp-content/uploads/2021/02/Triet-hoc-Duc-5.jpg",
     inheritance: {
       label: "Hạt nhân hợp lý",
       items: ["Phép biện chứng (Sự vận động)", "Chủ nghĩa duy vật (Thế giới là vật chất)"]
@@ -26,7 +26,7 @@ const origins = [
     reps: "Smith & Ricardo",
     icon: <TrendingUp className="w-8 h-8 md:w-12 md:h-12" />,
     shortDesc: "Cấu trúc kinh tế",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600",
+    image: "https://i.ex-cdn.com/vietnamfinance.vn/files/f1/news/thanhhang/2018/7/27/vnf-kinh-te-chinh-tri.jpg",
     inheritance: {
       label: "Thành tựu kế thừa",
       items: ["Lao động là nguồn gốc giá trị", "Các quy luật kinh tế thị trường"]
@@ -42,7 +42,7 @@ const origins = [
     reps: "Saint-Simon, Fourier, Owen",
     icon: <Globe className="w-8 h-8 md:w-12 md:h-12" />,
     shortDesc: "Lý luận xã hội",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600",
+    image: "https://luatduonggia.vn/wp-content/uploads/2024/09/chu-nghia-xa-hoi-khong-tuong-la-gi-tich-cuc-va-han-che.png",
     inheritance: {
       label: "Tinh thần nhân văn",
       items: ["Phê phán sâu sắc TBCN", "Dự báo về xã hội tương lai"]

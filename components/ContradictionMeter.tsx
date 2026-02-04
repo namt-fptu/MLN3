@@ -139,17 +139,17 @@ const ContradictionMeter: React.FC = () => {
           {/* Illustration Images */}
           <div className="flex gap-3 mb-6">
             <img 
-              src="https://images.unsplash.com/photo-1569389397653-c04fe624e663?w=200" 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTqO26CZcZrb1aPxDD4UVBdfB-oNnb8PiZlA&s" 
               alt="Biểu tình" 
               className="w-20 h-16 object-cover rounded border border-red-900/50"
             />
             <img 
-              src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=200" 
+              src="https://image.cnbcfm.com/api/v1/image/108034181-1726254300528-gettyimages-2170953404-BOEING_STRIKE.jpeg?v=1726254352" 
               alt="Đình công" 
               className="w-20 h-16 object-cover rounded border border-red-900/50"
             />
             <img 
-              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=200" 
+              src="https://media.gettyimages.com/id/1338847117/vector/workers-gathering-in-vienna-man-gives-a-speech.jpg?s=612x612&w=gi&k=20&c=IgQ2ixtGKhGX7Si-nwYU1Gw1gLKAm6gu9NZu4ghw70w=" 
               alt="Hội nghị" 
               className="w-20 h-16 object-cover rounded border border-red-900/50"
             />

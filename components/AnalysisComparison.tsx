@@ -28,7 +28,7 @@ const cases: CaseStudy[] = [
         period: "1986 - Nay",
         status: "success",
         icon: <TrendingUp size={24} />,
-        image: "https://images.unsplash.com/photo-1555921015-5579d4546c32?w=600",
+        image: "https://cdn-media.sforum.vn/storage/app/media/ctv_seo4/Van%20Pham/7/anh-viet-nam-11.jpg",
         desc: "Kinh tế thị trường định hướng XHCN. Mục tiêu: 'Dân giàu, nước mạnh, dân chủ, công bằng, văn minh'.",
         metrics: [
             { label: "Vai trò Nhà nước", value: 85, color: "bg-red-600" },

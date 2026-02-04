@@ -32,7 +32,7 @@ const stages: StageData[] = [
     struggle: "Con người vs Thiên nhiên",
     color: "from-red-900/40 to-black",
     glow: "shadow-red-900/30",
-    image: "https://images.unsplash.com/photo-1569235186275-626cb53b83ce?w=600",
+    image: "https://luatduonggia.vn/wp-content/uploads/2024/08/to-chuc-xa-hoi-dau-tien-cua-nguoi-nguyen-thuy-la-gi.jpg",
     details: {
       quote: "Trong thời kỳ này, không có 'của tôi' và 'của anh', chỉ có 'của chúng ta'.",
       characteristics: [

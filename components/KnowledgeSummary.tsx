@@ -1,9 +1,81 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe, Calendar, AlertTriangle, Flag, Star, Milestone, Shield, Users, Target, Sparkles, Bot, Github, Mail, UserCircle, Cpu, Code, PenTool, FileText, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, BookOpen, Brain, TrendingUp, Globe, Calendar, AlertTriangle, Flag, Star, Milestone, Shield, Users, Target, Sparkles, Bot, Github, Mail, UserCircle, Cpu, Code, PenTool, FileText, CheckCircle2, X, Heart, Coffee, Zap, Music } from 'lucide-react';
 import QuizEngine from './Quiz/QuizEngine';
 import PhilosopherWiki from './PhilosopherWiki';
 import Dictionary from './Dictionary';
+
+// Thông tin thành viên
+const teamMembers = [
+  {
+    id: 1,
+    name: "Võ Thành Phát",
+    mssv: "SE181767",
+    role: "Frontend Developer",
+    roleIcon: "code",
+    image: "/anh/phat.jpg",
+    isLeader: true,
+    funFacts: [
+      "🌙 Code đến 3h sáng là chuyện bình thường",
+      "☕ Tiêu thụ 5 ly cà phê mỗi ngày trong quá trình làm dự án",
+      "🎮 Vừa code vừa nghe nhạc Lo-Fi để tập trung",
+      "💡 Nghĩ ra ý tưởng thiết kế web lúc... đang tắm"
+    ],
+    contribution: "Xây dựng toàn bộ giao diện web, animation GSAP, và tích hợp AI chatbot",
+    quote: "Mỗi dòng code là một viên gạch xây nên ngôi nhà tri thức"
+  },
+  {
+    id: 2,
+    name: "Vy Anh",
+    mssv: "SE181832",
+    role: "Content Writer",
+    roleIcon: "file",
+    image: "/anh/vyanh.jpg",
+    isLeader: false,
+    funFacts: [
+      "📚 Đọc hết 3 cuốn sách về triết học Mác-Lênin trong 1 tuần",
+      "✍️ Viết lại nội dung 5 lần để đảm bảo chính xác",
+      "🎯 Luôn đặt deadline trước 2 ngày để review",
+      "🍵 Team trà sữa - không thể viết content mà không có trà sữa"
+    ],
+    contribution: "Biên soạn toàn bộ nội dung học thuật, câu hỏi quiz và giải thích khái niệm",
+    quote: "Kiến thức chỉ có giá trị khi được truyền đạt dễ hiểu"
+  },
+  {
+    id: 3,
+    name: "Nguyễn Thái Nam",
+    mssv: "SE181772",
+    role: "UI/UX Designer",
+    roleIcon: "pen",
+    image: "/anh/nam.jpg",
+    isLeader: false,
+    funFacts: [
+      "🎨 Thay đổi màu đỏ chủ đạo 15 lần trước khi chốt",
+      "📱 Test giao diện trên 10 thiết bị khác nhau",
+      "🖼️ Tìm kiếm hơn 200 hình ảnh để chọn ra những ảnh phù hợp nhất",
+      "😴 Mơ thấy wireframe trong giấc ngủ"
+    ],
+    contribution: "Thiết kế UI/UX, chọn lựa hình ảnh và đảm bảo trải nghiệm người dùng mượt mà",
+    quote: "Design tốt là khi người dùng không nhận ra có design"
+  },
+  {
+    id: 4,
+    name: "Lương Công Khoa",
+    mssv: "SE181689",
+    role: "Research & QA",
+    roleIcon: "brain",
+    image: "/anh/khoa.jpg",
+    isLeader: false,
+    funFacts: [
+      "🔍 Fact-check mọi thông tin với ít nhất 3 nguồn tin cậy",
+      "🐛 Tìm ra 47 bug trong quá trình test",
+      "📊 Tạo spreadsheet theo dõi tiến độ chi tiết từng ngày",
+      "🤓 Thành viên duy nhất đọc hết tài liệu hướng dẫn môn học"
+    ],
+    contribution: "Nghiên cứu tài liệu, kiểm tra độ chính xác nội dung và test toàn bộ chức năng",
+    quote: "Chi tiết nhỏ tạo nên sự hoàn hảo lớn"
+  }
+];
 
 interface KnowledgeSummaryProps {
   onBack: () => void;
@@ -11,6 +83,7 @@ interface KnowledgeSummaryProps {
 
 const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [selectedMember, setSelectedMember] = useState<typeof teamMembers[0] | null>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -602,67 +675,48 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
               Thành Viên <span className="text-red-500">Nhóm 4</span>
             </h2>
             <p className="text-stone-400 max-w-2xl mx-auto">
-              Những người đã cùng nhau xây dựng dự án học tập tương tác này
+              Những người đã cùng nhau xây dựng dự án học tập tương tác này. <span className="text-red-400">Nhấn vào ảnh để xem thêm!</span>
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Member 1 - Leader */}
-            <div className="group relative bg-gradient-to-b from-red-950/40 to-black border border-red-900/50 rounded-2xl p-6 text-center hover:border-red-500/70 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] transition-all duration-300">
-              <div className="absolute top-3 right-3">
-                <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-[10px] font-bold uppercase rounded-full border border-yellow-500/30">
-                  Nhóm trưởng
-                </span>
+            {teamMembers.map((member) => (
+              <div 
+                key={member.id}
+                onClick={() => setSelectedMember(member)}
+                className={`group relative cursor-pointer rounded-2xl p-6 text-center transition-all duration-300 ${
+                  member.isLeader 
+                    ? 'bg-gradient-to-b from-red-950/40 to-black border border-red-900/50 hover:border-red-500/70 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)]' 
+                    : 'bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)]'
+                }`}
+              >
+                {member.isLeader && (
+                  <div className="absolute top-3 right-3">
+                    <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-[10px] font-bold uppercase rounded-full border border-yellow-500/30">
+                      Nhóm trưởng
+                    </span>
+                  </div>
+                )}
+                <div className={`w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden group-hover:scale-110 transition-transform duration-300 border-2 ${
+                  member.isLeader ? 'shadow-lg shadow-red-900/50 border-red-600' : 'border-stone-600 group-hover:border-red-500'
+                }`}>
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-1">{member.name}</h3>
+                <p className="text-red-400 text-sm mb-3">MSSV: {member.mssv}</p>
+                <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
+                  {member.roleIcon === 'code' && <Code className="w-3 h-3" />}
+                  {member.roleIcon === 'file' && <FileText className="w-3 h-3" />}
+                  {member.roleIcon === 'pen' && <PenTool className="w-3 h-3" />}
+                  {member.roleIcon === 'brain' && <Brain className="w-3 h-3" />}
+                  <span>{member.role}</span>
+                </div>
+                {/* Hover hint */}
+                <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-xs text-red-400">Nhấn để xem chi tiết →</span>
+                </div>
               </div>
-              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-900/50">
-                <UserCircle className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-white font-bold text-lg mb-1">Võ Thành Phát</h3>
-              <p className="text-red-400 text-sm mb-3">MSSV: SE181767</p>
-              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
-                <Code className="w-3 h-3" />
-                <span>Frontend Developer</span>
-              </div>
-            </div>
-
-            {/* Member 2 */}
-            <div className="group relative bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 rounded-2xl p-6 text-center hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] transition-all duration-300">
-              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-stone-600 to-stone-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <UserCircle className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-white font-bold text-lg mb-1">Vy Anh</h3>
-              <p className="text-red-400 text-sm mb-3">MSSV: SE181832</p>
-              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
-                <FileText className="w-3 h-3" />
-                <span>Content Writer</span>
-              </div>
-            </div>
-
-            {/* Member 3 */}
-            <div className="group relative bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 rounded-2xl p-6 text-center hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] transition-all duration-300">
-              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-stone-600 to-stone-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <UserCircle className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-white font-bold text-lg mb-1">Nguyễn Thái Nam</h3>
-              <p className="text-red-400 text-sm mb-3">MSSV: SE181772</p>
-              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
-                <PenTool className="w-3 h-3" />
-                <span>UI/UX Designer</span>
-              </div>
-            </div>
-
-            {/* Member 4 */}
-            <div className="group relative bg-gradient-to-b from-stone-900/60 to-black border border-stone-800 rounded-2xl p-6 text-center hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] transition-all duration-300">
-              <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-stone-600 to-stone-800 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <UserCircle className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-white font-bold text-lg mb-1">Lương Công Khoa</h3>
-              <p className="text-red-400 text-sm mb-3">MSSV: SE181689</p>
-              <div className="flex items-center justify-center gap-2 text-xs text-stone-400">
-                <Brain className="w-3 h-3" />
-                <span>Research & QA</span>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Project Info */}
@@ -671,13 +725,96 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
               <span className="text-white font-semibold">Môn học:</span> Chủ nghĩa xã hội khoa học
             </p>
             <p className="text-stone-400 text-sm mb-2">
-              <span className="text-white font-semibold">Giảng viên hướng dẫn:</span> ThS. Nguyễn Văn X
+              <span className="text-white font-semibold">Giảng viên hướng dẫn:</span> Thầy Hoàng Thắng - {' '}
+              <a 
+                href="mailto:thangh@fe.edu.vn" 
+                className="text-red-400 hover:text-red-300 underline underline-offset-2 transition-colors"
+              >
+                thangh@fe.edu.vn
+              </a>
             </p>
             <p className="text-stone-400 text-sm">
               <span className="text-white font-semibold">Năm học:</span> 2025 - 2026
             </p>
           </div>
         </section>
+
+        {/* Member Detail Modal */}
+        {selectedMember && (
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={() => setSelectedMember(null)}
+          >
+            <div 
+              className="relative bg-gradient-to-b from-stone-900 to-black border border-red-900/50 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-red-900/20"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button 
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 w-10 h-10 bg-red-600/20 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition-colors z-10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Leader badge */}
+              {selectedMember.isLeader && (
+                <div className="absolute top-4 left-4 px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-bold uppercase rounded-full border border-yellow-500/30 flex items-center gap-1">
+                  <Star className="w-3 h-3" /> Nhóm trưởng
+                </div>
+              )}
+
+              {/* Avatar large */}
+              <div className="pt-12 pb-6 px-6 text-center border-b border-stone-800">
+                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-red-600 shadow-xl shadow-red-900/30">
+                  <img src={selectedMember.image} alt={selectedMember.name} className="w-full h-full object-cover" />
+                </div>
+                <h3 className="text-2xl font-black text-white mb-1">{selectedMember.name}</h3>
+                <p className="text-red-400 font-mono text-sm mb-2">MSSV: {selectedMember.mssv}</p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-950/50 rounded-full border border-red-900/50">
+                  {selectedMember.roleIcon === 'code' && <Code className="w-4 h-4 text-red-400" />}
+                  {selectedMember.roleIcon === 'file' && <FileText className="w-4 h-4 text-red-400" />}
+                  {selectedMember.roleIcon === 'pen' && <PenTool className="w-4 h-4 text-red-400" />}
+                  {selectedMember.roleIcon === 'brain' && <Brain className="w-4 h-4 text-red-400" />}
+                  <span className="text-white font-semibold">{selectedMember.role}</span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Contribution */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-red-500 mb-3 flex items-center gap-2">
+                    <Target className="w-4 h-4" /> Đóng góp cho dự án
+                  </h4>
+                  <p className="text-stone-300 leading-relaxed">{selectedMember.contribution}</p>
+                </div>
+
+                {/* Fun Facts */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-red-500 mb-3 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" /> Chuyện hậu trường thú vị
+                  </h4>
+                  <ul className="space-y-2">
+                    {selectedMember.funFacts.map((fact, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-stone-400 text-sm">
+                        <span className="text-lg">{fact.split(' ')[0]}</span>
+                        <span>{fact.substring(fact.indexOf(' ') + 1)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Quote */}
+                <div className="pt-4 border-t border-stone-800">
+                  <p className="text-center italic text-red-400">
+                    "{selectedMember.quote}"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="mt-24 text-center">
           <BookOpen size={48} className="mx-auto text-red-600 mb-6 animate-pulse" />
