@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
     BookOpen,
     Share2,
-    Zap,
     GitMerge,
     Scale,
     Activity,
@@ -12,7 +11,17 @@ import {
     Smartphone,
     Search,
     AlertTriangle,
-    Send
+    Send,
+    Brain,
+    TrendingUp,
+    Globe,
+    Calendar,
+    Shield,
+    HelpCircle,
+    Bot,
+    Users,
+    FileText,
+    Code
 } from 'lucide-react';
 
 interface SidebarItem {
@@ -21,7 +30,8 @@ interface SidebarItem {
     icon: React.ReactNode;
 }
 
-const items: SidebarItem[] = [
+// Items cho trang Home
+const homeItems: SidebarItem[] = [
     { id: 'hero', label: 'Mở Đầu', icon: <BookOpen size={18} /> },
     { id: 'origins', label: 'Nguồn Gốc', icon: <Share2 size={18} /> },
     { id: 'structure', label: 'Cấu Trúc XH', icon: <GitMerge size={18} /> },
@@ -36,9 +46,41 @@ const items: SidebarItem[] = [
     { id: 'future', label: 'Tương Lai', icon: <Send size={18} /> },
 ];
 
-const Sidebar: React.FC = () => {
+// Items cho trang Summary (Tổng Kết)
+const summaryItems: SidebarItem[] = [
+    { id: 'summary-intro', label: 'Giới Thiệu', icon: <BookOpen size={18} /> },
+    { id: 'summary-philosophy', label: 'Triết Học Đức', icon: <Brain size={18} /> },
+    { id: 'summary-economy', label: 'Kinh Tế Anh', icon: <TrendingUp size={18} /> },
+    { id: 'summary-socialism', label: 'CNXH Không Tưởng', icon: <Globe size={18} /> },
+    { id: 'summary-history', label: 'Sự Kiện Lịch Sử', icon: <Calendar size={18} /> },
+    { id: 'summary-criticism', label: 'Phê Phán', icon: <Shield size={18} /> },
+    { id: 'summary-vietnam', label: 'Việt Nam', icon: <HelpCircle size={18} /> },
+    { id: 'summary-philosophers', label: 'Triết Gia', icon: <Users size={18} /> },
+    { id: 'summary-dictionary', label: 'Từ Điển', icon: <FileText size={18} /> },
+    { id: 'summary-quiz', label: 'Trắc Nghiệm', icon: <Search size={18} /> },
+];
+
+// Items cho trang Transparency (Minh Bạch)
+const transparencyItems: SidebarItem[] = [
+    { id: 'transparency-ai', label: 'Sử Dụng AI', icon: <Bot size={18} /> },
+    { id: 'transparency-tools', label: 'Công Cụ', icon: <Code size={18} /> },
+    { id: 'transparency-team', label: 'Thành Viên', icon: <Users size={18} /> },
+];
+
+interface SidebarProps {
+    page?: 'home' | 'summary' | 'transparency';
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ page = 'home' }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+    // Chọn items dựa trên trang hiện tại
+    const items = page === 'summary' 
+        ? summaryItems 
+        : page === 'transparency' 
+            ? transparencyItems 
+            : homeItems;
 
     const handleScrollTo = (id: string) => {
         const element = document.getElementById(id);
@@ -64,6 +106,13 @@ const Sidebar: React.FC = () => {
                     setHoveredItem(null);
                 }}
             >
+                {/* Page Title */}
+                <div className="w-64 px-6 mb-4">
+                    <div className="text-xs font-bold uppercase tracking-widest text-red-500 border-b border-red-900/30 pb-2">
+                        {page === 'summary' ? 'Tổng Kết Kiến Thức' : page === 'transparency' ? 'Minh Bạch AI & Tác Giả' : 'Trang Chủ'}
+                    </div>
+                </div>
+
                 <div className="w-64 px-6 flex flex-col gap-1">
                     {items.map((item) => {
                         const isActive = hoveredItem === item.id;

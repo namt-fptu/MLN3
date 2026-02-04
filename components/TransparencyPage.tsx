@@ -138,7 +138,7 @@ const TransparencyPage: React.FC<TransparencyPageProps> = ({ onBack }) => {
       <div className="max-w-6xl mx-auto space-y-24 relative z-10">
 
         {/* AI USAGE DECLARATION SECTION */}
-        <section className="transparency-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        <section id="transparency-ai" className="transparency-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           <div className="md:col-span-4 sticky top-32">
             <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">AI</div>
             <div className="relative z-10 border-l-4 border-red-600 pl-6">
@@ -189,7 +189,7 @@ const TransparencyPage: React.FC<TransparencyPageProps> = ({ onBack }) => {
             </div>
 
             {/* Example Prompts */}
-            <div className="bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
+            <div id="transparency-tools" className="bg-red-950/10 border border-red-900/30 p-8 hover:border-red-600 transition-colors duration-300">
               <h3 className="text-xl font-bold text-white mb-4 border-b border-red-800 pb-2">Ví dụ Prompt đã sử dụng</h3>
               
               <div className="space-y-4">
@@ -251,7 +251,7 @@ const TransparencyPage: React.FC<TransparencyPageProps> = ({ onBack }) => {
         </section>
 
         {/* TEAM INFORMATION SECTION */}
-        <section className="transparency-card">
+        <section id="transparency-team" className="transparency-card">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-600/20 to-orange-600/20 rounded-2xl mb-6 border border-red-500/30">
               <Users className="w-10 h-10 text-red-400" />

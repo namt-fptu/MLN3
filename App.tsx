@@ -276,8 +276,8 @@ const App: React.FC = () => {
       {/* Music Player */}
       <MusicPlayer autoPlayTrigger={!showIntro} />
 
-      {/* Sidebar Navigation */}
-      <Sidebar />
+      {/* Sidebar Navigation - theo từng trang */}
+      <Sidebar page={view} />
 
       {/* AI Chatbot */}
       <AIChatbot />

@@ -163,10 +163,10 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
           </p>
         </header>
 
-        <div className="space-y-24 mb-24">
+        <div id="summary-intro" className="space-y-24 mb-24">
 
           {/* Section 1: German Philosophy */}
-          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <section id="summary-philosophy" className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
               <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">01</div>
               <div className="relative z-10 border-l-4 border-red-600 pl-6">
@@ -210,7 +210,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
           </section>
 
           {/* Section 2: British Economy */}
-          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <section id="summary-economy" className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
               <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">02</div>
               <div className="relative z-10 border-l-4 border-red-600 pl-6">
@@ -249,7 +249,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
           </section>
 
           {/* Section 3: Utopian Socialism */}
-          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <section id="summary-socialism" className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
               <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">03</div>
               <div className="relative z-10 border-l-4 border-red-600 pl-6">
@@ -296,7 +296,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
           </section>
 
           {/* Section 4: Historical Events */}
-          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <section id="summary-history" className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
               <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">04</div>
               <div className="relative z-10 border-l-4 border-yellow-500 pl-6">
@@ -347,7 +347,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
           </section>
 
           {/* Section 5: Criticism of Wrong Views */}
-          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <section id="summary-criticism" className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
               <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">05</div>
               <div className="relative z-10 border-l-4 border-orange-500 pl-6">
@@ -444,7 +444,7 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
           </section>
 
           {/* Section 6: Vietnam's Path to Socialism */}
-          <section className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <section id="summary-vietnam" className="summary-card grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-4 sticky top-32">
               <div className="text-6xl text-red-900/30 font-black absolute -top-10 -left-6 z-0">06</div>
               <div className="relative z-10 border-l-4 border-red-500 pl-6">
@@ -533,17 +533,17 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack, onTranspare
         </div>
 
         {/* Philosopher Wiki Section */}
-        <div className="summary-card mb-24">
+        <div id="summary-philosophers" className="summary-card mb-24">
           <PhilosopherWiki />
         </div>
 
         {/* Dictionary Section */}
-        <div className="max-w-7xl mx-auto px-6 pb-20 animate-fadeIn stagger-3">
+        <div id="summary-dictionary" className="max-w-7xl mx-auto px-6 pb-20 animate-fadeIn stagger-3">
           <Dictionary />
         </div>
 
         {/* NEW QUIZ SYSTEM INTEGRATION */}
-        <div className="summary-card mt-24">
+        <div id="summary-quiz" className="summary-card mt-24">
           <QuizEngine />
         </div>
 
