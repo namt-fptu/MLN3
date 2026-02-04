@@ -77,6 +77,105 @@ const teamMembers = [
   }
 ];
 
+// Dữ liệu sự kiện lịch sử
+const historicalEvents = [
+  {
+    id: 1,
+    year: "1848",
+    title: "Tuyên ngôn của Đảng Cộng sản",
+    shortDesc: "Mác và Ăngghen công bố văn kiện lịch sử, đánh dấu sự ra đời của CNXH khoa học.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv2JNLRVNIc9VYWhEDpWSeCUFtXFSSu_5iaQ&s",
+    color: "yellow",
+    details: {
+      background: "Cuộc cách mạng công nghiệp đã tạo ra giai cấp công nhân đông đảo nhưng bị bóc lột nặng nề. Phong trào công nhân nổ ra khắp châu Âu nhưng thiếu lý luận khoa học dẫn đường.",
+      content: "Tuyên ngôn của Đảng Cộng sản được viết bởi Karl Marx và Friedrich Engels theo yêu cầu của Liên đoàn những người Cộng sản. Văn kiện này lần đầu tiên trình bày một cách hệ thống thế giới quan mới - chủ nghĩa duy vật biện chứng và chủ nghĩa duy vật lịch sử.",
+      significance: [
+        "Đánh dấu sự ra đời của CNXH khoa học",
+        "Chỉ ra sứ mệnh lịch sử của giai cấp công nhân",
+        "Đề ra khẩu hiệu bất hủ: 'Vô sản toàn thế giới, liên hiệp lại!'",
+        "Trở thành cương lĩnh đầu tiên của phong trào cộng sản quốc tế"
+      ],
+      quote: "Lịch sử tất cả các xã hội tồn tại từ trước đến nay chỉ là lịch sử đấu tranh giai cấp."
+    }
+  },
+  {
+    id: 2,
+    year: "1871",
+    title: "Công xã Paris",
+    shortDesc: "Nhà nước vô sản đầu tiên trong lịch sử (tồn tại 72 ngày).",
+    image: "https://lyluanchinhtrivatruyenthong.vn/resize/900x506/uploads/news/2022/02/25/kim-dung-dung.jpg",
+    color: "yellow",
+    details: {
+      background: "Sau thất bại của Pháp trong chiến tranh Pháp-Phổ, nhân dân Paris nổi dậy chống lại chính phủ tư sản đầu hàng. Ngày 18/3/1871, công nhân Paris đã chiếm giữ thành phố.",
+      content: "Công xã Paris là chính quyền cách mạng đầu tiên của giai cấp công nhân, tồn tại từ 18/3 đến 28/5/1871. Dù chỉ tồn tại 72 ngày, Công xã đã thực hiện nhiều chính sách tiến bộ: tách nhà thờ khỏi nhà nước, giáo dục miễn phí bắt buộc, kiểm soát giá cả...",
+      significance: [
+        "Nhà nước kiểu mới đầu tiên của giai cấp vô sản",
+        "Bài học về việc phải đập tan bộ máy nhà nước tư sản",
+        "Chứng minh khả năng tự quản lý của giai cấp công nhân",
+        "Marx rút ra những bài học quý cho phong trào cách mạng"
+      ],
+      quote: "Công xã Paris sẽ mãi mãi được ca ngợi như kẻ báo hiệu vinh quang của xã hội mới."
+    }
+  },
+  {
+    id: 3,
+    year: "1917",
+    title: "Cách mạng Tháng Mười Nga",
+    shortDesc: "Lênin lãnh đạo giai cấp công nhân Nga giành chính quyền, mở ra thời đại mới.",
+    image: "https://quocphongthudo.vn/upload/2001606/fck/10n.jpg",
+    color: "red",
+    details: {
+      background: "Nước Nga Sa hoàng rơi vào khủng hoảng sâu sắc do chiến tranh thế giới thứ nhất. Giai cấp công nhân và nông dân Nga sống trong cảnh đói khổ, bất công. Đảng Bolshevik do Lênin lãnh đạo đã chuẩn bị chu đáo cho cuộc khởi nghĩa.",
+      content: "Đêm 25 rạng ngày 26/10/1917 (theo lịch cũ, tức 7/11 theo lịch mới), Đảng Bolshevik lãnh đạo công nhân, binh lính khởi nghĩa chiếm Cung điện Mùa Đông, lật đổ Chính phủ lâm thời tư sản. Đây là cuộc cách mạng xã hội chủ nghĩa thắng lợi đầu tiên trên thế giới.",
+      significance: [
+        "Cách mạng XHCN thắng lợi đầu tiên trên thế giới",
+        "Mở ra thời đại quá độ từ CNTB lên CNXH",
+        "Chứng minh sức mạnh của liên minh công-nông",
+        "Lênin phát triển chủ nghĩa Mác thành chủ nghĩa Mác-Lênin"
+      ],
+      quote: "Cách mạng Tháng Mười như tiếng sấm rền báo hiệu mùa xuân cho nhân loại."
+    }
+  },
+  {
+    id: 4,
+    year: "1930",
+    title: "Đảng Cộng sản Việt Nam ra đời",
+    shortDesc: "Nguyễn Ái Quốc sáng lập Đảng, mở ra bước ngoặt của cách mạng Việt Nam.",
+    image: "https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c80785fa9dfc6a9e4c7de23ad95be575b5ef89065de8bb227dec2a5b0c3ddabe79beae0fa0c5ba1fd1ea0bbf6e584495447262faea6843d5c792cba7b30f8a8d97404a73333bf318c8994ec7682e22ef4d6f968117f6129c505379f49fda687608448033a2b5406db78b12cb3ab3c4f62729e8a74f6b1bfe70b3203772c7979020cefa/dang_cong_san_viet_nam_ra_doi__buoc_ngoat_to_lon_trong_lich_su_cach_mang_viet_nam__4352194_1.jpg",
+    color: "yellow",
+    details: {
+      background: "Cuối thế kỷ 19, thực dân Pháp xâm lược và đô hộ Việt Nam. Nhiều phong trào yêu nước nổ ra nhưng đều thất bại do thiếu đường lối đúng đắn. Nguyễn Ái Quốc (Hồ Chí Minh) đã tìm ra con đường cách mạng vô sản.",
+      content: "Ngày 3/2/1930, tại Hương Cảng (Trung Quốc), Nguyễn Ái Quốc triệu tập Hội nghị hợp nhất các tổ chức cộng sản, thành lập Đảng Cộng sản Việt Nam. Đây là sự kiện đánh dấu bước ngoặt vĩ đại trong lịch sử dân tộc.",
+      significance: [
+        "Chấm dứt thời kỳ khủng hoảng về đường lối cứu nước",
+        "Kết hợp CN Mác-Lênin với phong trào công nhân và yêu nước",
+        "Giai cấp công nhân VN có đội tiền phong lãnh đạo",
+        "Cách mạng VN trở thành một bộ phận của cách mạng thế giới"
+      ],
+      quote: "Đảng ta là đạo đức, là văn minh."
+    }
+  },
+  {
+    id: 5,
+    year: "1945",
+    title: "Cách mạng Tháng Tám",
+    shortDesc: "Nhân dân Việt Nam giành chính quyền, lập nên nước Việt Nam Dân chủ Cộng hòa.",
+    image: "https://moha.gov.vn/Media_Share/BoNoiVu/PublishingImages/TinTuc/NoiDung/2025/7/16-37-16-29-07-2025-anh-2_1.jpg",
+    color: "yellow",
+    details: {
+      background: "Chiến tranh thế giới thứ 2 kết thúc, phát xít Nhật đầu hàng. Thời cơ 'ngàn năm có một' đã đến. Đảng và Chủ tịch Hồ Chí Minh kịp thời phát động Tổng khởi nghĩa trên cả nước.",
+      content: "Từ ngày 14 đến 28/8/1945, dưới sự lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh, nhân dân ta đã nhất loạt nổi dậy giành chính quyền trên toàn quốc. Ngày 2/9/1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa.",
+      significance: [
+        "Xóa bỏ chế độ phong kiến và ách đô hộ của thực dân",
+        "Lập nên nhà nước công nông đầu tiên ở Đông Nam Á",
+        "Mở ra kỷ nguyên độc lập, tự do cho dân tộc Việt Nam",
+        "Cổ vũ phong trào giải phóng dân tộc trên toàn thế giới"
+      ],
+      quote: "Không có gì quý hơn độc lập, tự do."
+    }
+  }
+];
+
 interface KnowledgeSummaryProps {
   onBack: () => void;
 }
@@ -84,6 +183,7 @@ interface KnowledgeSummaryProps {
 const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedMember, setSelectedMember] = useState<typeof teamMembers[0] | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<typeof historicalEvents[0] | null>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -291,52 +391,29 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
             </div>
             <div className="md:col-span-8 bg-yellow-950/10 border border-yellow-900/30 p-8 hover:border-yellow-600 transition-colors duration-300">
               <h3 className="text-xl font-bold text-white mb-6 border-b border-yellow-800 pb-2">Dòng thời gian lịch sử</h3>
+              <p className="text-yellow-500/70 text-xs mb-6 flex items-center gap-2">
+                <Sparkles size={14} />
+                Nhấn vào mỗi sự kiện để xem chi tiết
+              </p>
               <div className="space-y-6">
-                {/* Timeline Event */}
-                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-yellow-400 font-black text-lg">1848</span>
-                    <span className="text-white font-bold">Tuyên ngôn của Đảng Cộng sản</span>
+                {historicalEvents.map((event, index) => (
+                  <div 
+                    key={event.id}
+                    onClick={() => setSelectedEvent(event)}
+                    className={`relative pl-8 border-l-2 border-yellow-600/50 ${index < historicalEvents.length - 1 ? 'pb-6' : ''} cursor-pointer group hover:bg-yellow-900/10 -mx-4 px-4 py-2 rounded-r-lg transition-all duration-300`}
+                  >
+                    <div className={`absolute left-0 top-2 w-4 h-4 ${event.color === 'red' ? 'bg-red-500 shadow-[0_0_10px_#ef4444]' : 'bg-yellow-500 shadow-[0_0_10px_#eab308]'} rounded-full -translate-x-[9px] group-hover:scale-125 transition-transform`}></div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className={`${event.color === 'red' ? 'text-red-400' : 'text-yellow-400'} font-black text-lg`}>{event.year}</span>
+                      <span className="text-white font-bold group-hover:text-yellow-300 transition-colors">{event.title}</span>
+                    </div>
+                    <p className="text-red-100/70 text-sm">{event.shortDesc}</p>
+                    <div className="mt-2 text-yellow-500 text-xs font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                      <ArrowLeft size={12} className="rotate-180" />
+                      Xem chi tiết
+                    </div>
                   </div>
-                  <p className="text-red-100/70 text-sm">Mác và Ăngghen công bố văn kiện lịch sử, <strong className="text-white">đánh dấu sự ra đời của CNXH khoa học</strong>. Khẩu hiệu: <strong className="text-yellow-300">"Vô sản toàn thế giới, liên hiệp lại!"</strong></p>
-                </div>
-                
-                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-yellow-400 font-black text-lg">1871</span>
-                    <span className="text-white font-bold">Công xã Paris</span>
-                  </div>
-                  <p className="text-red-100/70 text-sm"><strong className="text-white">Nhà nước vô sản đầu tiên trong lịch sử</strong> (tồn tại 72 ngày). Bài học quý: <strong className="text-yellow-300">đập tan bộ máy nhà nước tư sản</strong> và xây dựng chính quyền kiểu mới.</p>
-                </div>
-                
-                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-red-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#ef4444]"></div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-red-400 font-black text-lg">1917</span>
-                    <span className="text-white font-bold">Cách mạng Tháng Mười Nga</span>
-                  </div>
-                  <p className="text-red-100/70 text-sm">Lênin lãnh đạo giai cấp công nhân Nga giành chính quyền. <strong className="text-white">Mở ra thời đại mới</strong> - <strong className="text-red-300">thời đại quá độ từ CNTB lên CNXH trên phạm vi toàn thế giới</strong>.</p>
-                </div>
-                
-                <div className="relative pl-8 border-l-2 border-yellow-600/50 pb-6">
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-yellow-400 font-black text-lg">1930</span>
-                    <span className="text-white font-bold">Đảng Cộng sản Việt Nam ra đời</span>
-                  </div>
-                  <p className="text-red-100/70 text-sm"><strong className="text-white">Nguyễn Ái Quốc</strong> sáng lập Đảng, mở ra bước ngoặt của cách mạng Việt Nam: <strong className="text-yellow-300">kết hợp chủ nghĩa Mác-Lênin với phong trào công nhân và phong trào yêu nước</strong>.</p>
-                </div>
-                
-                <div className="relative pl-8 border-l-2 border-yellow-600/50">
-                  <div className="absolute left-0 top-0 w-4 h-4 bg-yellow-500 rounded-full -translate-x-[9px] shadow-[0_0_10px_#eab308]"></div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-yellow-400 font-black text-lg">1945</span>
-                    <span className="text-white font-bold">Cách mạng Tháng Tám</span>
-                  </div>
-                  <p className="text-red-100/70 text-sm">Nhân dân Việt Nam dưới sự lãnh đạo của Đảng giành chính quyền, lập nên <strong className="text-white">nước Việt Nam Dân chủ Cộng hòa</strong> - <strong className="text-yellow-300">nhà nước công nông đầu tiên ở Đông Nam Á</strong>.</p>
-                </div>
+                ))}
               </div>
             </div>
           </section>
@@ -809,6 +886,86 @@ const KnowledgeSummary: React.FC<KnowledgeSummaryProps> = ({ onBack }) => {
                 <div className="pt-4 border-t border-stone-800">
                   <p className="text-center italic text-red-400">
                     "{selectedMember.quote}"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Historical Event Detail Modal */}
+        {selectedEvent && (
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={() => setSelectedEvent(null)}
+          >
+            <div 
+              className="relative bg-gradient-to-b from-yellow-950/30 to-black border border-yellow-900/50 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-yellow-900/20"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button 
+                onClick={() => setSelectedEvent(null)}
+                className="absolute top-4 right-4 w-10 h-10 bg-yellow-600/20 hover:bg-yellow-600 rounded-full flex items-center justify-center text-white transition-colors z-10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Year badge */}
+              <div className={`absolute top-4 left-4 px-4 py-2 ${selectedEvent.color === 'red' ? 'bg-red-500/20 text-red-400 border-red-500/30' : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'} text-lg font-black rounded-full border flex items-center gap-2`}>
+                <Calendar className="w-4 h-4" /> {selectedEvent.year}
+              </div>
+
+              {/* Header Image */}
+              <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                <img 
+                  src={selectedEvent.image} 
+                  alt={selectedEvent.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-6 right-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-white">{selectedEvent.title}</h3>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Background */}
+                <div className="bg-yellow-950/20 border-l-4 border-yellow-600 p-4 rounded-r-lg">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-yellow-500 mb-2 flex items-center gap-2">
+                    <BookOpen className="w-4 h-4" /> Bối cảnh lịch sử
+                  </h4>
+                  <p className="text-stone-300 leading-relaxed">{selectedEvent.details.background}</p>
+                </div>
+
+                {/* Main content */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-yellow-500 mb-3 flex items-center gap-2">
+                    <Milestone className="w-4 h-4" /> Diễn biến sự kiện
+                  </h4>
+                  <p className="text-stone-300 leading-relaxed">{selectedEvent.details.content}</p>
+                </div>
+
+                {/* Significance */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-yellow-500 mb-3 flex items-center gap-2">
+                    <Star className="w-4 h-4" /> Ý nghĩa lịch sử
+                  </h4>
+                  <ul className="space-y-2">
+                    {selectedEvent.details.significance.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-stone-400">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Quote */}
+                <div className="pt-4 border-t border-stone-800">
+                  <p className="text-center italic text-yellow-400 text-lg">
+                    "{selectedEvent.details.quote}"
                   </p>
                 </div>
               </div>
